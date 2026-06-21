@@ -1,0 +1,21 @@
+# CMD — Cluster-Mixture De-identification — conda env (Python 3.12)
+# create:  conda create -n anti-dis python=3.12 -y
+# install: conda run -n anti-dis python -m pip install -r requirements.txt
+# run:     CONDA_NO_PLUGINS=true KMP_DUPLICATE_LIB_OK=TRUE PYTHONHASHSEED=0 PYTHONIOENCODING=utf-8 python <script>
+
+# --- core (always required) ---
+openai==2.41.0          # OpenAI-compatible client (OpenRouter / DeepSeek / OpenAI)
+anthropic>=0.40         # native Anthropic SDK (haiku detective/judge, token counting)
+numpy==2.4.6
+scipy==1.17.1
+scikit-learn>=1.4       # roc_auc_score (cmd_openworld_score.py)
+tiktoken>=0.7           # token counting (mad_cmd_build.py, DRYRUN estimates)
+
+# --- data building (pool construction) ---
+pandas==3.0.3           # util6_pool.py reads the 20-MAD Bugzilla parquet
+pyarrow==24.0.0         # parquet backend for pandas
+# spacy>=3.7            # OPTIONAL: enron_clean.py PII entity scrub; also run: python -m spacy download en_core_web_sm
+#                       # (without spacy, enron_clean degrades to regex-only scrubbing)
+
+# --- misc ---
+tqdm==4.67.3

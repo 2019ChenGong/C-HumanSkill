@@ -1,0 +1,63 @@
+# =============================================================================
+# WHITELIST .gitignore — this repo is curated to the CMD key-file set.
+# Everything is ignored by default; only the files explicitly un-ignored below
+# are tracked. Non-key research scripts stay on disk but are NOT synced.
+# =============================================================================
+
+# --- always-ignored (secrets / data / outputs / caches), regardless of rules below ---
+*.env
+.idea/
+.claude/
+results/
+paper_text.txt
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.cache/
+release/
+
+# --- ignore everything, then allow only the key files ---
+/*
+!/.gitignore
+!/.env.example
+!/README.md
+!/requirements.txt
+!/scripts/
+!/src/
+!/data/
+
+# data/: only its README (actual datasets are regenerated, stay ignored)
+/data/*
+!/data/README.md
+
+# src/: only the key modules
+/src/*
+!/src/__init__.py
+!/src/llm.py
+!/src/attrib_metrics.py
+
+# scripts/: only the CMD key set
+/scripts/*
+# CMD core
+!/scripts/cmd_gate.py
+!/scripts/cmd_gate_score.py
+!/scripts/cmd_openworld.py
+!/scripts/cmd_openworld_score.py
+!/scripts/cmd_utility.py
+!/scripts/cmd_batch.py
+!/scripts/cmd_k8_probe.py
+!/scripts/cmd_synth_probe.py
+!/scripts/mad_cmd_build.py
+# shared libs + de-id methods + archpool baseline
+!/scripts/deid_enron.py
+!/scripts/enron_nuwa.py
+!/scripts/enron_step2.py
+!/scripts/enron_archpool.py
+!/scripts/mad_nuwa_step2.py
+!/scripts/mad_comp_two_axis.py
+!/scripts/enron_clean.py
+# dataset builders
+!/scripts/enron_collect_full.py
+!/scripts/enron_nuwa100.py
+!/scripts/enron_nuwa100_dump.py
+!/scripts/util6_pool.py
