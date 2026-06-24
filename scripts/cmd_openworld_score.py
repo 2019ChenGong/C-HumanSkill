@@ -8,9 +8,15 @@ from pathlib import Path
 import numpy as np
 from sklearn.metrics import roc_auc_score
 
+try:                                                  # Windows consoles default to GBK -> non-ASCII prints (⚠/≈/→) crash
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = os.environ.get("DATASET", "enron")
 RES = ROOT / "results" if DATASET == "enron" else ROOT / "results" / DATASET
+RES = (ROOT / os.environ["RESDIR"]) if os.environ.get("RESDIR") else RES   # cross-model run isolation
 KCL = os.environ.get("KCL")        # REQUIRED: which k-namespace to score (files are _ow_k{KCL}_*); result -> _k{KCL}.json
 if not KCL:
     sys.exit("set KCL env (e.g. KCL=8) — open-world files are namespaced by k to avoid cross-k overwrite")
@@ -107,7 +113,7 @@ def tie_rate(recs):
 def main():
     print("CMD OPEN-WORLD membership-verification AUC (pooled; CI=cluster bootstrap; null=label permutation)\n")
     summary = {}
-    for chan in ("shared", "raw", "indiv"):
+    for chan in ("shared", "raw", "indiv", "staab", "staab_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):
         recs = load_records(chan)
         if not recs:
             print(f"{chan}: no records (run dump + Opus subagents first)\n"); continue
@@ -142,6 +148,12 @@ def main():
     if summary.get("indiv", {}).get("rneg"):
         ic = summary["indiv"]["rneg"]["ci"]
         print(f"POS-CTRL indiv AUC(rand) CI{ic}: {'OK (>0.5)' if (ic[0] is not None and ic[0] > 0.5) else 'FAIL -> attacker too weak, result VOID'}")
+    for arm in ("staab", "staab_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):   # per-person de-id vs indiv (pos-ctrl) vs shared (CMD)
+        if summary.get(arm, {}).get("rneg"):
+            st = summary[arm]["rneg"]
+            iv = summary.get("indiv", {}).get("rneg", {}).get("auc"); sh = summary.get("shared", {}).get("rneg", {}).get("auc")
+            leak = "still LEAKS (>0.5)" if (st["ci"][0] is not None and st["ci"][0] > 0.5) else "≈0.5"
+            print(f"{arm.upper()} AUC(rand) = {st['auc']} CI{st['ci']} -> {leak}  (vs indiv {iv} / shared-CMD {sh})")
     (RES / f"cmd_openworld_result_k{KCL}.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     print(f"\nsaved -> results/cmd_openworld_result_k{KCL}.json")
 

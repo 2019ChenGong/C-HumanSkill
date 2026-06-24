@@ -27,7 +27,11 @@ def main():
     ref = {a: WS.sub(" ", " || ".join(docs[a][N_TRAIN + r]["text"] for r in range(N_REF)))[:REF_CHARS] for a in authors}
     nuwa = json.loads(NUWAC.read_text(encoding="utf-8"))["nuwa"]
     step2 = json.loads(STEP2C.read_text(encoding="utf-8"))
-    cards = {"nuwa": nuwa, **{k: step2[k] for k in ["aggro", "archpool", "random_pool", "adv_paraphrase"] if k in step2}}
+    cards = {"nuwa": nuwa, **{k: step2[k] for k in ["aggro", "archpool", "random_pool", "adv_paraphrase",
+                                                    "staab", "staab_r1", "petre_k4"] if k in step2}}
+    if COND in cards:                                   # M-1: card arm must cover the exact author set (else re-id/MIA desync)
+        gap = [a for a in authors if a not in cards[COND]]
+        assert not gap, f"COND={COND} missing {len(gap)} authors (e.g. {gap[:3]}) -> author-set drift vs cards"
 
     def target_of(a):
         if COND == "comment":

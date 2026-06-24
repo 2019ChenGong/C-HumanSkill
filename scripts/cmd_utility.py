@@ -79,6 +79,12 @@ def main():
     docs, authors, nuwa, aggro, ref, raw_tgt = CG.load()
     N = len(authors)
     cache = json.loads(SHAREDC.read_text(encoding="utf-8")) if SHAREDC.exists() else {}
+    SP = SE / "step2_cards_full.json"
+    _S2 = json.loads(SP.read_text(encoding="utf-8")) if SP.exists() else {}
+    STAAB = _S2.get("staab", {})
+    HAS_STAAB = bool(STAAB) and all(a in STAAB for a in authors)            # Staab per-person arm (haiku judge ⊥ gpt-4o adversary)
+    PETRE = _S2.get("petre_k4", {})
+    HAS_PETRE = bool(PETRE) and all(a in PETRE for a in authors)            # PETRE suppression arm (utility pair = the frontier point)
 
     # ---- groups + shared cards per k (reuse gate builder; build missing) ----
     layouts = {}
@@ -92,6 +98,10 @@ def main():
                 plan.append((ck, [aggro[a] for a in mem]))
     T = de.TASKS
     UPAIRS = [("indiv", "nocard"), ("indiv", "floor"), ("own", "stranger")]            # once-pairs (author-level)
+    if HAS_STAAB:
+        UPAIRS += [("staab", "nocard"), ("staab", "indiv")]                            # still-useful? + didn't-gut-decisions?
+    if HAS_PETRE:
+        UPAIRS += [("petre_k4", "nocard"), ("petre_k4", "indiv")]                      # suppression cost: how much utility left vs gutted
 
     if os.environ.get("PILOT_DRYRUN"):
         n_synth = len(plan)
@@ -149,8 +159,16 @@ def main():
             return shared_of(k, a)
         if arm == "stranger":
             return stranger[a]
+        if arm == "staab":
+            return STAAB[a]
+        if arm == "petre_k4":
+            return PETRE[a]
         return nuwa[a]                      # indiv / own
     draft_arms = [("nocard", None), ("indiv", None), ("floor", None), ("stranger", None)] + [("shared", k) for k in K_LIST]
+    if HAS_STAAB:
+        draft_arms += [("staab", None)]
+    if HAS_PETRE:
+        draft_arms += [("petre_k4", None)]
     djobs = []
     for arm, k in draft_arms:
         if arm in ("nocard", "floor"):
@@ -209,11 +227,15 @@ def main():
     print("\n=== (A) UTILITY pairwise (+1 = first better; CI resamples CLUSTERS) ===", flush=True)
     out = {"N": N, "group": GROUP, "concreteness": conc, "mech": mech}
     ures = {}
+    ures_raw = {}                                                   # ADDITIVE: per-(author,task) raw vectors for variance decomposition
     for x, y in UPAIRS:                                              # once-pairs (author-level)
         v = [judge(x, y, a, t) for (a, t) in units]
         ci = cluster_mean_ci(v, g, seed=SEED)
         ures[f"{x}-{y}"] = {"diff": round(float(np.mean(v)), 3), "ci": ci}
+        ures_raw[f"{x}-{y}"] = {"a": [a for (a, t) in units], "t": [int(t) for (a, t) in units],
+                                "g4": [str(g4[a]) for (a, t) in units], "v": [int(vv) for vv in v]}
         print(f"  {x:8s} vs {y:9s} = {np.mean(v):+.3f} CI{ci}{excl(ci)}", flush=True)
+    (RES / "cmd_utility_raw.json").write_text(json.dumps(ures_raw, ensure_ascii=False), encoding="utf-8")
     for k in K_LIST:
         grp = layouts[k][0]
         seen = set(); reps = [a for a in authors if (grp[a] not in seen and not seen.add(grp[a]))]

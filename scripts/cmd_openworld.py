@@ -13,6 +13,7 @@ import cmd_gate as CG  # noqa: E402
 
 DATASET = os.environ.get("DATASET", "enron")
 RES = ROOT / "results" if DATASET == "enron" else ROOT / "results" / DATASET
+RES = (ROOT / os.environ["RESDIR"]) if os.environ.get("RESDIR") else RES   # cross-model run isolation (e.g. results/mad/sonnet)
 RES.mkdir(parents=True, exist_ok=True)
 SHAREDC = CG.SHAREDC                                  # follow cmd_gate's dataset-specific shared-card cache
 KCL = int(os.environ.get("KCL", 4))
@@ -38,8 +39,23 @@ def main():
     def shared_card(k, s, a, grp):
         return cache[f"k{k}_s{s}_{grp[a]}"]
 
+    # Per-person de-id baseline arms (Staab/PETRE/Presidio/DP-Prompt): same estimand as `indiv`, only the card differs.
+    # Dataset-agnostic: read from cmd_gate's STEP2C (enron -> data/enron/step2_cards_full.json byte-identical to the old
+    # hardcoded path; mad -> data/20mad/mad_cmd_step2.json built by mad_step2_baselines.py).
+    PP = {}
+    sj = json.loads(CG.STEP2C.read_text(encoding="utf-8")) if CG.STEP2C.exists() else {}
+    for arm in ("staab", "staab_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):
+        d = {a: c for a, c in sj.get(arm, {}).items() if isinstance(c, str) and c.strip()}
+        if not d:
+            continue
+        if all(a in d for a in authors):
+            PP[arm] = d
+        else:                                                        # M2: present-but-incomplete -> loud, don't silently drop
+            print(f"  [!] arm '{arm}' has {len(d)}/{len(authors)} cards -> EXCLUDED from MIA (rebuild it for the full set)", flush=True)
+
     # channel -> list of (seed,) to run
     CHAN = [("shared", SEEDS), ("raw", [SEEDS[0]]), ("indiv", [SEEDS[0]])]
+    CHAN += [(arm, [SEEDS[0]]) for arm in PP]
 
     if os.environ.get("PILOT_DRYRUN"):
         n_trials = sum(len(authors) * len(ss) for _, ss in CHAN)
@@ -94,6 +110,10 @@ def main():
                 elif chan == "indiv":
                     target = nuwa[a]; pos = [a]
                     tgt_kind = "an INDIVIDUAL SKILL CARD distilled from ONE person"
+                    ttext = target
+                elif chan in PP:
+                    target = PP[chan][a]; pos = [a]
+                    tgt_kind = "an INDIVIDUAL (de-identified) SKILL CARD distilled from ONE person"
                     ttext = target
                 else:  # raw
                     target = held[a]; pos = [a]

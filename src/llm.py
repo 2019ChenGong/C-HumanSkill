@@ -110,6 +110,8 @@ def _complete(model, messages, temperature, max_tokens):
 
 def _client_for(model):
     """Return (client, api_model_name). api_model_name may differ from `model` (prefix stripped)."""
+    if model.startswith("openrouter/"):                      # force OpenRouter (e.g. openrouter/openai/gpt-4o)
+        return _or_client, model.split("/", 1)[1]
     if model.startswith("deepseek"):
         if _ds_client is None:
             raise RuntimeError("DeepSeek key not found (api_key_deepseek.env: API_KEY=...)")

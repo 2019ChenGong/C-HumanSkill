@@ -30,9 +30,10 @@ if DATASET == "enron":
 else:                                                  # 20-MAD: full 128-dev SeaMonkey set, fresh CMD cards
     SE = ROOT / "data" / "20mad"
     COLL = SE / "mad_cmd_pool.json"
-    NUWAC = SE / "mad_cmd_nuwa.json"
-    STEP2C = SE / "mad_cmd_step2.json"
-    SHAREDC = SE / "cmd_shared_cards_mad.json"
+    # card files env-overridable for cross-model BUILDER checks (e.g. NUWAC=mad_cmd_nuwa__sonnet.json); defaults unchanged
+    NUWAC = SE / os.environ.get("NUWAC", "mad_cmd_nuwa.json")
+    STEP2C = SE / os.environ.get("STEP2C", "mad_cmd_step2.json")
+    SHAREDC = SE / os.environ.get("SHAREDC", "cmd_shared_cards_mad.json")
     MAD_TRAIN = 18                                      # MAD bar 18/6/2; ref=comments[18:24], raw target=comments[24]
 N_TRAIN, N_REF, N_TGT = 12, 6, 2                        # Enron doc indexing (MAD overrides via MAD_TRAIN in load_mad)
 REF_CHARS = int(os.environ.get("REF_CHARS", 250))      # candidate-display budget — HELD IDENTICAL across datasets
