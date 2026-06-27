@@ -70,3 +70,5 @@ release/
 !/scripts/cmd_attack2afc_score.py
 !/scripts/cmd_attack2afc_grid.py
 !/scripts/cmd_attack_diag.py
+# cross-card linkage attack (multi-release composition vulnerability probe)
+!/scripts/cmd_xcard_link.py
