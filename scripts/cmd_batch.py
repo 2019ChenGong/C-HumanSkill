@@ -43,7 +43,7 @@ def main():
     else:
         # ORDERING INVARIANT: longest/most-specific channel token first so no token is a prefix of another
         # (staab_r1 before staab; tpar_t\d+ matches any temperature incl _t10 without _t1 eating it). Else files drop silently.
-        pat = re.compile(r"_ow_(k\d+)_(tpar_t\d+|petre_k\d+|staab_r1|staab|presidio|shared|raw|indiv)_(s\d+)_T(\d+)$")
+        pat = re.compile(r"_ow_(k\d+)_(staab_g55_r1|tpar_t\d+|petre_k\d+|staab_r1|staab|presidio|shared|raw|indiv)_(s\d+)_T(\d+)$")
         groups = defaultdict(list)
         for f in RES.glob("_ow_k*_*_s*_T*.txt"):
             m = pat.match(f.stem)

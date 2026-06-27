@@ -42,20 +42,24 @@ def main():
     # Per-person de-id baseline arms (Staab/PETRE/Presidio/DP-Prompt): same estimand as `indiv`, only the card differs.
     # Dataset-agnostic: read from cmd_gate's STEP2C (enron -> data/enron/step2_cards_full.json byte-identical to the old
     # hardcoded path; mad -> data/20mad/mad_cmd_step2.json built by mad_step2_baselines.py).
+    SWEEP = bool(os.environ.get("SWEEP"))    # grouping-objective sweep: dump ONLY `shared`, with grouping-INVARIANT negatives (so the 3 arms are scored on a common negative set; only `pos` may depend on grouping)
     PP = {}
-    sj = json.loads(CG.STEP2C.read_text(encoding="utf-8")) if CG.STEP2C.exists() else {}
-    for arm in ("staab", "staab_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):
-        d = {a: c for a, c in sj.get(arm, {}).items() if isinstance(c, str) and c.strip()}
-        if not d:
-            continue
-        if all(a in d for a in authors):
-            PP[arm] = d
-        else:                                                        # M2: present-but-incomplete -> loud, don't silently drop
-            print(f"  [!] arm '{arm}' has {len(d)}/{len(authors)} cards -> EXCLUDED from MIA (rebuild it for the full set)", flush=True)
+    if not SWEEP:                            # per-person arms share the `indiv` estimand (grouping-independent) -> dump once on the random arm, NOT per sweep arm (avoids re-scoring + negative-pool contamination of the anchor)
+        sj = json.loads(CG.STEP2C.read_text(encoding="utf-8")) if CG.STEP2C.exists() else {}
+        for arm in ("staab", "staab_r1", "staab_g55_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):
+            d = {a: c for a, c in sj.get(arm, {}).items() if isinstance(c, str) and c.strip()}
+            if not d:
+                continue
+            if all(a in d for a in authors):
+                PP[arm] = d
+            else:                                                    # M2: present-but-incomplete -> loud, don't silently drop
+                print(f"  [!] arm '{arm}' has {len(d)}/{len(authors)} cards -> EXCLUDED from MIA (rebuild it for the full set)", flush=True)
 
     # channel -> list of (seed,) to run
-    CHAN = [("shared", SEEDS), ("raw", [SEEDS[0]]), ("indiv", [SEEDS[0]])]
-    CHAN += [(arm, [SEEDS[0]]) for arm in PP]
+    CHAN = [("shared", SEEDS)]
+    if not SWEEP:
+        CHAN += [("raw", [SEEDS[0]]), ("indiv", [SEEDS[0]])]
+        CHAN += [(arm, [SEEDS[0]]) for arm in PP]
 
     if os.environ.get("PILOT_DRYRUN"):
         n_trials = sum(len(authors) * len(ss) for _, ss in CHAN)
@@ -83,8 +87,38 @@ def main():
             cache[ck] = card
         SHAREDC.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
 
+    # monotonicity gate (F2): mean within-group content-cosine for the ACTIVE grouping; across the 3 runs must be knn > random > diverse
+    import numpy as _np
+    wg = []
+    for s in SEEDS:
+        _grp, _byc = layouts[s]
+        for _cid, _mem in _byc.items():
+            vs = [de._content_vec(aggro[a]) for a in _mem]
+            wg += [de._cosine(vs[i], vs[j]) for i in range(len(vs)) for j in range(i + 1, len(vs))]
+    print(f"[within-group content-cosine] GROUP={CG.GROUP} mean={_np.mean(wg):.3f} (gate across runs: knn > random > diverse)", flush=True)
+
+    # SWEEP (F4): grouping-INVARIANT negative universe per target = exclude anyone who is a co-member under ANY of the 3 groupings
+    # -> rneg/nneg drawn from the SAME pool across arms; only `pos` differs. Without this the negative pool churns with grouping.
+    UNIONS = {}
+    if SWEEP:
+        neg_arms = os.environ.get("SWEEP_NEG_ARMS", "random,knn,diverse").split(",")   # exclude co-members under THESE groupings
+        for s in SEEDS:
+            u = {a: set() for a in authors}
+            for method in neg_arms:
+                gg = CG.groups_by(method, aggro, authors, KCL, s)
+                byc_m = {}
+                for a in authors:
+                    byc_m.setdefault(gg[a], []).append(a)
+                for a in authors:
+                    u[a] |= set(byc_m[gg[a]])
+            for a in authors:
+                u[a].discard(a)
+            UNIONS[s] = u
+
     def pool_for(a, s, grp):
-        """one seeded nested pool of other-cluster authors for target a (reused across channels)."""
+        """negative universe for target a. SWEEP: grouping-invariant (exclude co-members under ANY arm). Else: other-cluster."""
+        if SWEEP:
+            return [b for b in authors if b != a and b not in UNIONS[s][a]]
         return [b for b in authors if grp[b] != grp[a]]
 
     def negatives(a, s, grp, target_text):

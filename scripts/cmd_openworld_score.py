@@ -113,7 +113,7 @@ def tie_rate(recs):
 def main():
     print("CMD OPEN-WORLD membership-verification AUC (pooled; CI=cluster bootstrap; null=label permutation)\n")
     summary = {}
-    for chan in ("shared", "raw", "indiv", "staab", "staab_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):
+    for chan in ("shared", "raw", "indiv", "staab", "staab_r1", "staab_g55_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):
         recs = load_records(chan)
         if not recs:
             print(f"{chan}: no records (run dump + Opus subagents first)\n"); continue
@@ -148,7 +148,7 @@ def main():
     if summary.get("indiv", {}).get("rneg"):
         ic = summary["indiv"]["rneg"]["ci"]
         print(f"POS-CTRL indiv AUC(rand) CI{ic}: {'OK (>0.5)' if (ic[0] is not None and ic[0] > 0.5) else 'FAIL -> attacker too weak, result VOID'}")
-    for arm in ("staab", "staab_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):   # per-person de-id vs indiv (pos-ctrl) vs shared (CMD)
+    for arm in ("staab", "staab_r1", "staab_g55_r1", "presidio", "tpar_t10", "tpar_t15", "petre_k4"):   # per-person de-id vs indiv (pos-ctrl) vs shared (CMD)
         if summary.get(arm, {}).get("rneg"):
             st = summary[arm]["rneg"]
             iv = summary.get("indiv", {}).get("rneg", {}).get("auc"); sh = summary.get("shared", {}).get("rneg", {}).get("auc")

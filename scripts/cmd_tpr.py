@@ -45,6 +45,7 @@ CELLS = [
     ("Enron  petre    Opus k4", "results/_picks_ow_k4_petre_k4_s0.json", "results/_ow_k4_petre_k4_s0_key.json"),
     ("20MAD  staab    Opus k4", "results/mad/_picks_ow_k4_staab_s0.json", "results/mad/_ow_k4_staab_s0_key.json"),
     ("20MAD  staab_r1 Opus k4", "results/mad/_picks_ow_k4_staab_r1_s0.json", "results/mad/_ow_k4_staab_r1_s0_key.json"),
+    ("20MAD  staab_g55 Opus k4", "results/mad/_picks_ow_k4_staab_g55_r1_s0.json", "results/mad/_ow_k4_staab_g55_r1_s0_key.json"),
     ("20MAD  tpar_t10 Opus k4", "results/mad/_picks_ow_k4_tpar_t10_s0.json", "results/mad/_ow_k4_tpar_t10_s0_key.json"),
     ("20MAD  tpar_t15 Opus k4", "results/mad/_picks_ow_k4_tpar_t15_s0.json", "results/mad/_ow_k4_tpar_t15_s0_key.json"),
     ("20MAD  petre    Opus k4", "results/mad/_picks_ow_k4_petre_k4_s0.json", "results/mad/_ow_k4_petre_k4_s0_key.json"),

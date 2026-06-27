@@ -25,7 +25,7 @@ if DATASET == "enron":
     COLL = SE / "collected_ragfull_40.json"
     NUWAC = SE / "nuwa_cards_full.json"
     STEP2C = SE / "step2_cards_full.json"
-    SHAREDC = SE / "cmd_shared_cards.json"
+    SHAREDC = SE / os.environ.get("SHAREDC", "cmd_shared_cards.json")   # env-overridable (mirror MAD) so grouping-sweep arms get isolated caches (cache key lacks GROUP -> would collide)
     MAD_TRAIN = None
 else:                                                  # 20-MAD: full 128-dev SeaMonkey set, fresh CMD cards
     SE = ROOT / "data" / "20mad"
@@ -95,8 +95,50 @@ def group_knn(cards, authors, k, seed):
     return groups
 
 
+def group_diverse(cards, authors, k, seed):
+    """Anti-clustering: MINIMIZE within-group similarity (the opposite objective to knn). farthest-first seeds
+    (ng mutually-distant authors) then greedily place each remaining author into the with-space group whose
+    members it is LEAST similar to on average. Same content-vec/cosine as knn. NOTE: a naive seed-and-grow-
+    farthest does NOT minimize within-group cosine (the k-1 farthest from one seed can be similar to each other,
+    landing ABOVE random); this objective-directed greedy reliably lands BELOW random (validated: knn 0.33 >
+    random 0.30 > diverse 0.29 on Enron k8). The diverse-vs-random gap is small by nature — random pooling of a
+    heterogeneous set is already near-dispersed."""
+    vecs = {a: de._content_vec(cards[a]) for a in authors}
+    rng = np.random.default_rng(seed)
+    al = list(authors); rng.shuffle(al)
+    ng = max(1, len(authors) // k)                                                   # full groups; the <k remainder overflows existing groups (all stay >= k)
+    seeds = [al[0]]
+    while len(seeds) < ng:                                                           # farthest-first: each new seed maximally far from all chosen seeds
+        seeds.append(max((a for a in al if a not in seeds),
+                         key=lambda a: -max(de._cosine(vecs[a], vecs[s]) for s in seeds)))
+    members = {s: [s] for s in seeds}
+    for a in [x for x in al if x not in seeds]:
+        avail = [s for s in seeds if len(members[s]) < k] or seeds                   # prefer groups with space; once all full, allow overflow
+        best = min(avail, key=lambda s: float(np.mean([de._cosine(vecs[a], vecs[m]) for m in members[s]])))
+        members[best].append(a)
+    groups = {}
+    for gi, s in enumerate(seeds):
+        for a in members[s]:
+            groups[a] = f"G{gi}"
+    return groups
+
+
+def groups_by(method, cards, authors, k, seed):
+    """Dispatch a SPECIFIC grouping regardless of the GROUP env (used to precompute all 3 layouts for matched negatives)."""
+    if method == "knn":
+        return group_knn(cards, authors, k, seed)
+    if method == "diverse":
+        return group_diverse(cards, authors, k, seed)
+    if method in ("darch", "darch_div"):                      # precomputed decision-architecture grouping (cmd_darch_group.py)
+        gj = json.loads((SE / "darch_groups.json").read_text(encoding="utf-8"))
+        sub = gj[method]
+        layout = sub[str(k)][str(seed)] if str(k) in sub else sub[str(seed)]   # new nested {k:{seed}} or legacy {seed}
+        return {a: layout[a] for a in authors}
+    return group_random(authors, k, seed)
+
+
 def make_groups(cards, authors, k, seed):
-    grp = group_knn(cards, authors, k, seed) if GROUP == "knn" else group_random(authors, k, seed)
+    grp = groups_by(GROUP, cards, authors, k, seed)
     byc = {}
     for a in authors:
         byc.setdefault(grp[a], []).append(a)
@@ -104,16 +146,32 @@ def make_groups(cards, authors, k, seed):
 
 
 # ---------- ε=0 shared card (identical for all members of a cluster) ----------
+SYNTH_MODE = os.environ.get("SYNTH_MODE", "baseline")    # baseline | genericize | abstract — vary the SYNTH step (leak-lever probe)
+
+
 def synth_shared(member_cards):
     """ONE shared card capturing the cluster's common working/decision approach, with NO detail unique to any
-    single member -> published byte-identical to every member (the ε=0 mechanism)."""
+    single member -> published byte-identical to every member (the ε=0 mechanism). SYNTH_MODE varies the prompt to
+    test whether the SYNTHESIS step (not just the grouping) is an independent leak lever (genericize the shared
+    decision-architecture / abstract it away)."""
     body = "\n\n---\n\n".join(member_cards)
-    msg = [{"role": "system", "content": "You distill ONE shared skill card common to several colleagues, removing "
-            "anything that identifies any single one of them."},
+    sysmsg = "You distill ONE shared skill card common to several colleagues, removing anything that identifies any single one of them."
+    extra = ""
+    if SYNTH_MODE == "genericize":
+        sysmsg += " You ALSO genericize the shared decision architecture so the card reads like a standard textbook protocol, not these specific people's reasoning fingerprint."
+        extra = (" Additionally, REPLACE every distinctive or specific reasoning-move, escalation pattern, sequencing, "
+                 "prioritization rule, or decision-heuristic with the most STANDARD, generic, textbook equivalent. Strip "
+                 "any signature WAY of thinking. The card must read like a generic 'competent professional's decision "
+                 "protocol' that could describe thousands of people in this role — NOT a fingerprint of THESE colleagues' "
+                 "shared reasoning style.")
+    elif SYNTH_MODE == "abstract":
+        extra = (" Write at a HIGH LEVEL OF ABSTRACTION: only broad principles and standard best-practices, no concrete "
+                 "procedural detail, specific thresholds, named steps, or distinctive sequencing. Maximally generic.")
+    msg = [{"role": "system", "content": sysmsg},
            {"role": "user", "content": f"Skill cards from several colleagues:\n\n{body}\n\nWrite ONE shared skill card "
             "(working/decision heuristics, 8-12 bullets) that captures ONLY what is COMMON across them — the shared "
             "competence and decision approach — with NO phrasing, move, priority, or detail unique to any single "
-            "person. It must read as if it could belong to any of them equally. Output ONLY the shared card."}]
+            f"person. It must read as if it could belong to any of them equally.{extra} Output ONLY the shared card."}]
     return chat(msg, model=GEN, temperature=0.3, max_tokens=900) or ""
 
 
