@@ -65,3 +65,8 @@ release/
 !/scripts/mad_step2_baselines.py
 !/scripts/mad_utility.py
 !/scripts/cmd_tpr.py
+# 2AFC card-conditioned membership attacker (measurement upgrade: fix degenerate scorer + identity-destruction ladder)
+!/scripts/cmd_attack2afc.py
+!/scripts/cmd_attack2afc_score.py
+!/scripts/cmd_attack2afc_grid.py
+!/scripts/cmd_attack_diag.py
