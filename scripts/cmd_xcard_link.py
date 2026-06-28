@@ -44,7 +44,18 @@ K = int(os.environ.get("K", 4))
 SEEDS = [int(x) for x in os.environ.get("SEEDS", "0,1,2").split(",")]
 MODE = os.environ.get("MODE", "census")
 CALIPER = float(os.environ.get("CALIPER", 0.03))     # |content-cosine(NEG) - content-cosine(POS)| <= CALIPER
+METHOD = os.environ.get("METHOD", "cmd")             # label for output files; cmd=CMD consensus, concat=naive merge
+CARDSRC = (ROOT / os.environ["CARDSRC"]) if os.environ.get("CARDSRC") else CG.SHAREDC  # pooled-card cache (CMD or concat)
+SYNTH = os.environ.get("SYNTH", "shared")            # positive-control synth: shared=CG.synth_shared, concat=synth_concat
 WORD = re.compile(r"\w+")
+
+
+def _synth(member_cards):
+    """Synthesize a pooled card for the positive controls, matching the METHOD under test."""
+    if SYNTH == "concat":
+        import cmd_concat_build as CC
+        return CC.synth_concat(member_cards)
+    return CG.synth_shared(member_cards)
 
 
 def words(t):
@@ -59,7 +70,7 @@ def ngrams(t, n):
 def build_cards():
     """Return cards = list of dicts {id:(s,cid), seed, cid, members:set, text, cvec, g6, g8}."""
     _d, authors, _n, aggro, _r, _rt = CG.load()
-    cache = json.loads(CG.SHAREDC.read_text(encoding="utf-8"))
+    cache = json.loads(CARDSRC.read_text(encoding="utf-8"))
     cards = []
     for s in SEEDS:
         grp, byc = CG.make_groups(aggro, authors, K, s)
@@ -165,7 +176,7 @@ def run():
     """Score matched POS/NEG + graded positive controls (share-3 sibling, share-4 re-synth) with the sonnet linkage
     attacker. PERSISTS per-pair scores + the POS shared member so CIs can be person-clustered. Verbatim-free subset is
     the MATCHED rows where BOTH pos and neg share 0 6-grams (caliper pairing preserved)."""
-    cen = json.loads((RES / f"_xcard_census_k{K}.json").read_text(encoding="utf-8"))
+    cen = json.loads((RES / f"_xcard_{METHOD}_census_k{K}.json").read_text(encoding="utf-8"))
     cards = {c["id"]: c for c in build_cards()}
     _d, authors, _n, aggro, _r, _rt = CG.load()
 
@@ -183,9 +194,9 @@ def run():
         new = sorted(pool_others, key=lambda a: hashlib.sha1(f"ctrl-{c['id']}-{a}".encode()).hexdigest())[0]
         sib_jobs.append((c["id"], [aggro[a] for a in mem[:-1] + [new]]))     # share 3 of 4
         re_jobs.append((c["id"], [aggro[a] for a in mem]))                    # share 4 of 4 (re-synth)
-    print(f"synth {len(sib_jobs)} share-3 + {len(re_jobs)} share-4 positive-control cards (deepseek) ...", flush=True)
-    sibs = de.pool(lambda j: CG.synth_shared(j[1]), sib_jobs)
-    res4 = de.pool(lambda j: CG.synth_shared(j[1]), re_jobs)
+    print(f"synth {len(sib_jobs)} share-3 + {len(re_jobs)} share-4 positive-control cards (deepseek, {SYNTH}) ...", flush=True)
+    sibs = de.pool(lambda j: _synth(j[1]), sib_jobs)
+    res4 = de.pool(lambda j: _synth(j[1]), re_jobs)
 
     jobs = []   # (kind, salt, textA, textB, cluster_key, n6)
     for i, mp in enumerate(cen["matched"]):
@@ -205,7 +216,7 @@ def run():
         return {"kind": kind, "score": p, "cluster": ck, "n6": n6, "raw": raw}
 
     res = de.pool(do, jobs)
-    (RES / f"_xcard_scores_k{K}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+    (RES / f"_xcard_{METHOD}_scores_k{K}.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
 
     pos = [r["score"] for r in res if r["kind"] == "pos"]
     neg = [r["score"] for r in res if r["kind"] == "neg"]
@@ -216,10 +227,14 @@ def run():
     posr = [r for r in res if r["kind"] == "pos"]; negr = [r for r in res if r["kind"] == "neg"]
     vf = [(p["cluster"], p["score"], n["score"]) for p, n in zip(posr, negr) if (p["n6"] == 0 and n["n6"] == 0)]
 
-    print(f"\n=== cross-card linkage RESULT  DS={DS} k{K} ===")
+    print(f"\n=== cross-card linkage RESULT  DS={DS} k{K} METHOD={METHOD} ===")
     pa, plo, phi = _boot_clustered(clrec)
+    # $0 verbatim baseline = AUC of using the shared rare-6gram count as the linkage score (computed from THIS method's census)
+    v6p = [mp["pos"]["n6"] for mp in cen["matched"]]; v6n = [mp["neg"]["n6"] for mp in cen["matched"]]
+    v6_auc = _auc(v6p, v6n) if (any(v6p) or any(v6n)) else 0.5
     print(f"LLM linkage AUC (POS share-1 vs topic-matched NEG) = {pa:.3f}  person-clustered CI[{plo:.3f},{phi:.3f}]  (n={len(pos)} pairs)")
-    print(f"  vs $0 rare-6gram trivial-matcher = 0.673 [.642,.701]  -> {'BEATS verbatim' if plo > 0.701 else 'WITHIN/BELOW verbatim baseline (no architecture signal beyond verbatim)' if phi < 0.701 else 'overlaps'}")
+    print(f"  vs $0 rare-6gram verbatim-matcher AUC = {v6_auc:.3f}  (mean shared 6gram POS {np.mean(v6p):.2f} vs NEG {np.mean(v6n):.2f})"
+          f"  -> {'BEATS verbatim' if plo > v6_auc else 'WITHIN/BELOW verbatim (no architecture beyond verbatim)' if phi < v6_auc else 'overlaps verbatim'}")
     if vf:
         vrec = [(c, 1, ps) for c, ps, ns in vf] + [(c, 0, ns) for c, ps, ns in vf]
         va, vlo, vhi = _boot_clustered(vrec)
@@ -230,10 +245,10 @@ def run():
         if cc:
             print(f"POS-CONTROL {lbl}: {np.mean([c>0.5 for c in cc]):.2f} linked, mean P={np.mean(cc):.3f} (n={len(cc)})  "
                   f"-> {'OK' if np.mean(cc) > 0.65 else 'WEAK attacker'}")
-    out = {"auc": pa, "ci_clustered": [plo, phi], "rare6_baseline": 0.673, "n_pos": len(pos),
+    out = {"method": METHOD, "auc": pa, "ci_clustered": [plo, phi], "rare6_verbatim_auc": v6_auc, "n_pos": len(pos),
            "auc_verbatim_free": (va if vf else None), "vf_ci": ([vlo, vhi] if vf else None), "n_vf": len(vf), "k": K}
-    (RES / f"_xcard_result_k{K}.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
-    print(f"\nsaved -> {(RES / f'_xcard_result_k{K}.json').relative_to(ROOT)} + per-pair scores")
+    (RES / f"_xcard_{METHOD}_result_k{K}.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
+    print(f"\nsaved -> {(RES / f'_xcard_{METHOD}_result_k{K}.json').relative_to(ROOT)} + per-pair scores")
 
 
 def main():
@@ -289,8 +304,8 @@ def main():
                 "ccos": round(p["ccos"], 4), "n6": p["n6"], "n8": p["n8"]}
     out = {"matched": [{"pos": serial(p), "neg": serial(n)} for p, n in matched],
            "ctrl": [serial(p) for p in CTRL], "k": K, "seeds": SEEDS}
-    (RES / f"_xcard_census_k{K}.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
-    print(f"\nsaved census -> {(RES / f'_xcard_census_k{K}.json').relative_to(ROOT)}")
+    (RES / f"_xcard_{METHOD}_census_k{K}.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
+    print(f"\nsaved census -> {(RES / f'_xcard_{METHOD}_census_k{K}.json').relative_to(ROOT)}")
     print("READ: all 4 gates must pass before MODE=run spends on sonnet.")
 
 

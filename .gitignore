@@ -72,3 +72,5 @@ release/
 !/scripts/cmd_attack_diag.py
 # cross-card linkage attack (multi-release composition vulnerability probe)
 !/scripts/cmd_xcard_link.py
+# concat-summarize-k: naive hard-pool baseline (structural floor as a method-CLASS property, beside CMD)
+!/scripts/cmd_concat_build.py

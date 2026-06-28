@@ -115,6 +115,10 @@ def build_pairs():
     """Construct all 2AFC pairs (no API). Returns list of dicts + the card/ref text lookups."""
     _docs, authors, nuwa, aggro, ref, raw_tgt = CG.load()
     cache = json.loads(CG.SHAREDC.read_text(encoding="utf-8")) if CG.SHAREDC.exists() else {}
+    step2 = json.loads(CG.STEP2C.read_text(encoding="utf-8")) if CG.STEP2C.exists() else {}
+    deid_arms = {c: step2[c] for c in CHANS if c in step2}  # method-agnostic loader: any CHAN not in {shared,indiv,raw,concat} = a per-person de-id arm in CG.STEP2C (staab/petre/tpar_t15/presidio/archpool/...)
+    _cpath = CG.SE / os.environ.get("CONCATC", "cmd_concat_cards.json" if DS == "enron" else "cmd_concat_cards_mad.json")
+    concat = json.loads(_cpath.read_text(encoding="utf-8")) if ("concat" in CHANS and _cpath.exists()) else {}  # naive hard-pool baseline (group-level card, same key scheme as SHAREDC)
     grp, byc = CG.make_groups(aggro, authors, KCL, SEED)
     refvec = {a: de._content_vec(ref[a]) for a in authors}
     aset = set(authors)
@@ -139,8 +143,12 @@ def build_pairs():
                     card, kind = shared, "card"
                 elif chan == "indiv":
                     card, kind = nuwa.get(m), "card"
-                else:  # raw = pure-authorship 2AFC (target = member's held-out raw writing) — easiest positive control
+                elif chan == "concat":  # naive concat-summarize-k hard-pool baseline (group card, same ≤1/k floor as CMD)
+                    card, kind = concat.get(ck), "card"
+                elif chan == "raw":  # pure-authorship 2AFC (target = member's held-out raw writing) — easiest positive control
                     card, kind = raw_tgt.get(m), "writing"
+                else:  # any other CHAN = a per-person de-id arm (staab/petre/tpar_t15/presidio/...) from CG.STEP2C
+                    card, kind = deid_arms.get(chan, {}).get(m), "card"
                 if not card:
                     continue
                 for nlab, strangers in (("nneg", nn), ("rneg", rr)):

@@ -72,39 +72,49 @@ def main():
     print("ladder: raw (pure authorship) -> indiv (card abstraction) -> shared (pooling); "
           "nneg=topic-controlled IDENTITY, rneg=topic-gameable\n")
     summary = {}
-    for chan in ("raw", "indiv", "shared"):
+    pref = ["raw", "indiv", "shared"]                                  # preferred display order
+    present = [c for c in pref if any(r["chan"] == c for r in recs)]
+    present += [c for c in sorted(set(r["chan"] for r in recs)) if c not in present]  # de-id arms appended
+    for chan in present:
         for neg in ("nneg", "rneg"):
             c = cell(chan, neg)
             if c is None:
                 continue
             summary[f"{chan}_{neg}"] = c
-            print(f"  {chan:6s}/{neg}: acc={c['acc']:.3f} CI{c['ci']} P(member)={c['p_member']:.3f}  "
+            print(f"  {chan:10s}/{neg}: acc={c['acc']:.3f} CI{c['ci']} P(member)={c['p_member']:.3f}  "
                   f"n={c['n']} cards={c['ncards']}  {c['sig']}")
-    # flip-null sanity on the headline cell
-    fn = cell("shared", "nneg", flip=True)
-    if fn:
-        print(f"\n  flip-null shared/nneg: acc={fn['acc']:.3f} CI{fn['ci']}  (must ∋0.5; else construction leaks)")
+    # headline channels = everything that isn't a pure-authorship/abstraction control
+    head_chans = [c for c in present if c not in ("raw", "indiv")]
+    # flip-null sanity on the first headline cell (must collapse to 0.5; else construction/parsing leaks)
+    for hc in head_chans[:1]:
+        fn = cell(hc, "nneg", flip=True)
+        if fn:
+            print(f"\n  flip-null {hc}/nneg: acc={fn['acc']:.3f} CI{fn['ci']}  (must ∋0.5; else construction leaks)")
 
     print("\n--- verdict ---")
-    pc = summary.get("raw_rneg") or summary.get("raw_nneg") or summary.get("indiv_rneg")
+    pc = (summary.get("raw_rneg") or summary.get("raw_nneg")
+          or summary.get("indiv_rneg") or summary.get("indiv_nneg"))     # indiv/nneg = positive control when raw/rneg absent
     if pc:
         ok = pc["ci"][0] > 0.5
-        print(f"POS-CTRL raw: acc={pc['acc']:.3f} CI{pc['ci']} -> {'OK (attacker CAN do authorship at all)' if ok else 'FAIL -> attacker too weak / refs too short, VOID'}")
+        print(f"POS-CTRL (raw|indiv): acc={pc['acc']:.3f} CI{pc['ci']} -> "
+              f"{'OK (attacker CAN do authorship at all)' if ok else 'FAIL -> attacker too weak / refs too short, VOID'}")
     # identity-destruction ladder on the clean topic-controlled metric (nneg)
-    ladder = [(c, summary.get(f"{c}_nneg")) for c in ("raw", "indiv", "shared")]
+    ladder = [(c, summary.get(f"{c}_nneg")) for c in present]
     ladder = [(c, x["acc"]) for c, x in ladder if x]
     if len(ladder) >= 2:
         print("LADDER (nneg acc): " + " -> ".join(f"{c}:{a:.3f}" for c, a in ladder)
               + "   (drop = identity destroyed by that step)")
-    sh = summary.get("shared_nneg")
-    if sh:
-        if sh["ci"][0] > 0.5:
-            v = f"shared/nneg acc {sh['acc']:.3f} CI{sh['ci']} > 0.5 -> IDENTITY LEAKS under the card-conditioned attacker"
-        elif sh["ci"][1] < 0.5:
-            v = f"shared/nneg acc {sh['acc']:.3f} CI{sh['ci']} < 0.5 -> below chance (attacker anti-correlated; inspect)"
+    for hc in head_chans:                                                # per-method headline (de-id arm or shared)
+        x = summary.get(f"{hc}_nneg")
+        if not x:
+            continue
+        if x["ci"][0] > 0.5:
+            v = f"acc {x['acc']:.3f} CI{x['ci']} > 0.5 -> IDENTITY LEAKS under the card-conditioned attacker"
+        elif x["ci"][1] < 0.5:
+            v = f"acc {x['acc']:.3f} CI{x['ci']} < 0.5 -> below chance (attacker anti-correlated; inspect)"
         else:
-            v = f"shared/nneg acc {sh['acc']:.3f} CI{sh['ci']} ∋ 0.5 -> identity NOT recoverable (anonymity holds vs this attacker)"
-        print(f"HEADLINE shared/nneg: {v}")
+            v = f"acc {x['acc']:.3f} CI{x['ci']} ∋ 0.5 -> identity NOT recoverable (anonymity holds vs this attacker)"
+        print(f"HEADLINE {hc}/nneg: {v}")
     summary["_meta"] = {"ds": DS, "k": KCL, "seed": SEED, "model": MODEL, "nneg_match": NNEG_MATCH}
     outp = RES / f"_2afc_score_k{KCL}_s{SEED}_{MODEL}_{NNEG_MATCH}.json"
     outp.write_text(json.dumps(summary, indent=1), encoding="utf-8")
