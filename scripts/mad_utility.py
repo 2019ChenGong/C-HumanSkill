@@ -65,7 +65,10 @@ def main():
     pool, authors, nuwa, aggro, _ref, _raw = CG.load()                       # mad: pool[d] has card_comments + solved_bugs
     step2 = json.loads(CG.STEP2C.read_text(encoding="utf-8"))                 # aggro/staab/.../petre_k4
     shared = json.loads(CG.SHAREDC.read_text(encoding="utf-8")) if CG.SHAREDC.exists() else {}
-    arms = ["nocard", "indiv", f"cmd@{KCMD}"] + [a for a in DEID_ARMS if a in step2 and all(d in step2[a] for d in authors)]
+    cpath = CG.SE / ("cmd_concat_cards.json" if CG.DATASET == "enron" else "cmd_concat_cards_mad.json")
+    concat = json.loads(cpath.read_text(encoding="utf-8")) if cpath.exists() else {}   # naive hard-pool baseline (group-level, same key scheme as shared)
+    arms = ["nocard", "indiv", f"cmd@{KCMD}"] + ([f"concat@{KCMD}"] if concat else []) \
+        + [a for a in DEID_ARMS if a in step2 and all(d in step2[a] for d in authors)]
     miss = [a for a in DEID_ARMS if a not in arms]
     if miss:
         print(f"  [!] de-id arms not built / incomplete -> EXCLUDED from utility: {miss}", flush=True)
@@ -76,6 +79,12 @@ def main():
         if ck not in shared:
             raise KeyError(f"missing CMD shared card {ck} (run cmd_gate/cmd_openworld to build it first)")
         return shared[ck]
+
+    def concat_card(d):
+        ck = f"k{KCMD}_s{SEED}_{grp[d]}"
+        if ck not in concat:
+            raise KeyError(f"missing concat card {ck} (run cmd_concat_build.py KCL={KCMD} SEED={SEED} first)")
+        return concat[ck]
 
     import hashlib
     # stranger: a deterministic NON-cluster dev's nuwa card -> tests person-specificity (own vs stranger).
@@ -93,6 +102,8 @@ def main():
             return stranger[d]
         if arm.startswith("cmd@"):
             return cmd_card(d)
+        if arm.startswith("concat@"):
+            return concat_card(d)
         return step2[arm][d]
 
     # held-out bugs: first MAXBUGS per dev (devs with >=1 solved bug)
