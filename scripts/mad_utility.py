@@ -45,7 +45,9 @@ CLASSES = ["FIXED", "WONTFIX", "INVALID", "DUPLICATE", "WORKSFORME"]
 RES = (ROOT / os.environ["RESDIR"]) if os.environ.get("RESDIR") else ROOT / "results" / "mad"   # cross-model run isolation
 RES.mkdir(parents=True, exist_ok=True)
 # de-id comparison arms scored on the utility axis (must already be built in mad_cmd_step2.json)
-DEID_ARMS = ["staab", "staab_r1", "tpar_t10", "tpar_t15", "petre_k4"]
+# EXTRA_ARMS lets a sweep add temperature arms (e.g. tpar_t20,tpar_t25,tpar_t30) without editing the default list.
+DEID_ARMS = ["staab", "staab_r1", "tpar_t10", "tpar_t15", "petre_k4"] \
+    + [a.strip() for a in os.environ.get("EXTRA_ARMS", "").split(",") if a.strip()]
 
 
 def predict_res(card, report, stub):
@@ -93,6 +95,31 @@ def main():
                 key=lambda b: hashlib.sha1(f"str-{d}-{b}".encode()).hexdigest())[0]] for d in authors}
     arms = arms + ["stranger"]
 
+    # ---- §4 Exp B base-rate provenance LADDER (LADDER=1): A_global/A_randgrp/A_matchgrp/A_permuted + A_own ----
+    #   LEAK-SAFE source = solved_bugs[MAXBUGS:] (the TAIL, disjoint from the first-MAXBUGS test window by slicing).
+    #   grp_random = explicit random grouping (independent of GROUP env); grp_matched = base-rate-TV greedy.
+    LADDER = bool(os.environ.get("LADDER"))
+    if LADDER:
+        import base_rate_cards as brc
+        from collections import Counter
+        # leak-safe per-dev resolution distribution over the TAIL bugs (NOT the first MAXBUGS test bugs)
+        ldist = {}
+        for d in authors:
+            tail = pool[d].get("solved_bugs", [])[MAXBUGS:]
+            assert tail, f"dev {d} has empty solved_bugs tail (<= MAXBUGS={MAXBUGS}) -> no leak-safe base-rate"
+            cc = Counter(b["resolution"] for b in tail)
+            n = sum(cc.values())
+            ldist[d] = {c: cc.get(c, 0) / n for c in CLASSES}
+        grpR = CG.group_random(authors, KCMD, SEED)
+        grpM = brc.group_matched_by_dist(authors, ldist, KCMD, SEED, CLASSES)
+        LAB = "This developer's historical bug-resolution rates"
+        ladder = brc.build_ladder(authors, ldist, grpR, grpM, CLASSES, LAB)
+        A_own = {d: brc.fmt_card(ldist[d], CLASSES, LAB) for d in authors}
+        arms = arms + ["A_global", "A_randgrp", "A_matchgrp", "A_permuted", "A_own"]
+    # cross-model swap: predict ONLY the 3 endpoint arms (nocard/A_global/A_own) to keep a second model cheap
+    if os.environ.get("ENDPOINT_ONLY"):
+        arms = ["nocard", "A_global", "A_own"]
+
     def card_of(arm, d):
         if arm == "nocard":
             return None
@@ -100,6 +127,10 @@ def main():
             return nuwa[d]
         if arm == "stranger":
             return stranger[d]
+        if LADDER and arm in ("A_global", "A_randgrp", "A_matchgrp", "A_permuted"):
+            return ladder[arm][d]
+        if LADDER and arm == "A_own":
+            return A_own[d]
         if arm.startswith("cmd@"):
             return cmd_card(d)
         if arm.startswith("concat@"):
@@ -128,6 +159,26 @@ def main():
 
     g = [d for (d, bi) in units]
     acc = {arm: [hits[(arm, d, bi)] for (d, bi) in units] for arm in arms}
+
+    if os.environ.get("DUMP_UNITS"):        # #34a per-pool cost aggregation (cache-hit $0): dump per-unit hits + pool map
+        dd = ROOT / "results" / "pooling_law"; dd.mkdir(parents=True, exist_ok=True)
+        (dd / f"units_mad_k{KCMD}.json").write_text(json.dumps({
+            "dataset": "mad", "k": KCMD, "units": [[d, bi] for (d, bi) in units], "grp": {d: grp[d] for d in devs},
+            "hits": {a: acc[a] for a in arms}}, ensure_ascii=False), encoding="utf-8")
+        print(f"  [DUMP_UNITS] wrote units_mad_k{KCMD}.json (arms={arms})", flush=True)
+
+    if os.environ.get("ENDPOINT_ONLY"):        # cross-model swap: emit A_own-A_global sign only, isolated by model
+        ep = {"dataset": "20-MAD", "predictor": GEN, "per_arm": {a: round(float(np.mean(acc[a])), 4) for a in arms}, "vs": {}}
+        for x, y in [("A_own", "A_global"), ("A_global", "nocard"), ("A_own", "nocard")]:
+            r = cluster_paired_diff_ci(acc[x], acc[y], g, seed=SEED)
+            ep["vs"][f"{x}-{y}"] = {"diff": round(float(r["diff"]), 4), "ci": [round(c, 4) for c in r["ci"]],
+                                    "sig": bool(r["ci"][0] > 0 or r["ci"][1] < 0)}
+        tag = GEN.replace("/", "_")
+        (RES / f"mad_endpoint_{tag}.json").write_text(json.dumps(ep, indent=1, ensure_ascii=False), encoding="utf-8")
+        print(f"  [ENDPOINT_ONLY {GEN}] A_own-A_global = {ep['vs']['A_own-A_global']['diff']:+.4f} "
+              f"CI{ep['vs']['A_own-A_global']['ci']} -> results/mad/mad_endpoint_{tag}.json", flush=True)
+        return
+
     out = {"N_devs": len(devs), "n_bugs": len(units), "maxbugs": MAXBUGS, "k_cmd": KCMD, "chance": 0.2, "per_arm": {}, "vs": {}}
 
     print(f"\n=== (acc; 5-class chance 0.20; CI resamples devs) ===", flush=True)
@@ -154,10 +205,25 @@ def main():
     out["vs"]["indiv-stranger"] = {"diff": round(float(r["diff"]), 3), "ci": [round(c, 3) for c in r["ci"]], "sig": bool(sig)}
     print(f"  {'OWN-vs-STRANGER (indiv-stranger)'} = {r['diff']:+.3f} CI{[round(c,3) for c in r['ci']]}{sig}", flush=True)
 
+    if LADDER:
+        print(f"\n=== §4 base-rate provenance LADDER gaps (MAD = separable control: expect A_matchgrp-A_randgrp ~= 0) ===", flush=True)
+        for x, y, lab in [("A_own", "A_global", "A_own-A_global       (DECOUPLING sign, CI'd)"),
+                          ("A_randgrp", "A_global", "A_randgrp-A_global   (group info>any prior?)"),
+                          ("A_matchgrp", "A_randgrp", "A_matchgrp-A_randgrp (MATCHING adds? gap1)"),
+                          ("A_matchgrp", "A_global", "A_matchgrp-A_global  (beats floor? gap2)"),
+                          ("A_matchgrp", "A_permuted", "A_matchgrp-A_permuted(your group>close prior?)"),
+                          ("A_matchgrp", "A_own", "A_matchgrp-A_own     (below ceiling)"),
+                          ("A_own", "nocard", "A_own-nocard         (base-rate ceiling useful?)")]:
+            r = cluster_paired_diff_ci(acc[x], acc[y], g, seed=SEED)
+            sig = "  <-EXCL0" if (r["ci"][0] > 0 or r["ci"][1] < 0) else ""
+            out["vs"][f"{x}-{y}"] = {"diff": round(float(r["diff"]), 3), "ci": [round(c, 3) for c in r["ci"]], "sig": bool(sig)}
+            print(f"  {lab:36s} = {r['diff']:+.3f} CI{[round(c,3) for c in r['ci']]}{sig}", flush=True)
+
     out["note"] = ("20-MAD OBJECTIVE utility = bug-resolution-prediction accuracy (no judge). arm-nocard>0 SIG => card "
                    "helps the task; arm-indiv ~0 => keeps the personal card's utility. Compare to Enron pairwise-competence.")
-    (RES / "mad_utility.json").write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
-    print(f"\nsaved -> results/mad/mad_utility.json", flush=True)
+    fn = "mad_utility_ladder.json" if LADDER else "mad_utility.json"   # ISOLATE ladder run from the frozen baseline
+    (RES / fn).write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
+    print(f"\nsaved -> results/mad/{fn}", flush=True)
 
 
 if __name__ == "__main__":

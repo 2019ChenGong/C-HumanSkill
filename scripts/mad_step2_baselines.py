@@ -86,7 +86,8 @@ def build_presidio(nuwa, authors):
 
 def build_tpar(nuwa, authors):
     from enron_tpar import tpar_card
-    for T, arm in [(1.0, "tpar_t10"), (1.5, "tpar_t15")]:
+    temps = [float(x) for x in os.environ.get("TPAR_TEMPS", "1.0,1.5").split(",") if x.strip()]   # DP-Prompt knob sweep
+    for T, arm in [(T, f"tpar_t{int(round(T*10)):02d}") for T in temps]:
         cards = dict(zip(authors, de.pool(lambda a: tpar_card(nuwa[a], T), authors)))
         bad = [a for a in authors if not cards[a].strip()]
         if bad:

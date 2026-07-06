@@ -27,6 +27,41 @@ if DATASET == "enron":
     STEP2C = SE / "step2_cards_full.json"
     SHAREDC = SE / os.environ.get("SHAREDC", "cmd_shared_cards.json")   # env-overridable (mirror MAD) so grouping-sweep arms get isolated caches (cache key lacks GROUP -> would collide)
     MAD_TRAIN = None
+elif DATASET == "cr":                                  # Code Review SE: 60 expert reviewers (k8s/pytorch). Pure
+    SE = ROOT / "data" / "codereview"                  # decision-architecture domain (what to flag / how to prioritize)
+    COLL = SE / "attacker_deid_held.json"              # held-out raw review comments (disjoint from card-building set)
+    NUWAC = SE / os.environ.get("NUWAC", "cr_cmd_nuwa.json")
+    STEP2C = SE / os.environ.get("STEP2C", "cr_cmd_step2.json")
+    SHAREDC = SE / os.environ.get("SHAREDC", "cmd_shared_cards_cr.json")
+    MAD_TRAIN = None
+elif DATASET == "wpse":                                # Workplace StackExchange: 100 advice-givers (topic-driven,
+    SE = ROOT / "data" / "stackexchange"               # Enron-like). ref/raw = held-out answers (disjoint from card train set)
+    COLL = SE / "wpse_pool.json"
+    NUWAC = SE / os.environ.get("NUWAC", "wpse_cmd_nuwa.json")
+    STEP2C = SE / os.environ.get("STEP2C", "wpse_cmd_step2.json")
+    SHAREDC = SE / os.environ.get("SHAREDC", "cmd_shared_cards_wpse.json")
+    MAD_TRAIN = None
+elif DATASET == "aj":                                  # Apache-Multi: 6 Apache Jira projects (bug-resolution triage),
+    SE = ROOT / "data" / "apache_multi"                # the 3rd 'card-useful' dataset. De-id 2AFC = byte-for-byte the
+    COLL = SE / "spark_cmd_pool.json"                  # 20-MAD protocol (MAD_TRAIN=18 bar; ref=comments[18:24], raw=[24]).
+    NUWAC = SE / os.environ.get("NUWAC", "spark_cmd_nuwa.json")   # SAME nuwa cards used for the utility result
+    STEP2C = SE / os.environ.get("STEP2C", "aj_cmd_step2.json")
+    SHAREDC = SE / os.environ.get("SHAREDC", "cmd_shared_cards_aj.json")
+    MAD_TRAIN = 18
+elif DATASET == "dices":                               # DICES-350: 75 human safety raters (complete rater x item
+    SE = ROOT / "data" / "dices-350"                   # matrix). rater = pseudo-employee; card = safety-judgment
+    COLL = SE / "diverse_safety_adversarial_dialog_350.csv"   # profile. Signal = strictness (person-specific base-rate)
+    NUWAC = SE / os.environ.get("NUWAC", "dices_cmd_nuwa.json")   # = coupling-law BOUNDARY. Cards built by dices_build_cards.py.
+    STEP2C = SE / os.environ.get("STEP2C", "dices_cmd_nuwa.json")  # no separate de-id arms; aggro=nuwa (synth genericizes)
+    SHAREDC = SE / os.environ.get("SHAREDC", "cmd_shared_cards_dices.json")
+    MAD_TRAIN = None
+elif DATASET == "cv":                                  # Cross Validated (statistics SE): expert-answer drafting,
+    SE = ROOT / "data" / "se"                          # judge-scored like Enron. Cards from first-12 gold answers;
+    COLL = SE / "cv_cmd_pool.json"                     # ref/raw = held-answer writing samples (leak-disjoint). Built
+    NUWAC = SE / os.environ.get("NUWAC", "cv_cmd_nuwa.json")     # by cv_build.py (reuses cv_pilot nuwa -> cache hits).
+    STEP2C = SE / os.environ.get("STEP2C", "cv_cmd_nuwa.json")  # no separate de-id arms; aggro=nuwa (synth genericizes)
+    SHAREDC = SE / os.environ.get("SHAREDC", "cmd_shared_cards_cv.json")
+    MAD_TRAIN = None
 else:                                                  # 20-MAD: full 128-dev SeaMonkey set, fresh CMD cards
     SE = ROOT / "data" / "20mad"
     COLL = SE / "mad_cmd_pool.json"
@@ -216,8 +251,111 @@ def load_mad():
     return pool, authors, nuwa, aggro, ref, raw_tgt
 
 
+def load_cr():
+    """Code Review SE: docs = held-out raw review comments (6/author, disjoint from card-building set). ref = first
+    3 held comments joined [:250] (candidate writing sample); raw target = held comment[3][:900]. nuwa = individual
+    decision-architecture card; aggro = same card (SYNTH genericizes for the pooled card). Same return shape as load_mad."""
+    held = json.loads(COLL.read_text(encoding="utf-8"))["scrub"]
+    nuwa = json.loads(NUWAC.read_text(encoding="utf-8"))["nuwa"]
+    aggro = json.loads(STEP2C.read_text(encoding="utf-8"))["aggro"]
+    authors = [a for a in nuwa if a in held and isinstance(held[a], list) and len(held[a]) >= 4]
+    ref = {a: WS.sub(" ", " || ".join(held[a][:3]))[:REF_CHARS] for a in authors}
+    raw_tgt = {a: WS.sub(" ", held[a][3])[:RAW_CHARS] for a in authors}
+    return held, authors, nuwa, aggro, ref, raw_tgt
+
+
+def load_wpse():
+    """Workplace StackExchange: pool[a] = {train, held, strg_topic, strg_rand}. held = list of {qid,q_text,real,...};
+    'real' = the author's own answer (disjoint from the 'train' set the card was built from). ref = first held answer
+    [:250]; raw target = second held answer [:900]. nuwa = individual advice-style card; aggro = same. Same shape as load_mad."""
+    pool = json.loads(COLL.read_text(encoding="utf-8"))["pool"]
+    nuwa = json.loads(NUWAC.read_text(encoding="utf-8"))["nuwa"]
+    aggro = json.loads(STEP2C.read_text(encoding="utf-8"))["aggro"]
+
+    def answers(a):
+        return [it["real"] for it in pool[a]["held"] if it.get("real")]
+    authors = [a for a in nuwa if a in pool and len(answers(a)) >= 2]
+    REF_N = int(os.environ.get("REF_N", 1))            # number of held answers to draw the ref from
+    REF_FRAG = int(os.environ.get("REF_FRAG", 0))      # >0 = take this many chars from EACH of REF_N answers (multi-
+    #   fragment, like MAD's 6 short comments) then cap at REF_CHARS; 0 = join full answers then cap (old behavior).
+    if REF_FRAG > 0:
+        ref = {a: WS.sub(" ", " || ".join(s[:REF_FRAG] for s in answers(a)[:REF_N]))[:REF_CHARS] for a in authors}
+    else:
+        ref = {a: WS.sub(" ", " || ".join(answers(a)[:REF_N]))[:REF_CHARS] for a in authors}
+    raw_tgt = {a: WS.sub(" ", answers(a)[REF_N])[:RAW_CHARS] for a in authors}
+    return pool, authors, nuwa, aggro, ref, raw_tgt
+
+
+def load_aj():
+    """Apache-Multi (6 Jira projects): pool[d]['card_comments'] = off-solved Jira comments (the SAME card source as the
+    utility result). De-id protocol = byte-for-byte load_mad (MAD_TRAIN=18): ref = join(comments[18:24])[:250], raw =
+    comments[24][:900] — both leak-disjoint from the nuwa card (built from comments[:18]) AND from the utility test
+    (solved_bugs, a separate field). aggro = nuwa (no separate aggro file; synth_shared genericizes for the pooled card).
+    N_AUTH caps the author set for SAMPLE runs (deterministic sorted prefix; MUST be set identically across build_shared
+    / concat / 2afc so the grouping + stranger pool match). Same return shape as load_mad."""
+    pool = json.loads(COLL.read_text(encoding="utf-8"))["pool"]
+    t = MAD_TRAIN                                                                 # 18
+    nuwa = json.loads(NUWAC.read_text(encoding="utf-8"))["nuwa"]
+    authors = [d for d in sorted(pool) if d in nuwa and len(pool[d]["card_comments"]) >= t + N_REF + N_TGT]
+    n_auth = int(os.environ.get("N_AUTH", 0))
+    if n_auth:
+        authors = authors[:n_auth]                                               # SAMPLE cap (deterministic)
+    # aggro = the genericized card that FEEDS synth_shared (aligned to load_mad: nuwa->aggro->shared, 2 passes).
+    # aj originally pooled from RAW nuwa (aggro=nuwa) -> shared kept bug/project specifics -> inflated 2AFC leak.
+    # Once aj_aggro_build.py has written STEP2C['aggro'], use it; else fall back to nuwa (back-compat).
+    step2 = json.loads(STEP2C.read_text(encoding="utf-8")) if STEP2C.exists() else {}
+    aggro = step2["aggro"] if (step2.get("aggro") and all(d in step2["aggro"] for d in authors)) else nuwa
+    ref = {d: WS.sub(" ", " || ".join(pool[d]["card_comments"][t:t + N_REF]))[:REF_CHARS] for d in authors}
+    raw_tgt = {d: WS.sub(" ", pool[d]["card_comments"][t + N_REF])[:RAW_CHARS] for d in authors}
+    return pool, authors, nuwa, aggro, ref, raw_tgt
+
+
+def load_dices():
+    """DICES-350: authors = 75 human safety raters. nuwa[r] = rater r's individual safety-judgment card (built by
+    dices_build_cards.py from r's context (item,label) pairs); aggro = nuwa (synth_shared genericizes for the pooled
+    card). ref[r] = r's judgment SIGNATURE over the sig items (the DICES 'writing sample'); raw_tgt[r] = a SECOND
+    disjoint signature (sig2) for the `raw` positive-control channel. docs = rater_labels placeholder. All item sets
+    disjoint (context/sig/util/sig2). No de-id arms (DICES is the coupling boundary, not a method-comparison bench)."""
+    import dices_cmd as DC
+    authors = DC.raters()
+    cards = json.loads(NUWAC.read_text(encoding="utf-8"))
+    nuwa = cards["nuwa"]
+    aggro = cards.get("aggro", nuwa)
+    authors = [r for r in authors if r in nuwa]                     # only raters whose card was built
+    _ctx, sig, _util, sig2 = DC.splits()
+    ref = {r: DC.signature(r, sig) for r in authors}
+    raw_tgt = {r: DC.signature(r, sig2) for r in authors}
+    return DC.labels(), authors, nuwa, aggro, ref, raw_tgt
+
+
+def load_cv():
+    """Cross Validated (statistics SE): pool[a] = {ref, raw}. nuwa[a] = indiv stats card (cv_build.py, from the
+    author's first-12 gold answers). aggro = nuwa (synth_shared genericizes for the pooled card). ref = multi-fragment
+    held-answer writing sample [:250]; raw = a later held answer [:900]. Both leak-disjoint from the card (answers[:12]).
+    Same return shape as load_mad."""
+    pool = json.loads(COLL.read_text(encoding="utf-8"))["pool"]
+    cards = json.loads(NUWAC.read_text(encoding="utf-8"))
+    nuwa = cards["nuwa"]; aggro = cards.get("aggro", nuwa)
+    authors = [a for a in pool if a in nuwa]
+    ref = {a: WS.sub(" ", pool[a]["ref"])[:REF_CHARS] for a in authors}
+    raw_tgt = {a: WS.sub(" ", pool[a]["raw"])[:RAW_CHARS] for a in authors}
+    return pool, authors, nuwa, aggro, ref, raw_tgt
+
+
 def load():
-    return load_mad() if DATASET == "mad" else load_enron()
+    if DATASET == "mad":
+        return load_mad()
+    if DATASET == "cr":
+        return load_cr()
+    if DATASET == "wpse":
+        return load_wpse()
+    if DATASET == "aj":
+        return load_aj()
+    if DATASET == "dices":
+        return load_dices()
+    if DATASET == "cv":
+        return load_cv()
+    return load_enron()
 
 
 # ---------- scripted raw-only floor sweep (MODE=floor) ----------

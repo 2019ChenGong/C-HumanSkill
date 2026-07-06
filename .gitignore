@@ -74,3 +74,17 @@ release/
 !/scripts/cmd_xcard_link.py
 # concat-summarize-k: naive hard-pool baseline (structural floor as a method-CLASS property, beside CMD)
 !/scripts/cmd_concat_build.py
+# 2AFC free-subagent pipeline (export self-contained pairs -> subagents -> aggregate); primary anonymity instrument
+!/scripts/cr_2afc_export.py
+!/scripts/cr_2afc_score.py
+# equivalence/MDE certification + CMD-only shared-card k-sweep builder + multi-seed pooling certification
+!/scripts/cmd_equiv_test.py
+!/scripts/cmd_build_shared.py
+!/scripts/cmd_multiseed_pool.py
+# cross-model DISTILLER swap (qwen3.7-max non-thinking) — pooling→anonymity is model-agnostic
+!/scripts/mad_cmd_build_qwen.py
+# CrossValidated (statistics SE) — 3rd headline dataset: build + cross-model utility judge
+!/scripts/cv_pilot.py
+!/scripts/cv_build.py
+!/scripts/cv_util_judge_export.py
+!/scripts/cv_util_judge_score.py

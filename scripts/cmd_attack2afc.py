@@ -119,6 +119,8 @@ def build_pairs():
     deid_arms = {c: step2[c] for c in CHANS if c in step2}  # method-agnostic loader: any CHAN not in {shared,indiv,raw,concat} = a per-person de-id arm in CG.STEP2C (staab/petre/tpar_t15/presidio/archpool/...)
     _cpath = CG.SE / os.environ.get("CONCATC", "cmd_concat_cards.json" if DS == "enron" else "cmd_concat_cards_mad.json")
     concat = json.loads(_cpath.read_text(encoding="utf-8")) if ("concat" in CHANS and _cpath.exists()) else {}  # naive hard-pool baseline (group-level card, same key scheme as SHAREDC)
+    _npath = CG.SE / os.environ.get("NEUTRALC", "cmd_shared_cards_mad__neutral.json")
+    neutral = json.loads(_npath.read_text(encoding="utf-8")) if ("neutral" in CHANS and _npath.exists()) else {}  # CMD shared card built with the utility-preserving synth (isolated file, same key scheme)
     grp, byc = CG.make_groups(aggro, authors, KCL, SEED)
     refvec = {a: de._content_vec(ref[a]) for a in authors}
     aset = set(authors)
@@ -145,6 +147,8 @@ def build_pairs():
                     card, kind = nuwa.get(m), "card"
                 elif chan == "concat":  # naive concat-summarize-k hard-pool baseline (group card, same ≤1/k floor as CMD)
                     card, kind = concat.get(ck), "card"
+                elif chan == "neutral":  # CMD shared card, utility-preserving synth (hard-pool, same ε=0/≤1/k structure as shared)
+                    card, kind = neutral.get(ck), "card"
                 elif chan == "raw":  # pure-authorship 2AFC (target = member's held-out raw writing) — easiest positive control
                     card, kind = raw_tgt.get(m), "writing"
                 else:  # any other CHAN = a per-person de-id arm (staab/petre/tpar_t15/presidio/...) from CG.STEP2C

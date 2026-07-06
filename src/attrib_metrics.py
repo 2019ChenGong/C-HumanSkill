@@ -152,6 +152,46 @@ def cluster_paired_diff_ci(a_units, b_units, groups, n_boot=2000, seed=0, alpha=
             "p": round(p, 4)}
 
 
+# ---------- TWO-WAY (rater x item) crossed bootstrap ----------
+# For a CROSSED design (every rater judges every item, e.g. DICES-350), BOTH rater variance and item variance are
+# real and per-item outcomes are correlated across raters. Resampling raters ALONE (cluster_* above) treats items
+# as fixed/exhausted -> anticonservative for item-level effects. These resample rater indices AND item indices
+# independently (multiplier bootstrap): a replicate weights cell (r,i) by rmult[r]*imult[i]. RNG built once.
+def _twoway_boot(d, rater_of, item_of, n_boot, seed):
+    raters = sorted(set(rater_of)); items = sorted(set(item_of))
+    rid = {r: i for i, r in enumerate(raters)}; iid = {t: i for i, t in enumerate(items)}
+    ru = np.array([rid[r] for r in rater_of]); iu = np.array([iid[t] for t in item_of])
+    R, I = len(raters), len(items)
+    g = np.random.default_rng(seed)
+    bs = np.empty(n_boot)
+    for b in range(n_boot):
+        rm = np.bincount(g.integers(0, R, R), minlength=R).astype(float)
+        im = np.bincount(g.integers(0, I, I), minlength=I).astype(float)
+        w = rm[ru] * im[iu]
+        sw = w.sum()
+        bs[b] = float((d * w).sum() / sw) if sw > 0 else np.nan
+    return bs
+
+
+def two_way_mean_ci(values, rater_of, item_of, n_boot=2000, seed=0, alpha=0.05):
+    """95% CI for an arm's mean over a crossed rater x item design, resampling BOTH axes -> honest under item- AND
+    rater-level correlation. rater_of/item_of are per-unit id lists (same order as values)."""
+    bs = _twoway_boot(np.asarray(values, float), rater_of, item_of, n_boot, seed)
+    lo, hi = np.nanpercentile(bs, [100 * alpha / 2, 100 * (1 - alpha / 2)])
+    return [round(float(lo), 4), round(float(hi), 4)]
+
+
+def two_way_paired_diff_ci(a_units, b_units, rater_of, item_of, n_boot=2000, seed=0, alpha=0.05):
+    """Crossed (rater x item) paired bootstrap of mean(a - b). Returns {diff, ci=[lo,hi], p} (2-sided, +1 smoothed).
+    CI excludes 0 <=> arms differ, honest to BOTH rater and item variance."""
+    d = np.asarray(a_units, float) - np.asarray(b_units, float)
+    bs = _twoway_boot(d, rater_of, item_of, n_boot, seed)
+    lo, hi = np.nanpercentile(bs, [100 * alpha / 2, 100 * (1 - alpha / 2)])
+    ge, le = int((bs >= 0).sum()), int((bs <= 0).sum())
+    p = min(1.0, 2.0 * (min(ge, le) + 1) / (n_boot + 1))
+    return {"diff": round(float(d.mean()), 4), "ci": [round(float(lo), 4), round(float(hi), 4)], "p": round(p, 4)}
+
+
 # ---------- O8: multiple-comparison correction ----------
 def holm(pvals):
     """Holm-Bonferroni adjusted p-values (FWER), returned in the INPUT order."""

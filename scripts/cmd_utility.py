@@ -85,6 +85,12 @@ def main():
     HAS_STAAB = bool(STAAB) and all(a in STAAB for a in authors)            # Staab per-person arm (haiku judge ⊥ gpt-4o adversary)
     PETRE = _S2.get("petre_k4", {})
     HAS_PETRE = bool(PETRE) and all(a in PETRE for a in authors)            # PETRE suppression arm (utility pair = the frontier point)
+    # ---- FILL_METHODS=1: fill the remaining comparison arms, SAME per-author UPAIRS rule as staab/petre ----
+    FILLM = bool(os.environ.get("FILL_METHODS"))
+    PRESIDIO = _S2.get("presidio", {}); HAS_PRESIDIO = FILLM and all(a in PRESIDIO for a in authors)
+    TPAR15 = _S2.get("tpar_t15", {}); HAS_TPAR15 = FILLM and all(a in TPAR15 for a in authors)
+    ARCHPOOL = _S2.get("archpool", {}); HAS_ARCH = FILLM and all(a in ARCHPOOL for a in authors)   # pooled card, published per-author (byte-identical within its archetype cluster)
+    _CC = json.loads((SE / "cmd_concat_cards.json").read_text(encoding="utf-8")) if FILLM and (SE / "cmd_concat_cards.json").exists() else {}
 
     # ---- groups + shared cards per k (reuse gate builder; build missing) ----
     layouts = {}
@@ -97,11 +103,17 @@ def main():
             if ck not in cache:
                 plan.append((ck, [aggro[a] for a in mem]))
     T = de.TASKS
+    # concat pooled card, looked up per-author via the standard k=8 s{SEED} clustering (same clustering as shared@8)
+    concat_of = {a: _CC.get(f"k8_s{SEED}_{layouts[8][0][a]}") for a in authors} if (FILLM and _CC and 8 in layouts) else {}
+    HAS_CONCAT = FILLM and bool(concat_of) and all(concat_of.get(a) for a in authors)
     UPAIRS = [("indiv", "nocard"), ("indiv", "floor"), ("own", "stranger")]            # once-pairs (author-level)
     if HAS_STAAB:
         UPAIRS += [("staab", "nocard"), ("staab", "indiv")]                            # still-useful? + didn't-gut-decisions?
     if HAS_PETRE:
         UPAIRS += [("petre_k4", "nocard"), ("petre_k4", "indiv")]                      # suppression cost: how much utility left vs gutted
+    for _arm, _has in [("presidio", HAS_PRESIDIO), ("tpar_t15", HAS_TPAR15), ("archpool", HAS_ARCH), ("concat", HAS_CONCAT)]:
+        if _has:
+            UPAIRS += [(_arm, "nocard")]                                                # same X-vs-nocard rule as staab/petre
 
     if os.environ.get("PILOT_DRYRUN"):
         n_synth = len(plan)
@@ -163,12 +175,23 @@ def main():
             return STAAB[a]
         if arm == "petre_k4":
             return PETRE[a]
+        if arm == "presidio":
+            return PRESIDIO[a]
+        if arm == "tpar_t15":
+            return TPAR15[a]
+        if arm == "archpool":
+            return ARCHPOOL[a]
+        if arm == "concat":
+            return concat_of[a]
         return nuwa[a]                      # indiv / own
     draft_arms = [("nocard", None), ("indiv", None), ("floor", None), ("stranger", None)] + [("shared", k) for k in K_LIST]
     if HAS_STAAB:
         draft_arms += [("staab", None)]
     if HAS_PETRE:
         draft_arms += [("petre_k4", None)]
+    for _arm, _has in [("presidio", HAS_PRESIDIO), ("tpar_t15", HAS_TPAR15), ("archpool", HAS_ARCH), ("concat", HAS_CONCAT)]:
+        if _has:
+            draft_arms += [(_arm, None)]
     djobs = []
     for arm, k in draft_arms:
         if arm in ("nocard", "floor"):

@@ -98,13 +98,16 @@ def _anthropic_complete(model, messages, temperature, max_tokens):
     return "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")
 
 
-def _complete(model, messages, temperature, max_tokens):
-    """One completion -> text. Dispatches claude* to the native Anthropic SDK, else OpenAI-compatible."""
+def _complete(model, messages, temperature, max_tokens, extra=None):
+    """One completion -> text. Dispatches claude* to the native Anthropic SDK, else OpenAI-compatible.
+    `extra` (dict) is forwarded as OpenAI `extra_body` (e.g. {"reasoning":{"enabled":False}} to run a qwen/
+    thinking model in NON-thinking mode). Ignored for claude (Anthropic SDK path)."""
     if model.startswith("claude"):
         return _anthropic_complete(model, messages, temperature, max_tokens)
     client, api_model = _client_for(model)
+    kw = {"extra_body": extra} if extra else {}
     resp = client.chat.completions.create(model=api_model, messages=messages,
-                                          temperature=temperature, max_tokens=max_tokens)
+                                          temperature=temperature, max_tokens=max_tokens, **kw)
     return resp.choices[0].message.content or ""
 
 
@@ -137,9 +140,14 @@ def _key(model, messages, params):
 
 
 def chat(messages, model=DEFAULT_MODEL, temperature=0.0, max_tokens=1024,
-         use_cache=True, retries=5):
-    """Return the assistant message text. Cached by (model, messages, params)."""
+         use_cache=True, retries=5, extra=None):
+    """Return the assistant message text. Cached by (model, messages, params).
+    `extra` (optional dict) -> OpenAI `extra_body` (e.g. {"reasoning":{"enabled":False}} to disable a
+    thinking model). It is folded into the cache key so it is a DISTINCT row; extra=None keeps the key
+    byte-identical to pre-existing rows (backward compatible — no re-pay)."""
     params = {"temperature": temperature, "max_tokens": max_tokens}
+    if extra:
+        params["_extra"] = extra
     k = _key(model, messages, params)
     if use_cache:
         with _lock:
@@ -151,7 +159,7 @@ def chat(messages, model=DEFAULT_MODEL, temperature=0.0, max_tokens=1024,
     last = None
     for attempt in range(retries):
         try:
-            out = _complete(model, messages, temperature, max_tokens)
+            out = _complete(model, messages, temperature, max_tokens, extra)
             if use_cache:
                 with _lock:
                     c = _conn()
