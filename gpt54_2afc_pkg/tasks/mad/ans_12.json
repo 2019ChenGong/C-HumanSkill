@@ -1,0 +1,217 @@
+[
+  {
+    "pid": "P0012",
+    "choice": "A",
+    "conf": 72
+  },
+  {
+    "pid": "P0048",
+    "choice": "B",
+    "conf": 96
+  },
+  {
+    "pid": "P0084",
+    "choice": "A",
+    "conf": 84
+  },
+  {
+    "pid": "P0120",
+    "choice": "B",
+    "conf": 75
+  },
+  {
+    "pid": "P0156",
+    "choice": "A",
+    "conf": 86
+  },
+  {
+    "pid": "P0192",
+    "choice": "B",
+    "conf": 58
+  },
+  {
+    "pid": "P0228",
+    "choice": "B",
+    "conf": 81
+  },
+  {
+    "pid": "P0264",
+    "choice": "A",
+    "conf": 87
+  },
+  {
+    "pid": "P0300",
+    "choice": "B",
+    "conf": 68
+  },
+  {
+    "pid": "P0336",
+    "choice": "B",
+    "conf": 88
+  },
+  {
+    "pid": "P0372",
+    "choice": "A",
+    "conf": 99
+  },
+  {
+    "pid": "P0408",
+    "choice": "A",
+    "conf": 79
+  },
+  {
+    "pid": "P0444",
+    "choice": "B",
+    "conf": 62
+  },
+  {
+    "pid": "P0480",
+    "choice": "A",
+    "conf": 93
+  },
+  {
+    "pid": "P0516",
+    "choice": "B",
+    "conf": 88
+  },
+  {
+    "pid": "P0552",
+    "choice": "A",
+    "conf": 76
+  },
+  {
+    "pid": "P0588",
+    "choice": "A",
+    "conf": 90
+  },
+  {
+    "pid": "P0624",
+    "choice": "A",
+    "conf": 93
+  },
+  {
+    "pid": "P0660",
+    "choice": "A",
+    "conf": 95
+  },
+  {
+    "pid": "P0696",
+    "choice": "A",
+    "conf": 91
+  },
+  {
+    "pid": "P0732",
+    "choice": "B",
+    "conf": 82
+  },
+  {
+    "pid": "P0768",
+    "choice": "A",
+    "conf": 89
+  },
+  {
+    "pid": "P0804",
+    "choice": "B",
+    "conf": 70
+  },
+  {
+    "pid": "P0840",
+    "choice": "A",
+    "conf": 91
+  },
+  {
+    "pid": "P0876",
+    "choice": "A",
+    "conf": 89
+  },
+  {
+    "pid": "P0912",
+    "choice": "A",
+    "conf": 60
+  },
+  {
+    "pid": "P0948",
+    "choice": "B",
+    "conf": 78
+  },
+  {
+    "pid": "P0984",
+    "choice": "B",
+    "conf": 73
+  },
+  {
+    "pid": "P1020",
+    "choice": "B",
+    "conf": 67
+  },
+  {
+    "pid": "P1056",
+    "choice": "B",
+    "conf": 88
+  },
+  {
+    "pid": "P1092",
+    "choice": "B",
+    "conf": 96
+  },
+  {
+    "pid": "P1128",
+    "choice": "A",
+    "conf": 74
+  },
+  {
+    "pid": "P1164",
+    "choice": "A",
+    "conf": 82
+  },
+  {
+    "pid": "P1200",
+    "choice": "B",
+    "conf": 71
+  },
+  {
+    "pid": "P1236",
+    "choice": "B",
+    "conf": 93
+  },
+  {
+    "pid": "P1272",
+    "choice": "A",
+    "conf": 99
+  },
+  {
+    "pid": "P1308",
+    "choice": "A",
+    "conf": 95
+  },
+  {
+    "pid": "P1344",
+    "choice": "B",
+    "conf": 88
+  },
+  {
+    "pid": "P1380",
+    "choice": "B",
+    "conf": 67
+  },
+  {
+    "pid": "P1416",
+    "choice": "A",
+    "conf": 73
+  },
+  {
+    "pid": "P1452",
+    "choice": "A",
+    "conf": 97
+  },
+  {
+    "pid": "P1488",
+    "choice": "A",
+    "conf": 83
+  },
+  {
+    "pid": "P1524",
+    "choice": "A",
+    "conf": 99
+  }
+]

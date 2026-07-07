@@ -45,6 +45,13 @@ your own raw writing style, which no card scheme can fix.
   they fall just short — Enron's estimate is **dead-on chance (0.511)** yet the most-conservative clustering misses by
   0.013, and **CV shows a small *stable* residual** (all 3 seeds land at 84/154 = 0.545; pooling makes it *precise*,
   not zero). That residual is itself the min-k law showing through: CV's richer identity needs k>8 to fully wash out.
+- **Not one attacker's blind spot — a second, stronger attacker agrees.** Re-running the *identical* 2AFC with
+  **gpt-5.4** as a different-lineage attacker (same pairs, all 3 datasets, full ladder) reproduces the whole shape:
+  its `indiv` positive control **beats sonnet's** (0.711 / 0.721 / 0.655 ≥ 0.691 / 0.701 / 0.608 — it even repairs
+  Enron's soft control), the 4 per-person de-id arms **still leak** (0.63–0.71), yet the pooled `shared`/`concat` cards
+  **stay at chance** (0.47–0.52, CI ∋ 0.5) with a significant paired indiv→shared drop (+0.14 to +0.24). A stronger
+  independent model can't re-identify the pooled card either — so "the pooled card is at chance" is anonymity, not a
+  weak measuring stick.
 - **Min-k for anonymity ∝ identity richness:** Enron (weak fingerprint) ≤k2 < 20-MAD ~k4 < CV (rich) ~k8 — a richer
   decision-fingerprint needs more people to wash out.
 - **Model-agnostic (not a deepseek-consensus artifact).** Rebuilding the *entire* card stack with a different

@@ -1,0 +1,168 @@
+{
+ "instrument_sonnet": "free-subagent sonnet-4.6 2AFC (the current single attacker)",
+ "chance": 0.5,
+ "gate_rule": "gpt-5.4 `indiv` (positive control) must clear CI-lo>0.5 AND acc >= sonnet's indiv on that dataset; else the attacker is too weak on cards and `shared`~0.5 proves nothing.",
+ "channel_kind": {
+  "indiv": "pos (must LEAK)",
+  "shared": "pool (want CHANCE)",
+  "concat": "pool (want CHANCE)",
+  "staab": "per-person de-id (expected LEAK)",
+  "petre_k4": "per-person de-id (expected LEAK)",
+  "presidio": "per-person de-id (expected LEAK)",
+  "tpar_t15": "per-person de-id (expected LEAK)"
+ },
+ "note": "Same k8 pairs, byte-identical to what sonnet answered (verified). gpt-5.4 reproducing this LADDER (indiv+de-id arms LEAK, shared/concat CHANCE) is strong instrument-validity evidence.",
+ "datasets": {
+  "mad": {
+   "seed": 1,
+   "n_clusters": 16,
+   "channels": {
+    "indiv": {
+     "acc": 0.691,
+     "ci": [
+      0.645,
+      0.738
+     ]
+    },
+    "shared": {
+     "acc": 0.469,
+     "ci": [
+      0.414,
+      0.531
+     ]
+    },
+    "concat": {
+     "acc": 0.508,
+     "ci": [
+      0.465,
+      0.551
+     ]
+    },
+    "staab": {
+     "acc": 0.664,
+     "ci": [
+      0.629,
+      0.703
+     ]
+    },
+    "petre_k4": {
+     "acc": 0.66,
+     "ci": [
+      0.617,
+      0.703
+     ]
+    },
+    "tpar_t15": {
+     "acc": 0.645,
+     "ci": [
+      0.582,
+      0.703
+     ]
+    }
+   }
+  },
+  "cv": {
+   "seed": 0,
+   "n_clusters": 9,
+   "channels": {
+    "indiv": {
+     "acc": 0.701,
+     "ci": [
+      0.639,
+      0.75
+     ]
+    },
+    "shared": {
+     "acc": 0.545,
+     "ci": [
+      0.417,
+      0.649
+     ]
+    },
+    "concat": {
+     "acc": 0.545,
+     "ci": [
+      0.487,
+      0.604
+     ]
+    },
+    "staab": {
+     "acc": 0.714,
+     "ci": [
+      0.639,
+      0.78
+     ]
+    },
+    "petre_k4": {
+     "acc": 0.734,
+     "ci": [
+      0.688,
+      0.778
+     ]
+    },
+    "tpar_t15": {
+     "acc": 0.74,
+     "ci": [
+      0.667,
+      0.826
+     ]
+    }
+   }
+  },
+  "enron": {
+   "seed": 1,
+   "n_clusters": 14,
+   "channels": {
+    "indiv": {
+     "acc": 0.608,
+     "ci": [
+      0.545,
+      0.669
+     ]
+    },
+    "shared": {
+     "acc": 0.504,
+     "ci": [
+      0.431,
+      0.571
+     ]
+    },
+    "concat": {
+     "acc": 0.547,
+     "ci": [
+      0.487,
+      0.6
+     ]
+    },
+    "staab": {
+     "acc": 0.595,
+     "ci": [
+      0.54,
+      0.647
+     ]
+    },
+    "petre_k4": {
+     "acc": 0.578,
+     "ci": [
+      0.496,
+      0.654
+     ]
+    },
+    "presidio": {
+     "acc": 0.578,
+     "ci": [
+      0.513,
+      0.637
+     ]
+    },
+    "tpar_t15": {
+     "acc": 0.629,
+     "ci": [
+      0.558,
+      0.696
+     ]
+    }
+   }
+  }
+ }
+}

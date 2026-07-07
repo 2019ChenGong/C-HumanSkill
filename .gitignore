@@ -88,3 +88,8 @@ release/
 !/scripts/cv_build.py
 !/scripts/cv_util_judge_export.py
 !/scripts/cv_util_judge_score.py
+
+# gpt-5.4 second-attacker package (#9a): harness + baseline + gpt-5.4 answers + answer keys + scored summary.
+# EXCLUDE the bulky batch_*.json prompt blobs (23M, dataset-derived, regenerable via scripts/cr_2afc_export.py).
+!/gpt54_2afc_pkg/
+/gpt54_2afc_pkg/tasks/*/batch_*.json
