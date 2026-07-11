@@ -29,8 +29,12 @@ DS = CG.DATASET
 KCL = int(os.environ.get("KCL", 8))
 SEED = int(os.environ.get("SEED", 1))
 MODE = os.environ.get("MODE", "dryrun")
+NEUTRAL = os.environ.get("NEUTRAL", "") not in ("", "0")   # matched-fairness variant (see synth_concat_neutral)
 GEN = "deepseek-chat"
-OUT = CG.SE / os.environ.get("CONCATC", "cmd_concat_cards.json" if DS == "enron" else "cmd_concat_cards_mad.json")
+_defout = ("cmd_concat_cards.json" if DS == "enron" else "cmd_concat_cards_mad.json")
+if NEUTRAL:
+    _defout = _defout.replace(".json", "__neutral.json")
+OUT = CG.SE / os.environ.get("CONCATC", _defout)
 
 
 def synth_concat(member_cards):
@@ -41,6 +45,20 @@ def synth_concat(member_cards):
             "card (working/decision heuristics) that MERGES and COVERS all of their approaches. Summarize for brevity "
             "but KEEP the union of their distinct heuristics, sequencing, and decision moves. Output ONLY the card."}]
     return chat(msg, model=GEN, temperature=0.3, max_tokens=900) or ""
+
+
+def synth_concat_neutral(member_cards):
+    """FAIRNESS-matched concat: the SAME union-merge operator, but with the exact three deltas that `neutral` applied
+    to CMD's base synth (max_tokens 900->1300; drop 'Summarize for brevity'; add 'preserve concrete substance, do not
+    compress/over-abstract'). Keeps concat's union-coverage semantics — only removes the compression penalty so the
+    CMD-vs-concat comparison is not confounded by CMD getting the length relaxation and concat not."""
+    body = "\n\n---\n\n".join(member_cards)
+    msg = [{"role": "system", "content": "You merge several colleagues' skill cards into ONE combined skill card."},
+           {"role": "user", "content": f"Skill cards from several colleagues:\n\n{body}\n\nWrite ONE combined skill "
+            "card (working/decision heuristics) that MERGES and COVERS all of their approaches. KEEP the union of "
+            "their distinct heuristics, sequencing, and decision moves. Preserve the concrete substance; do not "
+            "compress or over-abstract it into generic platitudes. Output ONLY the card."}]
+    return chat(msg, model=GEN, temperature=0.3, max_tokens=1300) or ""
 
 
 def main():
@@ -54,13 +72,14 @@ def main():
         ck = f"k{KCL}_s{SEED}_{cid}"
         if ck not in cache:
             plan.append((ck, [aggro[a] for a in mem]))
-    print(f"concat-build DS={DS} k{KCL} s{SEED}: groups={len(byc)} to-synth={len(plan)} cached={len(cache)} "
-          f"(deepseek ~${len(plan) * 0.001:.3f})")
+    _fn = synth_concat_neutral if NEUTRAL else synth_concat
+    print(f"concat-build DS={DS} k{KCL} s{SEED} {'NEUTRAL' if NEUTRAL else 'base'} -> {OUT.name}: "
+          f"groups={len(byc)} to-synth={len(plan)} cached={len(cache)} (deepseek ~${len(plan) * 0.001:.3f})")
     if MODE != "run":
         print("dryrun: set MODE=run to synthesize.")
         return
     if plan:
-        for (ck, _), card in zip(plan, de.pool(lambda pc: synth_concat(pc[1]), plan)):
+        for (ck, _), card in zip(plan, de.pool(lambda pc: _fn(pc[1]), plan)):
             cache[ck] = card
         OUT.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
     print(f"saved {len(cache)} concat cards -> {OUT.relative_to(ROOT)}")

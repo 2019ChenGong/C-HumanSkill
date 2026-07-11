@@ -49,15 +49,44 @@ Z_A = 1.6448536269514722   # z_{0.95} one-sided
 Z_B = 0.8416212335729143   # z_{0.80} power
 
 # (dataset, [(seed_label, batchdir), ...]) — k8, GROUP=random, sonnet-4.6 free-subagent 2AFC.
-DATASETS = {
-    "Enron k8": [("s0", "results/enron/ksw_k8_s0"),
-                 ("s1", "results/enron/2afc_free"),      # battery (extra de-id arms ignored; we read shared+indiv)
-                 ("s2", "results/enron/ms_k8_s2")],
-    "CV k8":    [("s0", "results/se/2afc_battery"),
-                 ("s1", "results/se/ms_k8_s1"),
-                 ("s2", "results/se/ms_k8_s2")],
-}
-CHANS = ["shared", "indiv"]     # shared = anonymity test; indiv = positive control (must leak)
+# MSMODE=base -> original base-CMD batteries (shared channel certified).
+# MSMODE=neutral -> neutral-CMD batteries built for #64 (neutral channel certified; base shared carried alongside).
+MSMODE = os.environ.get("MSMODE", "base")
+if MSMODE == "neufix":
+    # #77: fixed (anti-copy, degeneracy-cleared) neutral CMD cards, neutral channel ONLY (indiv/shared reused from
+    # the base/neutral batteries — unaffected by the degeneracy fix). Isolated neufix_* dirs; canonical dirs untouched.
+    DATASETS = {
+        "20-MAD k8": [("s0", "results/mad/neufix_k8_s0"),
+                      ("s1", "results/mad/neufix_k8_s1"),
+                      ("s2", "results/mad/neufix_k8_s2")],
+        "Enron k8": [("s0", "results/enron/neufix_k8_s0"),
+                     ("s1", "results/enron/neufix_k8_s1"),
+                     ("s2", "results/enron/neufix_k8_s2")],
+        "CV k8":    [("s0", "results/se/neufix_k8_s0"),
+                     ("s1", "results/se/neufix_k8_s1"),
+                     ("s2", "results/se/neufix_k8_s2")],
+    }
+elif MSMODE == "neutral":
+    DATASETS = {
+        "Enron k8": [("s0", "results/enron/2afc_util"),          # s0 (verified: grp matches seed 0, not s1)
+                     ("s1", "results/enron/2afc_neutral_s1"),
+                     ("s2", "results/enron/2afc_neutral_s2")],
+        "CV k8":    [("s0", "results/se/2afc_neutral"),          # s0
+                     ("s1", "results/se/2afc_neutral_s1"),
+                     ("s2", "results/se/2afc_neutral_s2")],
+    }
+else:
+    DATASETS = {
+        "Enron k8": [("s0", "results/enron/ksw_k8_s0"),
+                     ("s1", "results/enron/2afc_free"),      # battery (extra de-id arms ignored; we read shared+indiv)
+                     ("s2", "results/enron/ms_k8_s2")],
+        "CV k8":    [("s0", "results/se/2afc_battery"),
+                     ("s1", "results/se/ms_k8_s1"),
+                     ("s2", "results/se/ms_k8_s2")],
+    }
+# test channels (certified) + indiv positive control (must leak). neutral mode adds the neutral channel.
+CHANS = os.environ.get("MSCHANS", "neutral" if MSMODE == "neufix"
+                       else "neutral,shared,indiv" if MSMODE == "neutral" else "shared,indiv").split(",")
 
 
 def load_seed(seed, bdir):
@@ -120,7 +149,7 @@ def certify(s):
             "leak": bool(leak), "verdict": verdict}
 
 
-out = {"delta": DELTA, "margin": [L, U], "nboot": NBOOT, "datasets": {}}
+out = {"delta": DELTA, "margin": [L, U], "nboot": NBOOT, "mode": MSMODE, "chans": CHANS, "datasets": {}}
 print(f"\n#5 MULTI-SEED POOLING  margin=[{L:.2f},{U:.2f}] (δ={DELTA})  NBOOT={NBOOT}")
 print("  cert = one-sided non-inferiority (up95<U => leak≥U excluded). (B)=(seed,card) primary; (C)=person tighter.\n")
 
@@ -161,15 +190,18 @@ for dslabel, seeds in DATASETS.items():
         dsout["per_seed"][chan] = ps
         dsout["pooled"][chan] = {"seed_card": b, "person": c}
     out["datasets"][dslabel] = dsout
-    # headline: shared cert robust iff both pooled methods ANON (and not leaking)
-    sh = dsout["pooled"].get("shared", {})
-    if sh:
+    # headline per test channel: certified robust iff BOTH pooled methods ANON (and not leaking)
+    for tchan in [c for c in CHANS if c != "indiv"]:
+        sh = dsout["pooled"].get(tchan, {})
+        if not sh:
+            continue
         both = sh["seed_card"]["noninf"] and sh["person"]["noninf"] and not sh["seed_card"]["leak"] and not sh["person"]["leak"]
-        print(f"  => shared CERTIFIED (robust): {both}  "
+        print(f"  => {tchan} CERTIFIED (robust): {both}  "
               f"[(B) {sh['seed_card']['verdict']} | (C) {sh['person']['verdict']}]")
     print()
 
-(ROOT / "results" / "multiseed_pool_summary.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
-print("saved -> results/multiseed_pool_summary.json")
+_outname = os.environ.get("OUT", "multiseed_pool_summary.json")
+(ROOT / "results" / _outname).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+print(f"saved -> results/{_outname}")
 print("\nNOTE: (B) and (C) BRACKET the true SE under the crossed person×card structure. shared is certified only if")
 print("      BOTH exclude a ≥U leak. indiv (pos-control) should show LEAK. Per-seed rows show cross-seed consistency.")

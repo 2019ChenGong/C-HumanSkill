@@ -205,6 +205,16 @@ def main():
     out["vs"]["indiv-stranger"] = {"diff": round(float(r["diff"]), 3), "ci": [round(c, 3) for c in r["ci"]], "sig": bool(sig)}
     print(f"  {'OWN-vs-STRANGER (indiv-stranger)'} = {r['diff']:+.3f} CI{[round(c,3) for c in r['ci']]}{sig}", flush=True)
 
+    # DIRECT CMD-vs-concat contrast: report cmd@k - concat@k directly. Comparing each arm's (arm-indiv) significance is
+    # the significance-of-difference FALLACY (cmd-indiv NS vs concat-indiv SIG is NOT a CMD>concat result). This is the
+    # honest head-to-head: on 20-MAD k8 it is +0.018 CI[-0.011,0.044] NS => CMD is NO WORSE than concat, not "beats" it.
+    cmdk, conk = f"cmd@{KCMD}", f"concat@{KCMD}"
+    if cmdk in acc and conk in acc:
+        r = cluster_paired_diff_ci(acc[cmdk], acc[conk], g, seed=SEED)
+        sig = "  <-EXCL0" if (r["ci"][0] > 0 or r["ci"][1] < 0) else ""
+        out["vs"][f"{cmdk}-{conk}"] = {"diff": round(float(r["diff"]), 3), "ci": [round(c, 3) for c in r["ci"]], "sig": bool(sig)}
+        print(f"  DIRECT {cmdk} - {conk} = {r['diff']:+.3f} CI{[round(c,3) for c in r['ci']]}{sig}", flush=True)
+
     if LADDER:
         print(f"\n=== §4 base-rate provenance LADDER gaps (MAD = separable control: expect A_matchgrp-A_randgrp ~= 0) ===", flush=True)
         for x, y, lab in [("A_own", "A_global", "A_own-A_global       (DECOUPLING sign, CI'd)"),

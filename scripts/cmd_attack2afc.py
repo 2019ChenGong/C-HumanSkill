@@ -121,6 +121,8 @@ def build_pairs():
     concat = json.loads(_cpath.read_text(encoding="utf-8")) if ("concat" in CHANS and _cpath.exists()) else {}  # naive hard-pool baseline (group-level card, same key scheme as SHAREDC)
     _npath = CG.SE / os.environ.get("NEUTRALC", "cmd_shared_cards_mad__neutral.json")
     neutral = json.loads(_npath.read_text(encoding="utf-8")) if ("neutral" in CHANS and _npath.exists()) else {}  # CMD shared card built with the utility-preserving synth (isolated file, same key scheme)
+    _pfpath = CG.SE / os.environ.get("CONSPFC", {"enron": "cmd_shared_cards__conspf.json", "mad": "cmd_shared_cards_mad__conspf.json", "cv": "cmd_shared_cards_cv__conspf.json"}.get(DS, "cmd_shared_cards__conspf.json"))
+    conspf = json.loads(_pfpath.read_text(encoding="utf-8")) if ("conspf" in CHANS and _pfpath.exists()) else {}  # consensus-aggregation pooled card (element-level <=1/k), full-replacement candidate; same key scheme
     grp, byc = CG.make_groups(aggro, authors, KCL, SEED)
     refvec = {a: de._content_vec(ref[a]) for a in authors}
     aset = set(authors)
@@ -149,6 +151,8 @@ def build_pairs():
                     card, kind = concat.get(ck), "card"
                 elif chan == "neutral":  # CMD shared card, utility-preserving synth (hard-pool, same ε=0/≤1/k structure as shared)
                     card, kind = neutral.get(ck), "card"
+                elif chan == "conspf":  # consensus-aggregation pooled card (element-level ≤1/k; the full-replacement CMD)
+                    card, kind = conspf.get(ck), "card"
                 elif chan == "raw":  # pure-authorship 2AFC (target = member's held-out raw writing) — easiest positive control
                     card, kind = raw_tgt.get(m), "writing"
                 else:  # any other CHAN = a per-person de-id arm (staab/petre/tpar_t15/presidio/...) from CG.STEP2C

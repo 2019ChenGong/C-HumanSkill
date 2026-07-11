@@ -36,8 +36,16 @@ for pid, mt in meta.items():
     key = (mt["unit"], mt["cmp"])
     pairs.setdefault(key, {"u": mt["u"]})[mt["role"]] = ans[pid]
 
-CMPS = [("in_no", "indiv-nocard (card useful?)"), ("in_st", "indiv-stranger (person-specific?)"),
-        ("sh_no", "shared-nocard (pooling preserves?)")]
+CMPS_ALL = [("in_no", "indiv-nocard (card useful?)"), ("in_st", "indiv-stranger (person-specific?)"),
+            ("sh_no", "shared-nocard (pooling preserves?)"),
+            ("ne_no", "neutral-nocard (neutral pooling helps?)"), ("ne_in", "neutral-indiv (neutral vs ceiling)")]
+_present = {mt["cmp"] for mt in meta.values()}
+CMPS = [(c, nm) for c, nm in CMPS_ALL if c in _present]
+# dynamic head-to-head arms: ne_{arm} = neutral vs a per-person de-id method (+mean => neutral MORE competent)
+for c in sorted(_present):
+    if c not in dict(CMPS_ALL):
+        label = f"neutral-{c[3:]} (CMD vs de-id)" if c.startswith("ne_") else f"{c}"
+        CMPS.append((c, label))
 vals = {c: [] for c, _ in CMPS}
 grps = {c: [] for c, _ in CMPS}
 incomplete = 0
