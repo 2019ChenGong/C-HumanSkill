@@ -1,3 +1,4 @@
+# SUPERSEDED (2026-07): legacy utility instrument, kept for the retraction trail. Canonical utility = FC forced-choice ({mad,cv,enron}_fc_export.py + cv_fc_score.py; placebo battery + delta=.10 verdict dictionary).
 """Aggregate free-sonnet-subagent CV utility judge answers (ans_*.json) -> indiv-nocard / indiv-stranger /
 shared-nocard means + cluster-bootstrap CI over expert. Debiases each (unit,cmp) pair r1/r2 EXACTLY like
 cv_pilot.judge():  r1 = _raw(X,Y) [+1 if 'A'(=X) better], r2 = _raw(Y,X) [+1 if 'A'(=Y) better];

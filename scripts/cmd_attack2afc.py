@@ -1,3 +1,4 @@
+# PARTIALLY SUPERSEDED (2026-07): the paid runner path is retired; build_pairs/SYS/USR_* remain LIVE dependencies of neutral_2afc_export.py (the canonical free-subagent 2AFC exporter imports this module).
 """2AFC paired-discrimination membership attacker (reproducible, scripted, cached) for CMD pooled cards.
 
 WHY: the legacy open-world attacker (cmd_openworld.py -> Opus subagent 0-100 picks) DEGENERATES on de-identified

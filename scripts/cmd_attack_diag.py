@@ -1,3 +1,4 @@
+# SUPERSEDED (2026-07): paid-API 2AFC runner, kept for the retraction trail. Canonical anonymity instrument = free-subagent 2AFC (neutral_2afc_export.py / cr_2afc_export.py -> score_2afc_summary.py -> r6_2afc_certify.py).
 """$0 diagnostic: does the 'universal matcher' phenomenon exist in the EXISTING attacker picks?
 If some candidate-authors get systematically HIGH scores even when they are NEGATIVES (not members),
 then per-candidate calibration (subtract each author's baseline) has real confound to remove.

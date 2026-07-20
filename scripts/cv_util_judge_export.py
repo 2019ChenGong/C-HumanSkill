@@ -1,3 +1,4 @@
+# SUPERSEDED (2026-07): legacy utility instrument, kept for the retraction trail. Canonical utility = FC forced-choice ({mad,cv,enron}_fc_export.py + cv_fc_score.py; placebo battery + delta=.10 verdict dictionary).
 """Export CV UTILITY pairwise-competence judge tasks for FREE sonnet subagents = cross-model check that the
 haiku utility (indiv-nocard +0.564 @26 / +0.463 @77) is NOT a haiku-judge artifact (缺口2).
 

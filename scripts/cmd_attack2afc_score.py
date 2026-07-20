@@ -1,3 +1,4 @@
+# SUPERSEDED (2026-07): paid-API 2AFC runner, kept for the retraction trail. Canonical anonymity instrument = free-subagent 2AFC (neutral_2afc_export.py / cr_2afc_export.py -> score_2afc_summary.py -> r6_2afc_certify.py).
 """Score the 2AFC paired-discrimination attacker. Metric = 2AFC accuracy (chance=0.5), cluster-bootstrap CI over
 card_id. Gates: (1) indiv channel = POSITIVE CONTROL, must be >> 0.5 or the attacker is broken -> result VOID;
 (2) shared/nneg = IDENTITY headline (topic controlled); (3) flip-null: re-label member<->stranger at random ->

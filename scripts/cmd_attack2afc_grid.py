@@ -1,3 +1,4 @@
+# SUPERSEDED (2026-07): paid-API 2AFC runner, kept for the retraction trail. Canonical anonymity instrument = free-subagent 2AFC (neutral_2afc_export.py / cr_2afc_export.py -> score_2afc_summary.py -> r6_2afc_certify.py).
 """Aggregate all 2AFC score files (results[/{ds}]/_2afc_score_*.json) into one master table:
 the identity-destruction ladder raw -> indiv -> shared, per (dataset, k, seed, model, nneg-match), for nneg & rneg.
 Pure $0 reader. Run: python scripts/cmd_attack2afc_grid.py

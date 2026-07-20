@@ -1,3 +1,4 @@
+# SUPERSEDED (2026-07): legacy utility instrument, kept for the retraction trail. Canonical utility = FC forced-choice ({mad,cv,enron}_fc_export.py + cv_fc_score.py; placebo battery + delta=.10 verdict dictionary).
 """20-MAD OBJECTIVE utility: bug-resolution-prediction accuracy per arm — for CMD AND the comparison de-id methods.
 
 Task (objective, NO LLM judge, so no judge-circularity): given a developer's skill card + a held-out solved bug

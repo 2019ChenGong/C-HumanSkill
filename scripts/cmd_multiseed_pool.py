@@ -66,6 +66,30 @@ if MSMODE == "neufix":
                      ("s1", "results/se/neufix_k8_s1"),
                      ("s2", "results/se/neufix_k8_s2")],
     }
+elif MSMODE == "a1":
+    # A1: concat_neutral vs neutral(CMD, fixed) on the SAME fixed cards, k8, 3 seeds, neutral+concat interleaved
+    # in one pack (paired). Both channels are test channels (certified together); no indiv positive control in-pack
+    # (validated separately via the base battery). Same free-subagent sonnet-4.6 2AFC instrument as neufix.
+    DATASETS = {
+        "20-MAD k8": [("s0", "results/mad/a1_ncc_k8_s0"), ("s1", "results/mad/a1_ncc_k8_s1"),
+                      ("s2", "results/mad/a1_ncc_k8_s2")],
+        "Enron k8": [("s0", "results/enron/a1_ncc_k8_s0"), ("s1", "results/enron/a1_ncc_k8_s1"),
+                     ("s2", "results/enron/a1_ncc_k8_s2")],
+        "CV k8":    [("s0", "results/se/a1_ncc_k8_s0"), ("s1", "results/se/a1_ncc_k8_s1"),
+                     ("s2", "results/se/a1_ncc_k8_s2")],
+    }
+elif MSMODE == "v6":
+    # R1 (#125): v6 (minimal-edit sanitize) three-channel packs, canonical wave + 2 new seeds.
+    # Test chan = the CONSPFC slot, relabeled 'v6' (review MINOR-5); 'neutral' = same-wave reference
+    # ONLY, excluded from certification (MINOR-6); 'indiv' = positive-control gate.
+    DATASETS = {
+        "20-MAD k8": [("s0", "results/mad/2afc_v6min"), ("s1", "results/mad/2afc_v6min_s1"),
+                      ("s2", "results/mad/2afc_v6min_s2")],
+        "Enron k8": [("s1", "results/enron/2afc_v6min"), ("s0", "results/enron/2afc_v6min_s0"),
+                     ("s2", "results/enron/2afc_v6min_s2")],
+        "CV k8":    [("s0", "results/se/2afc_v6min"), ("s1", "results/se/2afc_v6min_s1"),
+                     ("s2", "results/se/2afc_v6min_s2")],
+    }
 elif MSMODE == "neutral":
     DATASETS = {
         "Enron k8": [("s0", "results/enron/2afc_util"),          # s0 (verified: grp matches seed 0, not s1)
@@ -85,8 +109,16 @@ else:
                      ("s2", "results/se/ms_k8_s2")],
     }
 # test channels (certified) + indiv positive control (must leak). neutral mode adds the neutral channel.
-CHANS = os.environ.get("MSCHANS", "neutral" if MSMODE == "neufix"
+CHANS = os.environ.get("MSCHANS", "neutral,concat" if MSMODE == "a1"
+                       else "neutral" if MSMODE == "neufix"
+                       else "conspf,neutral,indiv" if MSMODE == "v6"
                        else "neutral,shared,indiv" if MSMODE == "neutral" else "shared,indiv").split(",")
+# v6 mode: relabel the conspf slot to 'v6' everywhere (MINOR-5); neutral = reference-only (MINOR-6);
+# canonical-wave seed per dataset for the new-seeds-only secondary estimate (MAJOR-1).
+RELABEL = {"conspf": "v6"} if MSMODE == "v6" else {}
+REF_CHANS = {"neutral"} if MSMODE == "v6" else set()
+CANON_SEED = {"20-MAD k8": "s0", "Enron k8": "s1", "CV k8": "s0"} if MSMODE == "v6" else {}
+CHANS = [RELABEL.get(c, c) for c in CHANS]
 
 
 def load_seed(seed, bdir):
@@ -104,9 +136,10 @@ def load_seed(seed, bdir):
                 ans[r["pid"]] = m.group(0)
     rows = []
     for pid, mt in meta.items():
-        if mt["chan"] not in CHANS or mt.get("neg") != "nneg" or pid not in ans:
+        ch = RELABEL.get(mt["chan"], mt["chan"])
+        if ch not in CHANS or mt.get("neg") != "nneg" or pid not in ans:
             continue
-        rows.append({"seed": seed, "chan": mt["chan"], "card_id": mt["card_id"],
+        rows.append({"seed": seed, "chan": ch, "card_id": mt["card_id"],
                      "member": mt["member"], "picked_member": int(ans[pid] == mt["member_slot"])})
     return rows, len(meta)
 
@@ -189,9 +222,26 @@ for dslabel, seeds in DATASETS.items():
               f"95%CI[{c['ci95'][0]:.3f},{c['ci95'][1]:.3f}] up95={c['up95']:.3f} SE={c['se']:.3f}  {c['verdict']}")
         dsout["per_seed"][chan] = ps
         dsout["pooled"][chan] = {"seed_card": b, "person": c}
+        # MAJOR-1 (R1 review): secondary estimate over the NEW seeds only (the canonical wave was
+        # observed before R1 was registered -> show how much the headline leans on it).
+        canon = CANON_SEED.get(dslabel)
+        if canon is not None:
+            nrows = [r for r in crows if r["seed"] != canon]
+            if nrows and len({r["seed"] for r in nrows}) >= 1 and len(nrows) < len(crows):
+                nb = certify(boot_by(nrows, lambda r: (r["seed"], r["card_id"])))
+                nc = certify(boot_by(nrows, lambda r: r["member"]))
+                print(f"    (B') NEW-SEEDS-ONLY  acc={nb['acc']:.3f} units={nb['n_units']:>2d} "
+                      f"95%CI[{nb['ci95'][0]:.3f},{nb['ci95'][1]:.3f}] up95={nb['up95']:.3f}  {nb['verdict']}")
+                print(f"    (C') NEW-SEEDS-ONLY  acc={nc['acc']:.3f} units={nc['n_units']:>2d} "
+                      f"95%CI[{nc['ci95'][0]:.3f},{nc['ci95'][1]:.3f}] up95={nc['up95']:.3f}  {nc['verdict']}")
+                dsout.setdefault("pooled_newonly", {})[chan] = {"seed_card": nb, "person": nc}
     out["datasets"][dslabel] = dsout
-    # headline per test channel: certified robust iff BOTH pooled methods ANON (and not leaking)
-    for tchan in [c for c in CHANS if c != "indiv"]:
+    # headline per test channel: certified robust iff BOTH pooled methods ANON (and not leaking);
+    # v6 mode: 'neutral' is reference-only (review MINOR-6) -- never certified here.
+    for rchan in [c for c in CHANS if c in REF_CHANS]:
+        if rchan in dsout["pooled"]:
+            print(f"  -- {rchan}: REFERENCE-ONLY (not a certification claim; A1 owns the ne cert)")
+    for tchan in [c for c in CHANS if c != "indiv" and c not in REF_CHANS]:
         sh = dsout["pooled"].get(tchan, {})
         if not sh:
             continue

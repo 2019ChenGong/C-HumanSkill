@@ -1,3 +1,4 @@
+# SUPERSEDED (2026-07): legacy utility instrument, kept for the retraction trail. Canonical utility = FC forced-choice ({mad,cv,enron}_fc_export.py + cv_fc_score.py; placebo battery + delta=.10 verdict dictionary).
 """CMD utility: pairwise-judge a shared card against individual / no-card / floor / stranger arms across tasks."""
 import os
 import re
