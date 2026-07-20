@@ -1,0 +1,70 @@
+{
+ "instrument_sonnet": "free-subagent sonnet-4.6 2AFC (the single attacker); A1 multiseed pool, delta=0.10",
+ "chance": 0.5,
+ "delta": 0.1,
+ "margin_U": 0.6,
+ "gate_rule": "gpt-5.4 is already validated as a STRONG card-reader by the base 2nd-attacker run: its indiv positive control (per-person cards, UNCHANGED by the degeneracy fix, pooling-seed independent) is .711/.721/.655 (MAD/Enron/CV) >= sonnet and CI>0.5. That gate TRANSFERS to the fixed pooled cards here; so gpt-5.4 reading neutral/concat ~chance means the card is anonymous, not that the attacker is weak.",
+ "channel_kind": {
+  "neutral": "pooled CMD, fixed (want <=de-id, ideally chance)",
+  "concat": "pooled naive concat, fixed (want <=de-id)"
+ },
+ "gate_indiv_from_base_pkg": {
+  "mad": {
+   "gpt54_indiv": 0.711,
+   "sonnet_indiv": 0.691
+  },
+  "cv": {
+   "gpt54_indiv": 0.655,
+   "sonnet_indiv": 0.701
+  },
+  "enron": {
+   "gpt54_indiv": 0.721,
+   "sonnet_indiv": 0.608
+  }
+ },
+ "sonnet_baseline_multiseed_d10": {
+  "mad": {
+   "neutral": {
+    "acc": 0.479,
+    "up95_B": 0.513,
+    "up95_C": 0.522,
+    "verdict": "ANON"
+   },
+   "concat": {
+    "acc": 0.508,
+    "up95_B": 0.543,
+    "up95_C": 0.552,
+    "verdict": "ANON"
+   }
+  },
+  "enron": {
+   "neutral": {
+    "acc": 0.532,
+    "up95_B": 0.564,
+    "up95_C": 0.583,
+    "verdict": "ANON"
+   },
+   "concat": {
+    "acc": 0.536,
+    "up95_B": 0.568,
+    "up95_C": 0.586,
+    "verdict": "ANON"
+   }
+  },
+  "cv": {
+   "neutral": {
+    "acc": 0.535,
+    "up95_B": 0.57,
+    "up95_C": 0.587,
+    "verdict": "ANON"
+   },
+   "concat": {
+    "acc": 0.574,
+    "up95_B": 0.619,
+    "up95_C": 0.626,
+    "verdict": "LEAK (CV concat)"
+   }
+  }
+ },
+ "note": "gpt-5.4 answers the SAME a1_ncc pairs sonnet did (byte-identical prompts). The win: gpt-5.4 reproduces A1 -> neutral CERTIFIED anon on all 3 (up95<0.60 for both poolers B & C); concat anon on MAD/Enron and (like sonnet) LEAKS on CV. That kills 'the pooled card is anonymous only because sonnet is a weak attacker'."
+}

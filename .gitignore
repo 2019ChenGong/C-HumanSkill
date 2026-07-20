@@ -26,9 +26,23 @@ release/
 !/src/
 !/data/
 
-# data/: only its README (actual datasets are regenerated, stay ignored)
+# data/: README + the V6 RELEASE CARDS (sanitized shared cards + build-stat counters).
+# The per-line audit sidecars (*_audit.json) map card lines back to member text and are NEVER tracked
+# (see the hard-deny rule at the bottom). Raw datasets stay regenerated-locally.
 /data/*
 !/data/README.md
+!/data/20mad/
+/data/20mad/*
+!/data/20mad/cmd_shared_cards_mad__v6min.json
+!/data/20mad/cmd_shared_cards_mad__v6min_stats.json
+!/data/se/
+/data/se/*
+!/data/se/cmd_shared_cards_cv__v6min.json
+!/data/se/cmd_shared_cards_cv__v6min_stats.json
+!/data/enron/
+/data/enron/*
+!/data/enron/cmd_shared_cards__v6min.json
+!/data/enron/cmd_shared_cards__v6min_stats.json
 
 # src/: only the key modules
 /src/*
@@ -89,7 +103,60 @@ release/
 !/scripts/cv_util_judge_export.py
 !/scripts/cv_util_judge_score.py
 
+# ============================================================================
+# V6-ERA CANONICAL PIPELINE (CMD := pool + V6 minimal-edit sanitize, 2026-07)
+# ============================================================================
+# canonical build chain: random grouping -> neutral pooling -> degeneracy fix -> V6 sanitize + certificate
+!/scripts/mad_synth_utility.py
+!/scripts/cmd_fix_degenerate.py
+!/scripts/cmd_consensus_pool.py
+!/scripts/elemk_build.py
+!/scripts/v5_sanitize.py
+!/scripts/elemk_v3_gates.py
+# anonymity instrument (free-subagent 2AFC): exporter + scorer + delta=.10 dual-cluster certifiers
+!/scripts/neutral_2afc_export.py
+!/scripts/score_2afc_summary.py
+!/scripts/r6_2afc_certify.py
+!/scripts/r6f_pool_2afc.py
+# utility instrument (FC forced-choice): exporters + scorer + coverage checker + pooling + cross-judge
+!/scripts/mad_fc_export.py
+!/scripts/cv_fc_export.py
+!/scripts/enron_fc_export.py
+!/scripts/cv_fc_score.py
+!/scripts/fc_status.py
+!/scripts/fc_multiseed_pool.py
+!/scripts/mad_fc_judge_qwen.py
+# mechanism / baseline tooling
+!/scripts/cmd_dispersion.py
+!/scripts/cmd_tcloseness.py
+!/scripts/cmd_xcard_export.py
+!/scripts/cmd_xcard_score.py
+!/scripts/xcard_census_norm.py
+!/scripts/petre_noop_census.py
+# R-series robustness verifiers (rebuild stability / k-gradient / fuzzy-lexical + linkage / retry probe)
+!/scripts/r9_rebuild_check.py
+!/scripts/r13_neutral_build.py
+!/scripts/r13_fc_curve.py
+!/scripts/r7_fuzzy_2afc.py
+!/scripts/r7_linkage_paired.py
+!/scripts/r7_xcard_v6_census.py
+!/scripts/r6e_retry_probe.py
+# cross-model swap packages (A2 fixed-card second attacker, A3 distiller swap)
+!/scripts/build_gpt54_fixed_pkg.py
+!/scripts/a3_qwen_neutral_build.py
+
 # gpt-5.4 second-attacker package (#9a): harness + baseline + gpt-5.4 answers + answer keys + scored summary.
 # EXCLUDE the bulky batch_*.json prompt blobs (23M, dataset-derived, regenerable via scripts/cr_2afc_export.py).
 !/gpt54_2afc_pkg/
 /gpt54_2afc_pkg/tasks/*/batch_*.json
+
+# gpt-5.4 second attacker on the FIXED cards (A2, cited certification): same layout + exclusions.
+!/gpt54_2afc_fixed_pkg/
+/gpt54_2afc_fixed_pkg/tasks/*/batch_*.json
+
+# ============================================================================
+# HARD DENY — must stay LAST so no whitelist rule above can re-include these.
+# Per-line sanitize audit sidecars map card lines back to member text; they share
+# the access level of raw member data and are NEVER shipped, in any directory.
+# ============================================================================
+*_audit.json

@@ -1,0 +1,3714 @@
+{
+ "P0000": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "mann-k",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0001": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "mann-k",
+  "stranger": "hyatt-k",
+  "member_slot": "B"
+ },
+ "P0002": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "mann-k",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0003": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "mann-k",
+  "stranger": "hyatt-k",
+  "member_slot": "B"
+ },
+ "P0004": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "sager-e",
+  "stranger": "shankman-j",
+  "member_slot": "B"
+ },
+ "P0005": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "sager-e",
+  "stranger": "white-s",
+  "member_slot": "B"
+ },
+ "P0006": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "sager-e",
+  "stranger": "shankman-j",
+  "member_slot": "B"
+ },
+ "P0007": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "sager-e",
+  "stranger": "white-s",
+  "member_slot": "B"
+ },
+ "P0008": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "derrick-j",
+  "stranger": "skilling-j",
+  "member_slot": "A"
+ },
+ "P0009": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "derrick-j",
+  "stranger": "shankman-j",
+  "member_slot": "A"
+ },
+ "P0010": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "derrick-j",
+  "stranger": "skilling-j",
+  "member_slot": "B"
+ },
+ "P0011": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "derrick-j",
+  "stranger": "shankman-j",
+  "member_slot": "B"
+ },
+ "P0012": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "hernandez-j",
+  "stranger": "stepenovitch-j",
+  "member_slot": "A"
+ },
+ "P0013": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "hernandez-j",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0014": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "hernandez-j",
+  "stranger": "stepenovitch-j",
+  "member_slot": "B"
+ },
+ "P0015": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "hernandez-j",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0016": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "schoolcraft-d",
+  "stranger": "skilling-j",
+  "member_slot": "A"
+ },
+ "P0017": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "schoolcraft-d",
+  "stranger": "scott-s",
+  "member_slot": "A"
+ },
+ "P0018": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "schoolcraft-d",
+  "stranger": "skilling-j",
+  "member_slot": "A"
+ },
+ "P0019": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "schoolcraft-d",
+  "stranger": "scott-s",
+  "member_slot": "A"
+ },
+ "P0020": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "kuykendall-t",
+  "stranger": "guzman-m",
+  "member_slot": "A"
+ },
+ "P0021": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "kuykendall-t",
+  "stranger": "causholli-m",
+  "member_slot": "B"
+ },
+ "P0022": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "kuykendall-t",
+  "stranger": "guzman-m",
+  "member_slot": "A"
+ },
+ "P0023": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "kuykendall-t",
+  "stranger": "causholli-m",
+  "member_slot": "B"
+ },
+ "P0024": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "ruscitti-k",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0025": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "ruscitti-k",
+  "stranger": "sturm-f",
+  "member_slot": "B"
+ },
+ "P0026": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "ruscitti-k",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0027": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "ruscitti-k",
+  "stranger": "sturm-f",
+  "member_slot": "A"
+ },
+ "P0028": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "crandell-s",
+  "stranger": "taylor-m",
+  "member_slot": "A"
+ },
+ "P0029": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "crandell-s",
+  "stranger": "keiser-k",
+  "member_slot": "B"
+ },
+ "P0030": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "crandell-s",
+  "stranger": "taylor-m",
+  "member_slot": "B"
+ },
+ "P0031": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G9",
+  "member": "crandell-s",
+  "stranger": "keiser-k",
+  "member_slot": "B"
+ },
+ "P0032": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "kaminski-v",
+  "stranger": "stepenovitch-j",
+  "member_slot": "A"
+ },
+ "P0033": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "kaminski-v",
+  "stranger": "sturm-f",
+  "member_slot": "A"
+ },
+ "P0034": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "kaminski-v",
+  "stranger": "stepenovitch-j",
+  "member_slot": "A"
+ },
+ "P0035": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "kaminski-v",
+  "stranger": "sturm-f",
+  "member_slot": "B"
+ },
+ "P0036": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "germany-c",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0037": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "germany-c",
+  "stranger": "martin-t",
+  "member_slot": "B"
+ },
+ "P0038": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "germany-c",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0039": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "germany-c",
+  "stranger": "martin-t",
+  "member_slot": "A"
+ },
+ "P0040": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "bass-e",
+  "stranger": "hayslett-r",
+  "member_slot": "B"
+ },
+ "P0041": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "bass-e",
+  "stranger": "presto-k",
+  "member_slot": "B"
+ },
+ "P0042": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "bass-e",
+  "stranger": "hayslett-r",
+  "member_slot": "A"
+ },
+ "P0043": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "bass-e",
+  "stranger": "presto-k",
+  "member_slot": "A"
+ },
+ "P0044": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "giron-d",
+  "stranger": "whalley-l",
+  "member_slot": "A"
+ },
+ "P0045": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "giron-d",
+  "stranger": "heard-m",
+  "member_slot": "A"
+ },
+ "P0046": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "giron-d",
+  "stranger": "whalley-l",
+  "member_slot": "B"
+ },
+ "P0047": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "giron-d",
+  "stranger": "heard-m",
+  "member_slot": "B"
+ },
+ "P0048": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "steffes-j",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0049": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "steffes-j",
+  "stranger": "stepenovitch-j",
+  "member_slot": "A"
+ },
+ "P0050": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "steffes-j",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0051": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "steffes-j",
+  "stranger": "stepenovitch-j",
+  "member_slot": "B"
+ },
+ "P0052": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "corman-s",
+  "stranger": "scott-s",
+  "member_slot": "B"
+ },
+ "P0053": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "corman-s",
+  "stranger": "heard-m",
+  "member_slot": "B"
+ },
+ "P0054": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "corman-s",
+  "stranger": "scott-s",
+  "member_slot": "A"
+ },
+ "P0055": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "corman-s",
+  "stranger": "heard-m",
+  "member_slot": "A"
+ },
+ "P0056": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "carson-m",
+  "stranger": "allen-p",
+  "member_slot": "A"
+ },
+ "P0057": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "carson-m",
+  "stranger": "davis-d",
+  "member_slot": "A"
+ },
+ "P0058": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "carson-m",
+  "stranger": "allen-p",
+  "member_slot": "A"
+ },
+ "P0059": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "carson-m",
+  "stranger": "davis-d",
+  "member_slot": "A"
+ },
+ "P0060": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "fischer-m",
+  "stranger": "gay-r",
+  "member_slot": "A"
+ },
+ "P0061": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "fischer-m",
+  "stranger": "forney-j",
+  "member_slot": "B"
+ },
+ "P0062": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "fischer-m",
+  "stranger": "gay-r",
+  "member_slot": "B"
+ },
+ "P0063": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "fischer-m",
+  "stranger": "forney-j",
+  "member_slot": "A"
+ },
+ "P0064": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "dasovich-j",
+  "stranger": "white-s",
+  "member_slot": "A"
+ },
+ "P0065": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "dasovich-j",
+  "stranger": "mann-k",
+  "member_slot": "B"
+ },
+ "P0066": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "dasovich-j",
+  "stranger": "white-s",
+  "member_slot": "B"
+ },
+ "P0067": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "dasovich-j",
+  "stranger": "mann-k",
+  "member_slot": "A"
+ },
+ "P0068": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "sanders-r",
+  "stranger": "mann-k",
+  "member_slot": "A"
+ },
+ "P0069": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "sanders-r",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0070": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "sanders-r",
+  "stranger": "mann-k",
+  "member_slot": "A"
+ },
+ "P0071": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "sanders-r",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0072": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "kitchen-l",
+  "stranger": "tholt-j",
+  "member_slot": "A"
+ },
+ "P0073": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "kitchen-l",
+  "stranger": "mclaughlin-e",
+  "member_slot": "B"
+ },
+ "P0074": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "kitchen-l",
+  "stranger": "tholt-j",
+  "member_slot": "A"
+ },
+ "P0075": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "kitchen-l",
+  "stranger": "mclaughlin-e",
+  "member_slot": "B"
+ },
+ "P0076": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "shankman-j",
+  "stranger": "sager-e",
+  "member_slot": "B"
+ },
+ "P0077": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "shankman-j",
+  "stranger": "staab-t",
+  "member_slot": "A"
+ },
+ "P0078": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "shankman-j",
+  "stranger": "sager-e",
+  "member_slot": "A"
+ },
+ "P0079": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "shankman-j",
+  "stranger": "staab-t",
+  "member_slot": "A"
+ },
+ "P0080": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "buy-r",
+  "stranger": "schwieger-j",
+  "member_slot": "A"
+ },
+ "P0081": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "buy-r",
+  "stranger": "shively-h",
+  "member_slot": "B"
+ },
+ "P0082": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "buy-r",
+  "stranger": "schwieger-j",
+  "member_slot": "A"
+ },
+ "P0083": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "buy-r",
+  "stranger": "shively-h",
+  "member_slot": "B"
+ },
+ "P0084": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "skilling-j",
+  "stranger": "geaccone-t",
+  "member_slot": "A"
+ },
+ "P0085": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "skilling-j",
+  "stranger": "schoolcraft-d",
+  "member_slot": "B"
+ },
+ "P0086": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "skilling-j",
+  "stranger": "geaccone-t",
+  "member_slot": "B"
+ },
+ "P0087": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "skilling-j",
+  "stranger": "schoolcraft-d",
+  "member_slot": "B"
+ },
+ "P0088": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "semperger-c",
+  "stranger": "taylor-m",
+  "member_slot": "B"
+ },
+ "P0089": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "semperger-c",
+  "stranger": "crandell-s",
+  "member_slot": "A"
+ },
+ "P0090": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "semperger-c",
+  "stranger": "taylor-m",
+  "member_slot": "A"
+ },
+ "P0091": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "semperger-c",
+  "stranger": "crandell-s",
+  "member_slot": "A"
+ },
+ "P0092": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "lokey-t",
+  "stranger": "watson-k",
+  "member_slot": "B"
+ },
+ "P0093": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "lokey-t",
+  "stranger": "lenhart-m",
+  "member_slot": "B"
+ },
+ "P0094": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "lokey-t",
+  "stranger": "watson-k",
+  "member_slot": "A"
+ },
+ "P0095": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "lokey-t",
+  "stranger": "lenhart-m",
+  "member_slot": "A"
+ },
+ "P0096": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "shackleton-s",
+  "stranger": "scott-s",
+  "member_slot": "B"
+ },
+ "P0097": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "shackleton-s",
+  "stranger": "hyvl-d",
+  "member_slot": "A"
+ },
+ "P0098": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "shackleton-s",
+  "stranger": "scott-s",
+  "member_slot": "A"
+ },
+ "P0099": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "shackleton-s",
+  "stranger": "hyvl-d",
+  "member_slot": "B"
+ },
+ "P0100": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "lavorato-j",
+  "stranger": "baughman-d",
+  "member_slot": "B"
+ },
+ "P0101": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "lavorato-j",
+  "stranger": "keavey-p",
+  "member_slot": "A"
+ },
+ "P0102": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "lavorato-j",
+  "stranger": "baughman-d",
+  "member_slot": "B"
+ },
+ "P0103": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "lavorato-j",
+  "stranger": "keavey-p",
+  "member_slot": "B"
+ },
+ "P0104": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "allen-p",
+  "stranger": "lewis-a",
+  "member_slot": "A"
+ },
+ "P0105": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "allen-p",
+  "stranger": "rogers-b",
+  "member_slot": "A"
+ },
+ "P0106": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "allen-p",
+  "stranger": "lewis-a",
+  "member_slot": "B"
+ },
+ "P0107": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "allen-p",
+  "stranger": "rogers-b",
+  "member_slot": "B"
+ },
+ "P0108": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "white-s",
+  "stranger": "hyatt-k",
+  "member_slot": "A"
+ },
+ "P0109": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "white-s",
+  "stranger": "blair-l",
+  "member_slot": "A"
+ },
+ "P0110": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "white-s",
+  "stranger": "hyatt-k",
+  "member_slot": "A"
+ },
+ "P0111": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "white-s",
+  "stranger": "blair-l",
+  "member_slot": "B"
+ },
+ "P0112": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "weldon-c",
+  "stranger": "geaccone-t",
+  "member_slot": "A"
+ },
+ "P0113": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "weldon-c",
+  "stranger": "blair-l",
+  "member_slot": "A"
+ },
+ "P0114": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "weldon-c",
+  "stranger": "geaccone-t",
+  "member_slot": "B"
+ },
+ "P0115": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "weldon-c",
+  "stranger": "blair-l",
+  "member_slot": "B"
+ },
+ "P0116": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "pereira-s",
+  "stranger": "staab-t",
+  "member_slot": "A"
+ },
+ "P0117": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "pereira-s",
+  "stranger": "rodrique-r",
+  "member_slot": "A"
+ },
+ "P0118": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "pereira-s",
+  "stranger": "staab-t",
+  "member_slot": "A"
+ },
+ "P0119": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "pereira-s",
+  "stranger": "rodrique-r",
+  "member_slot": "B"
+ },
+ "P0120": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "mckay-j",
+  "stranger": "jones-t",
+  "member_slot": "B"
+ },
+ "P0121": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "mckay-j",
+  "stranger": "love-p",
+  "member_slot": "B"
+ },
+ "P0122": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "mckay-j",
+  "stranger": "jones-t",
+  "member_slot": "A"
+ },
+ "P0123": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "mckay-j",
+  "stranger": "love-p",
+  "member_slot": "B"
+ },
+ "P0124": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "lucci-p",
+  "stranger": "neal-s",
+  "member_slot": "A"
+ },
+ "P0125": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "lucci-p",
+  "stranger": "kuykendall-t",
+  "member_slot": "B"
+ },
+ "P0126": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "lucci-p",
+  "stranger": "neal-s",
+  "member_slot": "A"
+ },
+ "P0127": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "lucci-p",
+  "stranger": "kuykendall-t",
+  "member_slot": "A"
+ },
+ "P0128": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "jones-t",
+  "stranger": "platter-p",
+  "member_slot": "A"
+ },
+ "P0129": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "jones-t",
+  "stranger": "kean-s",
+  "member_slot": "B"
+ },
+ "P0130": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "jones-t",
+  "stranger": "platter-p",
+  "member_slot": "B"
+ },
+ "P0131": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "jones-t",
+  "stranger": "kean-s",
+  "member_slot": "B"
+ },
+ "P0132": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "fossum-d",
+  "stranger": "zipper-a",
+  "member_slot": "B"
+ },
+ "P0133": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "fossum-d",
+  "stranger": "skilling-j",
+  "member_slot": "A"
+ },
+ "P0134": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "fossum-d",
+  "stranger": "zipper-a",
+  "member_slot": "A"
+ },
+ "P0135": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "fossum-d",
+  "stranger": "skilling-j",
+  "member_slot": "B"
+ },
+ "P0136": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "rogers-b",
+  "stranger": "allen-p",
+  "member_slot": "A"
+ },
+ "P0137": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "rogers-b",
+  "stranger": "hyatt-k",
+  "member_slot": "A"
+ },
+ "P0138": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "rogers-b",
+  "stranger": "allen-p",
+  "member_slot": "A"
+ },
+ "P0139": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "rogers-b",
+  "stranger": "hyatt-k",
+  "member_slot": "B"
+ },
+ "P0140": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "mcconnell-m",
+  "stranger": "beck-s",
+  "member_slot": "B"
+ },
+ "P0141": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "mcconnell-m",
+  "stranger": "martin-t",
+  "member_slot": "B"
+ },
+ "P0142": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "mcconnell-m",
+  "stranger": "beck-s",
+  "member_slot": "A"
+ },
+ "P0143": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "mcconnell-m",
+  "stranger": "martin-t",
+  "member_slot": "B"
+ },
+ "P0144": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "forney-j",
+  "stranger": "skilling-j",
+  "member_slot": "B"
+ },
+ "P0145": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "forney-j",
+  "stranger": "symes-k",
+  "member_slot": "B"
+ },
+ "P0146": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "forney-j",
+  "stranger": "skilling-j",
+  "member_slot": "A"
+ },
+ "P0147": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "forney-j",
+  "stranger": "symes-k",
+  "member_slot": "A"
+ },
+ "P0148": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "ring-a",
+  "stranger": "schwieger-j",
+  "member_slot": "B"
+ },
+ "P0149": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "ring-a",
+  "stranger": "horton-s",
+  "member_slot": "B"
+ },
+ "P0150": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "ring-a",
+  "stranger": "schwieger-j",
+  "member_slot": "A"
+ },
+ "P0151": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "ring-a",
+  "stranger": "horton-s",
+  "member_slot": "A"
+ },
+ "P0152": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "dickson-s",
+  "stranger": "sager-e",
+  "member_slot": "A"
+ },
+ "P0153": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "dickson-s",
+  "stranger": "heard-m",
+  "member_slot": "A"
+ },
+ "P0154": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "dickson-s",
+  "stranger": "sager-e",
+  "member_slot": "B"
+ },
+ "P0155": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "dickson-s",
+  "stranger": "heard-m",
+  "member_slot": "B"
+ },
+ "P0156": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "hodge-j",
+  "stranger": "nemec-g",
+  "member_slot": "B"
+ },
+ "P0157": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "hodge-j",
+  "stranger": "haedicke-m",
+  "member_slot": "A"
+ },
+ "P0158": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "hodge-j",
+  "stranger": "nemec-g",
+  "member_slot": "B"
+ },
+ "P0159": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "hodge-j",
+  "stranger": "haedicke-m",
+  "member_slot": "B"
+ },
+ "P0160": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "lenhart-m",
+  "stranger": "guzman-m",
+  "member_slot": "A"
+ },
+ "P0161": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "lenhart-m",
+  "stranger": "ruscitti-k",
+  "member_slot": "A"
+ },
+ "P0162": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "lenhart-m",
+  "stranger": "guzman-m",
+  "member_slot": "A"
+ },
+ "P0163": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "lenhart-m",
+  "stranger": "ruscitti-k",
+  "member_slot": "B"
+ },
+ "P0164": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "dorland-c",
+  "stranger": "rapp-b",
+  "member_slot": "B"
+ },
+ "P0165": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "dorland-c",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0166": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "dorland-c",
+  "stranger": "rapp-b",
+  "member_slot": "B"
+ },
+ "P0167": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "dorland-c",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0168": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "mclaughlin-e",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0169": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "mclaughlin-e",
+  "stranger": "kitchen-l",
+  "member_slot": "B"
+ },
+ "P0170": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "mclaughlin-e",
+  "stranger": "steffes-j",
+  "member_slot": "B"
+ },
+ "P0171": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "mclaughlin-e",
+  "stranger": "kitchen-l",
+  "member_slot": "B"
+ },
+ "P0172": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "richey-c",
+  "stranger": "smith-m",
+  "member_slot": "A"
+ },
+ "P0173": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "richey-c",
+  "stranger": "hendrickson-s",
+  "member_slot": "A"
+ },
+ "P0174": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "richey-c",
+  "stranger": "smith-m",
+  "member_slot": "A"
+ },
+ "P0175": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "richey-c",
+  "stranger": "hendrickson-s",
+  "member_slot": "A"
+ },
+ "P0176": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "brawner-s",
+  "stranger": "campbell-l",
+  "member_slot": "B"
+ },
+ "P0177": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "brawner-s",
+  "stranger": "shively-h",
+  "member_slot": "B"
+ },
+ "P0178": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "brawner-s",
+  "stranger": "campbell-l",
+  "member_slot": "A"
+ },
+ "P0179": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "brawner-s",
+  "stranger": "shively-h",
+  "member_slot": "B"
+ },
+ "P0180": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "whalley-g",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0181": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "whalley-g",
+  "stranger": "rapp-b",
+  "member_slot": "A"
+ },
+ "P0182": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "whalley-g",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0183": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "whalley-g",
+  "stranger": "rapp-b",
+  "member_slot": "A"
+ },
+ "P0184": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "ybarbo-p",
+  "stranger": "white-s",
+  "member_slot": "A"
+ },
+ "P0185": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "ybarbo-p",
+  "stranger": "cash-m",
+  "member_slot": "A"
+ },
+ "P0186": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "ybarbo-p",
+  "stranger": "white-s",
+  "member_slot": "A"
+ },
+ "P0187": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "ybarbo-p",
+  "stranger": "cash-m",
+  "member_slot": "A"
+ },
+ "P0188": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "scholtes-d",
+  "stranger": "symes-k",
+  "member_slot": "B"
+ },
+ "P0189": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "scholtes-d",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0190": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "scholtes-d",
+  "stranger": "symes-k",
+  "member_slot": "B"
+ },
+ "P0191": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G12",
+  "member": "scholtes-d",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0192": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "beck-s",
+  "stranger": "mcconnell-m",
+  "member_slot": "A"
+ },
+ "P0193": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "beck-s",
+  "stranger": "carson-m",
+  "member_slot": "B"
+ },
+ "P0194": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "beck-s",
+  "stranger": "mcconnell-m",
+  "member_slot": "A"
+ },
+ "P0195": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "beck-s",
+  "stranger": "carson-m",
+  "member_slot": "A"
+ },
+ "P0196": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "symes-k",
+  "stranger": "scholtes-d",
+  "member_slot": "B"
+ },
+ "P0197": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "symes-k",
+  "stranger": "skilling-j",
+  "member_slot": "B"
+ },
+ "P0198": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "symes-k",
+  "stranger": "scholtes-d",
+  "member_slot": "B"
+ },
+ "P0199": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "symes-k",
+  "stranger": "skilling-j",
+  "member_slot": "B"
+ },
+ "P0200": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "taylor-m",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0201": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "taylor-m",
+  "stranger": "crandell-s",
+  "member_slot": "B"
+ },
+ "P0202": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "taylor-m",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0203": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "taylor-m",
+  "stranger": "crandell-s",
+  "member_slot": "B"
+ },
+ "P0204": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "kean-s",
+  "stranger": "geaccone-t",
+  "member_slot": "B"
+ },
+ "P0205": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "kean-s",
+  "stranger": "jones-t",
+  "member_slot": "A"
+ },
+ "P0206": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "kean-s",
+  "stranger": "geaccone-t",
+  "member_slot": "A"
+ },
+ "P0207": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "kean-s",
+  "stranger": "jones-t",
+  "member_slot": "B"
+ },
+ "P0208": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "hyvl-d",
+  "stranger": "staab-t",
+  "member_slot": "B"
+ },
+ "P0209": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "hyvl-d",
+  "stranger": "shackleton-s",
+  "member_slot": "B"
+ },
+ "P0210": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "hyvl-d",
+  "stranger": "staab-t",
+  "member_slot": "B"
+ },
+ "P0211": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "hyvl-d",
+  "stranger": "shackleton-s",
+  "member_slot": "A"
+ },
+ "P0212": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "lay-k",
+  "stranger": "heard-m",
+  "member_slot": "A"
+ },
+ "P0213": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "lay-k",
+  "stranger": "donoho-l",
+  "member_slot": "B"
+ },
+ "P0214": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "lay-k",
+  "stranger": "heard-m",
+  "member_slot": "B"
+ },
+ "P0215": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "lay-k",
+  "stranger": "donoho-l",
+  "member_slot": "A"
+ },
+ "P0216": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "martin-t",
+  "stranger": "sanchez-m",
+  "member_slot": "B"
+ },
+ "P0217": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "martin-t",
+  "stranger": "mcconnell-m",
+  "member_slot": "B"
+ },
+ "P0218": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "martin-t",
+  "stranger": "sanchez-m",
+  "member_slot": "A"
+ },
+ "P0219": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "martin-t",
+  "stranger": "mcconnell-m",
+  "member_slot": "B"
+ },
+ "P0220": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "hendrickson-s",
+  "stranger": "geaccone-t",
+  "member_slot": "A"
+ },
+ "P0221": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "hendrickson-s",
+  "stranger": "quigley-d",
+  "member_slot": "B"
+ },
+ "P0222": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "hendrickson-s",
+  "stranger": "geaccone-t",
+  "member_slot": "A"
+ },
+ "P0223": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "hendrickson-s",
+  "stranger": "quigley-d",
+  "member_slot": "B"
+ },
+ "P0224": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "scott-s",
+  "stranger": "schoolcraft-d",
+  "member_slot": "A"
+ },
+ "P0225": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "scott-s",
+  "stranger": "shackleton-s",
+  "member_slot": "A"
+ },
+ "P0226": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "scott-s",
+  "stranger": "schoolcraft-d",
+  "member_slot": "A"
+ },
+ "P0227": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "scott-s",
+  "stranger": "shackleton-s",
+  "member_slot": "B"
+ },
+ "P0228": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "neal-s",
+  "stranger": "lucci-p",
+  "member_slot": "B"
+ },
+ "P0229": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "neal-s",
+  "stranger": "delainey-d",
+  "member_slot": "A"
+ },
+ "P0230": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "neal-s",
+  "stranger": "lucci-p",
+  "member_slot": "B"
+ },
+ "P0231": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "neal-s",
+  "stranger": "delainey-d",
+  "member_slot": "B"
+ },
+ "P0232": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "watson-k",
+  "stranger": "rogers-b",
+  "member_slot": "A"
+ },
+ "P0233": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "watson-k",
+  "stranger": "lavorato-j",
+  "member_slot": "A"
+ },
+ "P0234": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "watson-k",
+  "stranger": "rogers-b",
+  "member_slot": "B"
+ },
+ "P0235": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "watson-k",
+  "stranger": "lavorato-j",
+  "member_slot": "B"
+ },
+ "P0236": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "horton-s",
+  "stranger": "schwieger-j",
+  "member_slot": "B"
+ },
+ "P0237": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "horton-s",
+  "stranger": "ring-a",
+  "member_slot": "B"
+ },
+ "P0238": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "horton-s",
+  "stranger": "schwieger-j",
+  "member_slot": "A"
+ },
+ "P0239": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "horton-s",
+  "stranger": "ring-a",
+  "member_slot": "A"
+ },
+ "P0240": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "davis-d",
+  "stranger": "carson-m",
+  "member_slot": "A"
+ },
+ "P0241": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "davis-d",
+  "stranger": "hain-m",
+  "member_slot": "B"
+ },
+ "P0242": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "davis-d",
+  "stranger": "carson-m",
+  "member_slot": "A"
+ },
+ "P0243": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "davis-d",
+  "stranger": "hain-m",
+  "member_slot": "A"
+ },
+ "P0244": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "donoho-l",
+  "stranger": "schoolcraft-d",
+  "member_slot": "A"
+ },
+ "P0245": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "donoho-l",
+  "stranger": "kean-s",
+  "member_slot": "A"
+ },
+ "P0246": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "donoho-l",
+  "stranger": "schoolcraft-d",
+  "member_slot": "A"
+ },
+ "P0247": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "donoho-l",
+  "stranger": "kean-s",
+  "member_slot": "A"
+ },
+ "P0248": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "mccarty-d",
+  "stranger": "presto-k",
+  "member_slot": "A"
+ },
+ "P0249": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "mccarty-d",
+  "stranger": "staab-t",
+  "member_slot": "B"
+ },
+ "P0250": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "mccarty-d",
+  "stranger": "presto-k",
+  "member_slot": "B"
+ },
+ "P0251": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "mccarty-d",
+  "stranger": "staab-t",
+  "member_slot": "A"
+ },
+ "P0252": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "wolfe-j",
+  "stranger": "presto-k",
+  "member_slot": "A"
+ },
+ "P0253": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "wolfe-j",
+  "stranger": "zufferli-j",
+  "member_slot": "B"
+ },
+ "P0254": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "wolfe-j",
+  "stranger": "presto-k",
+  "member_slot": "B"
+ },
+ "P0255": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "wolfe-j",
+  "stranger": "zufferli-j",
+  "member_slot": "B"
+ },
+ "P0256": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "love-p",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0257": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "love-p",
+  "stranger": "whalley-g",
+  "member_slot": "B"
+ },
+ "P0258": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "love-p",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0259": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "love-p",
+  "stranger": "whalley-g",
+  "member_slot": "B"
+ },
+ "P0260": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "grigsby-m",
+  "stranger": "rodrique-r",
+  "member_slot": "B"
+ },
+ "P0261": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "grigsby-m",
+  "stranger": "hayslett-r",
+  "member_slot": "B"
+ },
+ "P0262": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "grigsby-m",
+  "stranger": "rodrique-r",
+  "member_slot": "B"
+ },
+ "P0263": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "grigsby-m",
+  "stranger": "hayslett-r",
+  "member_slot": "A"
+ },
+ "P0264": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "mims-thurston-p",
+  "stranger": "shively-h",
+  "member_slot": "A"
+ },
+ "P0265": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "mims-thurston-p",
+  "stranger": "parks-j",
+  "member_slot": "B"
+ },
+ "P0266": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "mims-thurston-p",
+  "stranger": "shively-h",
+  "member_slot": "A"
+ },
+ "P0267": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "mims-thurston-p",
+  "stranger": "parks-j",
+  "member_slot": "A"
+ },
+ "P0268": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "quigley-d",
+  "stranger": "hendrickson-s",
+  "member_slot": "A"
+ },
+ "P0269": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "quigley-d",
+  "stranger": "storey-g",
+  "member_slot": "B"
+ },
+ "P0270": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "quigley-d",
+  "stranger": "hendrickson-s",
+  "member_slot": "B"
+ },
+ "P0271": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "quigley-d",
+  "stranger": "storey-g",
+  "member_slot": "B"
+ },
+ "P0272": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "cuilla-m",
+  "stranger": "whalley-g",
+  "member_slot": "B"
+ },
+ "P0273": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "cuilla-m",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0274": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "cuilla-m",
+  "stranger": "whalley-g",
+  "member_slot": "B"
+ },
+ "P0275": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "cuilla-m",
+  "stranger": "steffes-j",
+  "member_slot": "B"
+ },
+ "P0276": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "rapp-b",
+  "stranger": "gay-r",
+  "member_slot": "B"
+ },
+ "P0277": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "rapp-b",
+  "stranger": "whalley-g",
+  "member_slot": "A"
+ },
+ "P0278": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "rapp-b",
+  "stranger": "gay-r",
+  "member_slot": "A"
+ },
+ "P0279": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "rapp-b",
+  "stranger": "whalley-g",
+  "member_slot": "A"
+ },
+ "P0280": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "staab-t",
+  "stranger": "hyvl-d",
+  "member_slot": "B"
+ },
+ "P0281": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "staab-t",
+  "stranger": "shankman-j",
+  "member_slot": "A"
+ },
+ "P0282": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "staab-t",
+  "stranger": "hyvl-d",
+  "member_slot": "A"
+ },
+ "P0283": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "staab-t",
+  "stranger": "shankman-j",
+  "member_slot": "B"
+ },
+ "P0284": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "arora-h",
+  "stranger": "neal-s",
+  "member_slot": "B"
+ },
+ "P0285": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "arora-h",
+  "stranger": "lavorato-j",
+  "member_slot": "A"
+ },
+ "P0286": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "arora-h",
+  "stranger": "neal-s",
+  "member_slot": "B"
+ },
+ "P0287": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G10",
+  "member": "arora-h",
+  "stranger": "lavorato-j",
+  "member_slot": "B"
+ },
+ "P0288": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "arnold-j",
+  "stranger": "heard-m",
+  "member_slot": "A"
+ },
+ "P0289": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "arnold-j",
+  "stranger": "zufferli-j",
+  "member_slot": "B"
+ },
+ "P0290": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "arnold-j",
+  "stranger": "heard-m",
+  "member_slot": "B"
+ },
+ "P0291": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "arnold-j",
+  "stranger": "zufferli-j",
+  "member_slot": "B"
+ },
+ "P0292": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "rodrique-r",
+  "stranger": "pereira-s",
+  "member_slot": "A"
+ },
+ "P0293": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "rodrique-r",
+  "stranger": "arora-h",
+  "member_slot": "A"
+ },
+ "P0294": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "rodrique-r",
+  "stranger": "pereira-s",
+  "member_slot": "A"
+ },
+ "P0295": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "rodrique-r",
+  "stranger": "arora-h",
+  "member_slot": "B"
+ },
+ "P0296": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "blair-l",
+  "stranger": "white-s",
+  "member_slot": "B"
+ },
+ "P0297": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "blair-l",
+  "stranger": "hyatt-k",
+  "member_slot": "A"
+ },
+ "P0298": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "blair-l",
+  "stranger": "white-s",
+  "member_slot": "B"
+ },
+ "P0299": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "blair-l",
+  "stranger": "hyatt-k",
+  "member_slot": "B"
+ },
+ "P0300": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "ward-k",
+  "stranger": "geaccone-t",
+  "member_slot": "A"
+ },
+ "P0301": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "ward-k",
+  "stranger": "whalley-l",
+  "member_slot": "B"
+ },
+ "P0302": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "ward-k",
+  "stranger": "geaccone-t",
+  "member_slot": "A"
+ },
+ "P0303": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "ward-k",
+  "stranger": "whalley-l",
+  "member_slot": "A"
+ },
+ "P0304": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "schwieger-j",
+  "stranger": "ring-a",
+  "member_slot": "A"
+ },
+ "P0305": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "schwieger-j",
+  "stranger": "horton-s",
+  "member_slot": "A"
+ },
+ "P0306": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "schwieger-j",
+  "stranger": "ring-a",
+  "member_slot": "A"
+ },
+ "P0307": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "schwieger-j",
+  "stranger": "horton-s",
+  "member_slot": "A"
+ },
+ "P0308": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "storey-g",
+  "stranger": "quigley-d",
+  "member_slot": "B"
+ },
+ "P0309": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "storey-g",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0310": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "storey-g",
+  "stranger": "quigley-d",
+  "member_slot": "B"
+ },
+ "P0311": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "storey-g",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0312": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "salisbury-h",
+  "stranger": "hayslett-r",
+  "member_slot": "B"
+ },
+ "P0313": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "salisbury-h",
+  "stranger": "dorland-c",
+  "member_slot": "B"
+ },
+ "P0314": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "salisbury-h",
+  "stranger": "hayslett-r",
+  "member_slot": "B"
+ },
+ "P0315": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "salisbury-h",
+  "stranger": "dorland-c",
+  "member_slot": "A"
+ },
+ "P0316": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "lewis-a",
+  "stranger": "allen-p",
+  "member_slot": "A"
+ },
+ "P0317": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "lewis-a",
+  "stranger": "shively-h",
+  "member_slot": "A"
+ },
+ "P0318": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "lewis-a",
+  "stranger": "allen-p",
+  "member_slot": "B"
+ },
+ "P0319": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "lewis-a",
+  "stranger": "shively-h",
+  "member_slot": "B"
+ },
+ "P0320": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "perlingiere-d",
+  "stranger": "hayslett-r",
+  "member_slot": "A"
+ },
+ "P0321": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "perlingiere-d",
+  "stranger": "zufferli-j",
+  "member_slot": "B"
+ },
+ "P0322": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "perlingiere-d",
+  "stranger": "hayslett-r",
+  "member_slot": "A"
+ },
+ "P0323": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "perlingiere-d",
+  "stranger": "zufferli-j",
+  "member_slot": "A"
+ },
+ "P0324": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "cash-m",
+  "stranger": "ybarbo-p",
+  "member_slot": "B"
+ },
+ "P0325": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "cash-m",
+  "stranger": "richey-c",
+  "member_slot": "B"
+ },
+ "P0326": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "cash-m",
+  "stranger": "ybarbo-p",
+  "member_slot": "A"
+ },
+ "P0327": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "cash-m",
+  "stranger": "richey-c",
+  "member_slot": "B"
+ },
+ "P0328": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "presto-k",
+  "stranger": "wolfe-j",
+  "member_slot": "A"
+ },
+ "P0329": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "presto-k",
+  "stranger": "mccarty-d",
+  "member_slot": "B"
+ },
+ "P0330": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "presto-k",
+  "stranger": "wolfe-j",
+  "member_slot": "B"
+ },
+ "P0331": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "presto-k",
+  "stranger": "mccarty-d",
+  "member_slot": "A"
+ },
+ "P0332": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "tholt-j",
+  "stranger": "stepenovitch-j",
+  "member_slot": "A"
+ },
+ "P0333": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "tholt-j",
+  "stranger": "kitchen-l",
+  "member_slot": "A"
+ },
+ "P0334": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "tholt-j",
+  "stranger": "stepenovitch-j",
+  "member_slot": "A"
+ },
+ "P0335": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "tholt-j",
+  "stranger": "kitchen-l",
+  "member_slot": "A"
+ },
+ "P0336": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "geaccone-t",
+  "stranger": "skilling-j",
+  "member_slot": "B"
+ },
+ "P0337": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "geaccone-t",
+  "stranger": "ward-k",
+  "member_slot": "B"
+ },
+ "P0338": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "geaccone-t",
+  "stranger": "skilling-j",
+  "member_slot": "B"
+ },
+ "P0339": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "geaccone-t",
+  "stranger": "ward-k",
+  "member_slot": "A"
+ },
+ "P0340": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "hain-m",
+  "stranger": "davis-d",
+  "member_slot": "B"
+ },
+ "P0341": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "hain-m",
+  "stranger": "buy-r",
+  "member_slot": "B"
+ },
+ "P0342": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "hain-m",
+  "stranger": "davis-d",
+  "member_slot": "B"
+ },
+ "P0343": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "hain-m",
+  "stranger": "buy-r",
+  "member_slot": "B"
+ },
+ "P0344": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "causholli-m",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0345": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "causholli-m",
+  "stranger": "taylor-m",
+  "member_slot": "A"
+ },
+ "P0346": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "causholli-m",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0347": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "causholli-m",
+  "stranger": "taylor-m",
+  "member_slot": "B"
+ },
+ "P0348": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "baughman-d",
+  "stranger": "lavorato-j",
+  "member_slot": "A"
+ },
+ "P0349": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "baughman-d",
+  "stranger": "shively-h",
+  "member_slot": "B"
+ },
+ "P0350": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "baughman-d",
+  "stranger": "lavorato-j",
+  "member_slot": "A"
+ },
+ "P0351": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G11",
+  "member": "baughman-d",
+  "stranger": "shively-h",
+  "member_slot": "B"
+ },
+ "P0352": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "nemec-g",
+  "stranger": "haedicke-m",
+  "member_slot": "A"
+ },
+ "P0353": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "nemec-g",
+  "stranger": "hodge-j",
+  "member_slot": "A"
+ },
+ "P0354": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "nemec-g",
+  "stranger": "haedicke-m",
+  "member_slot": "A"
+ },
+ "P0355": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "nemec-g",
+  "stranger": "hodge-j",
+  "member_slot": "A"
+ },
+ "P0356": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "smith-m",
+  "stranger": "richey-c",
+  "member_slot": "A"
+ },
+ "P0357": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "smith-m",
+  "stranger": "mann-k",
+  "member_slot": "B"
+ },
+ "P0358": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "smith-m",
+  "stranger": "richey-c",
+  "member_slot": "A"
+ },
+ "P0359": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "smith-m",
+  "stranger": "mann-k",
+  "member_slot": "A"
+ },
+ "P0360": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "campbell-l",
+  "stranger": "weldon-c",
+  "member_slot": "A"
+ },
+ "P0361": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "campbell-l",
+  "stranger": "dorland-c",
+  "member_slot": "A"
+ },
+ "P0362": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "campbell-l",
+  "stranger": "weldon-c",
+  "member_slot": "B"
+ },
+ "P0363": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "campbell-l",
+  "stranger": "dorland-c",
+  "member_slot": "B"
+ },
+ "P0364": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "whalley-l",
+  "stranger": "giron-d",
+  "member_slot": "A"
+ },
+ "P0365": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "whalley-l",
+  "stranger": "ward-k",
+  "member_slot": "A"
+ },
+ "P0366": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "whalley-l",
+  "stranger": "giron-d",
+  "member_slot": "A"
+ },
+ "P0367": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "whalley-l",
+  "stranger": "ward-k",
+  "member_slot": "B"
+ },
+ "P0368": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "keiser-k",
+  "stranger": "crandell-s",
+  "member_slot": "B"
+ },
+ "P0369": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "keiser-k",
+  "stranger": "kaminski-v",
+  "member_slot": "B"
+ },
+ "P0370": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "keiser-k",
+  "stranger": "crandell-s",
+  "member_slot": "A"
+ },
+ "P0371": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "keiser-k",
+  "stranger": "kaminski-v",
+  "member_slot": "B"
+ },
+ "P0372": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "guzman-m",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0373": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "guzman-m",
+  "stranger": "stepenovitch-j",
+  "member_slot": "A"
+ },
+ "P0374": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "guzman-m",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0375": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "guzman-m",
+  "stranger": "stepenovitch-j",
+  "member_slot": "B"
+ },
+ "P0376": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "platter-p",
+  "stranger": "jones-t",
+  "member_slot": "B"
+ },
+ "P0377": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "platter-p",
+  "stranger": "mcconnell-m",
+  "member_slot": "B"
+ },
+ "P0378": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "platter-p",
+  "stranger": "jones-t",
+  "member_slot": "A"
+ },
+ "P0379": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "platter-p",
+  "stranger": "mcconnell-m",
+  "member_slot": "B"
+ },
+ "P0380": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "sanchez-m",
+  "stranger": "shankman-j",
+  "member_slot": "B"
+ },
+ "P0381": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "sanchez-m",
+  "stranger": "martin-t",
+  "member_slot": "A"
+ },
+ "P0382": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "sanchez-m",
+  "stranger": "shankman-j",
+  "member_slot": "A"
+ },
+ "P0383": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "sanchez-m",
+  "stranger": "martin-t",
+  "member_slot": "B"
+ },
+ "P0384": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "delainey-d",
+  "stranger": "neal-s",
+  "member_slot": "A"
+ },
+ "P0385": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "delainey-d",
+  "stranger": "lavorato-j",
+  "member_slot": "A"
+ },
+ "P0386": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "delainey-d",
+  "stranger": "neal-s",
+  "member_slot": "B"
+ },
+ "P0387": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "delainey-d",
+  "stranger": "lavorato-j",
+  "member_slot": "B"
+ },
+ "P0388": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "farmer-d",
+  "stranger": "williams-w3",
+  "member_slot": "A"
+ },
+ "P0389": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "farmer-d",
+  "stranger": "mann-k",
+  "member_slot": "B"
+ },
+ "P0390": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "farmer-d",
+  "stranger": "williams-w3",
+  "member_slot": "A"
+ },
+ "P0391": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "farmer-d",
+  "stranger": "mann-k",
+  "member_slot": "B"
+ },
+ "P0392": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "shively-h",
+  "stranger": "buy-r",
+  "member_slot": "A"
+ },
+ "P0393": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "shively-h",
+  "stranger": "staab-t",
+  "member_slot": "B"
+ },
+ "P0394": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "shively-h",
+  "stranger": "buy-r",
+  "member_slot": "A"
+ },
+ "P0395": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "shively-h",
+  "stranger": "staab-t",
+  "member_slot": "B"
+ },
+ "P0396": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "parks-j",
+  "stranger": "lokay-m",
+  "member_slot": "B"
+ },
+ "P0397": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "parks-j",
+  "stranger": "lavorato-j",
+  "member_slot": "B"
+ },
+ "P0398": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "parks-j",
+  "stranger": "lokay-m",
+  "member_slot": "B"
+ },
+ "P0399": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "parks-j",
+  "stranger": "lavorato-j",
+  "member_slot": "A"
+ },
+ "P0400": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "zipper-a",
+  "stranger": "skilling-j",
+  "member_slot": "B"
+ },
+ "P0401": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "zipper-a",
+  "stranger": "geaccone-t",
+  "member_slot": "A"
+ },
+ "P0402": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "zipper-a",
+  "stranger": "skilling-j",
+  "member_slot": "A"
+ },
+ "P0403": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "zipper-a",
+  "stranger": "geaccone-t",
+  "member_slot": "B"
+ },
+ "P0404": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "hyatt-k",
+  "stranger": "white-s",
+  "member_slot": "A"
+ },
+ "P0405": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "hyatt-k",
+  "stranger": "blair-l",
+  "member_slot": "B"
+ },
+ "P0406": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "hyatt-k",
+  "stranger": "white-s",
+  "member_slot": "A"
+ },
+ "P0407": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "hyatt-k",
+  "stranger": "blair-l",
+  "member_slot": "A"
+ },
+ "P0408": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "whitt-m",
+  "stranger": "sager-e",
+  "member_slot": "B"
+ },
+ "P0409": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "whitt-m",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0410": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "whitt-m",
+  "stranger": "sager-e",
+  "member_slot": "A"
+ },
+ "P0411": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "whitt-m",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0412": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "keavey-p",
+  "stranger": "lavorato-j",
+  "member_slot": "B"
+ },
+ "P0413": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "keavey-p",
+  "stranger": "neal-s",
+  "member_slot": "A"
+ },
+ "P0414": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "keavey-p",
+  "stranger": "lavorato-j",
+  "member_slot": "B"
+ },
+ "P0415": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "keavey-p",
+  "stranger": "neal-s",
+  "member_slot": "A"
+ },
+ "P0416": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "stclair-c",
+  "stranger": "fossum-d",
+  "member_slot": "A"
+ },
+ "P0417": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "stclair-c",
+  "stranger": "watson-k",
+  "member_slot": "B"
+ },
+ "P0418": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "stclair-c",
+  "stranger": "fossum-d",
+  "member_slot": "B"
+ },
+ "P0419": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "stclair-c",
+  "stranger": "watson-k",
+  "member_slot": "B"
+ },
+ "P0420": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "haedicke-m",
+  "stranger": "nemec-g",
+  "member_slot": "A"
+ },
+ "P0421": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "haedicke-m",
+  "stranger": "hodge-j",
+  "member_slot": "B"
+ },
+ "P0422": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "haedicke-m",
+  "stranger": "nemec-g",
+  "member_slot": "A"
+ },
+ "P0423": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "haedicke-m",
+  "stranger": "hodge-j",
+  "member_slot": "B"
+ },
+ "P0424": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "heard-m",
+  "stranger": "dickson-s",
+  "member_slot": "A"
+ },
+ "P0425": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "heard-m",
+  "stranger": "taylor-m",
+  "member_slot": "A"
+ },
+ "P0426": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "heard-m",
+  "stranger": "dickson-s",
+  "member_slot": "B"
+ },
+ "P0427": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "heard-m",
+  "stranger": "taylor-m",
+  "member_slot": "B"
+ },
+ "P0428": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "hayslett-r",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0429": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "hayslett-r",
+  "stranger": "allen-p",
+  "member_slot": "B"
+ },
+ "P0430": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "hayslett-r",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0431": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "hayslett-r",
+  "stranger": "allen-p",
+  "member_slot": "A"
+ },
+ "P0432": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "gay-r",
+  "stranger": "cuilla-m",
+  "member_slot": "A"
+ },
+ "P0433": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "gay-r",
+  "stranger": "rapp-b",
+  "member_slot": "A"
+ },
+ "P0434": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "gay-r",
+  "stranger": "cuilla-m",
+  "member_slot": "B"
+ },
+ "P0435": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "gay-r",
+  "stranger": "rapp-b",
+  "member_slot": "A"
+ },
+ "P0436": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "williams-w3",
+  "stranger": "symes-k",
+  "member_slot": "A"
+ },
+ "P0437": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "williams-w3",
+  "stranger": "lucci-p",
+  "member_slot": "B"
+ },
+ "P0438": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "williams-w3",
+  "stranger": "symes-k",
+  "member_slot": "A"
+ },
+ "P0439": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "williams-w3",
+  "stranger": "lucci-p",
+  "member_slot": "B"
+ },
+ "P0440": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "tycholiz-b",
+  "stranger": "staab-t",
+  "member_slot": "B"
+ },
+ "P0441": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "tycholiz-b",
+  "stranger": "hyvl-d",
+  "member_slot": "B"
+ },
+ "P0442": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "tycholiz-b",
+  "stranger": "staab-t",
+  "member_slot": "A"
+ },
+ "P0443": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "tycholiz-b",
+  "stranger": "hyvl-d",
+  "member_slot": "B"
+ },
+ "P0444": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "sturm-f",
+  "stranger": "kaminski-v",
+  "member_slot": "B"
+ },
+ "P0445": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "sturm-f",
+  "stranger": "ruscitti-k",
+  "member_slot": "B"
+ },
+ "P0446": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "sturm-f",
+  "stranger": "kaminski-v",
+  "member_slot": "B"
+ },
+ "P0447": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "sturm-f",
+  "stranger": "ruscitti-k",
+  "member_slot": "B"
+ },
+ "P0448": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "zufferli-j",
+  "stranger": "perlingiere-d",
+  "member_slot": "B"
+ },
+ "P0449": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "zufferli-j",
+  "stranger": "arnold-j",
+  "member_slot": "B"
+ },
+ "P0450": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "zufferli-j",
+  "stranger": "perlingiere-d",
+  "member_slot": "B"
+ },
+ "P0451": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "zufferli-j",
+  "stranger": "arnold-j",
+  "member_slot": "A"
+ },
+ "P0452": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "lokay-m",
+  "stranger": "parks-j",
+  "member_slot": "A"
+ },
+ "P0453": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "lokay-m",
+  "stranger": "buy-r",
+  "member_slot": "A"
+ },
+ "P0454": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "lokay-m",
+  "stranger": "parks-j",
+  "member_slot": "B"
+ },
+ "P0455": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "lokay-m",
+  "stranger": "buy-r",
+  "member_slot": "B"
+ },
+ "P0456": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "thomas-p",
+  "stranger": "presto-k",
+  "member_slot": "B"
+ },
+ "P0457": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "thomas-p",
+  "stranger": "shackleton-s",
+  "member_slot": "A"
+ },
+ "P0458": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "thomas-p",
+  "stranger": "presto-k",
+  "member_slot": "B"
+ },
+ "P0459": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "thomas-p",
+  "stranger": "shackleton-s",
+  "member_slot": "A"
+ },
+ "P0460": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "stepenovitch-j",
+  "stranger": "kaminski-v",
+  "member_slot": "A"
+ },
+ "P0461": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "stepenovitch-j",
+  "stranger": "steffes-j",
+  "member_slot": "A"
+ },
+ "P0462": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "stepenovitch-j",
+  "stranger": "kaminski-v",
+  "member_slot": "B"
+ },
+ "P0463": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G13",
+  "member": "stepenovitch-j",
+  "stranger": "steffes-j",
+  "member_slot": "B"
+ }
+}

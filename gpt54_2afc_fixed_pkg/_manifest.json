@@ -1,0 +1,44 @@
+{
+ "mad": {
+  "s0": {
+   "pairs": 512,
+   "batches": 13
+  },
+  "s1": {
+   "pairs": 512,
+   "batches": 13
+  },
+  "s2": {
+   "pairs": 512,
+   "batches": 13
+  }
+ },
+ "cv": {
+  "s0": {
+   "pairs": 308,
+   "batches": 8
+  },
+  "s1": {
+   "pairs": 308,
+   "batches": 8
+  },
+  "s2": {
+   "pairs": 308,
+   "batches": 8
+  }
+ },
+ "enron": {
+  "s0": {
+   "pairs": 464,
+   "batches": 12
+  },
+  "s1": {
+   "pairs": 464,
+   "batches": 12
+  },
+  "s2": {
+   "pairs": 464,
+   "batches": 12
+  }
+ }
+}

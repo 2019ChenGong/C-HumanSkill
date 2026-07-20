@@ -1,0 +1,286 @@
+{
+ "delta": 0.1,
+ "margin_U": 0.6,
+ "nboot": 20000,
+ "datasets": {
+  "mad": {
+   "coverage": {
+    "s0": "512/512",
+    "s1": "512/512",
+    "s2": "512/512"
+   },
+   "channels": {
+    "neutral": {
+     "pool_seedcard": {
+      "acc": 0.4831,
+      "n": 768,
+      "n_units": 48,
+      "se": 0.0199,
+      "ci95": [
+       0.4427,
+       0.5208
+      ],
+      "up95": 0.5156,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.516)"
+     },
+     "pool_person": {
+      "acc": 0.4831,
+      "n": 768,
+      "n_units": 128,
+      "se": 0.0297,
+      "ci95": [
+       0.4245,
+       0.5417
+      ],
+      "up95": 0.5326,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.533)"
+     },
+     "certified_anon": true,
+     "sonnet_a1": {
+      "acc": 0.479,
+      "up95_B": 0.513,
+      "up95_C": 0.522,
+      "verdict": "ANON"
+     }
+    },
+    "concat": {
+     "pool_seedcard": {
+      "acc": 0.5026,
+      "n": 768,
+      "n_units": 48,
+      "se": 0.0198,
+      "ci95": [
+       0.4635,
+       0.5404
+      ],
+      "up95": 0.5352,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.535)"
+     },
+     "pool_person": {
+      "acc": 0.5026,
+      "n": 768,
+      "n_units": 128,
+      "se": 0.0271,
+      "ci95": [
+       0.4492,
+       0.5547
+      ],
+      "up95": 0.5469,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.547)"
+     },
+     "certified_anon": true,
+     "sonnet_a1": {
+      "acc": 0.508,
+      "up95_B": 0.543,
+      "up95_C": 0.552,
+      "verdict": "ANON"
+     }
+    }
+   }
+  },
+  "cv": {
+   "coverage": {
+    "s0": "308/308",
+    "s1": "308/308",
+    "s2": "308/308"
+   },
+   "channels": {
+    "neutral": {
+     "pool_seedcard": {
+      "acc": 0.5238,
+      "n": 462,
+      "n_units": 27,
+      "se": 0.0249,
+      "ci95": [
+       0.4757,
+       0.5732
+      ],
+      "up95": 0.5649,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.565)"
+     },
+     "pool_person": {
+      "acc": 0.5238,
+      "n": 462,
+      "n_units": 77,
+      "se": 0.0353,
+      "ci95": [
+       0.4545,
+       0.5931
+      ],
+      "up95": 0.5823,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.582)"
+     },
+     "certified_anon": true,
+     "sonnet_a1": {
+      "acc": 0.535,
+      "up95_B": 0.57,
+      "up95_C": 0.587,
+      "verdict": "ANON"
+     }
+    },
+    "concat": {
+     "pool_seedcard": {
+      "acc": 0.5411,
+      "n": 462,
+      "n_units": 27,
+      "se": 0.0232,
+      "ci95": [
+       0.4936,
+       0.5857
+      ],
+      "up95": 0.5787,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.579)"
+     },
+     "pool_person": {
+      "acc": 0.5411,
+      "n": 462,
+      "n_units": 77,
+      "se": 0.0357,
+      "ci95": [
+       0.4719,
+       0.6104
+      ],
+      "up95": 0.5996,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.600)"
+     },
+     "certified_anon": true,
+     "sonnet_a1": {
+      "acc": 0.574,
+      "up95_B": 0.619,
+      "up95_C": 0.626,
+      "verdict": "LEAK (CV concat)"
+     }
+    }
+   }
+  },
+  "enron": {
+   "coverage": {
+    "s0": "464/464",
+    "s1": "464/464",
+    "s2": "464/464"
+   },
+   "channels": {
+    "neutral": {
+     "pool_seedcard": {
+      "acc": 0.5302,
+      "n": 696,
+      "n_units": 42,
+      "se": 0.0199,
+      "ci95": [
+       0.4911,
+       0.5683
+      ],
+      "up95": 0.5625,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.562)"
+     },
+     "pool_person": {
+      "acc": 0.5302,
+      "n": 696,
+      "n_units": 116,
+      "se": 0.0321,
+      "ci95": [
+       0.467,
+       0.5934
+      ],
+      "up95": 0.5833,
+      "leak": false,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "ANON (leak>=0.60 excluded, up95=0.583)"
+     },
+     "certified_anon": true,
+     "sonnet_a1": {
+      "acc": 0.532,
+      "up95_B": 0.564,
+      "up95_C": 0.583,
+      "verdict": "ANON"
+     }
+    },
+    "concat": {
+     "pool_seedcard": {
+      "acc": 0.5503,
+      "n": 696,
+      "n_units": 42,
+      "se": 0.0203,
+      "ci95": [
+       0.5103,
+       0.5909
+      ],
+      "up95": 0.5843,
+      "leak": true,
+      "noninf": true,
+      "underpowered": false,
+      "verdict": "LEAK (95%CI[0.510,0.591]>.5)"
+     },
+     "pool_person": {
+      "acc": 0.5503,
+      "n": 696,
+      "n_units": 116,
+      "se": 0.0312,
+      "ci95": [
+       0.4885,
+       0.6106
+      ],
+      "up95": 0.602,
+      "leak": false,
+      "noninf": false,
+      "underpowered": false,
+      "verdict": "leak-not-excluded (up95=0.602)"
+     },
+     "certified_anon": false,
+     "sonnet_a1": {
+      "acc": 0.536,
+      "up95_B": 0.568,
+      "up95_C": 0.586,
+      "verdict": "ANON"
+     }
+    }
+   }
+  }
+ },
+ "reproduction": {
+  "mad": {
+   "cmd_neutral_certified_anon": true,
+   "concat_certified_anon": true,
+   "concat_note": "baseline, boundary; sonnet said 'ANON'"
+  },
+  "cv": {
+   "cmd_neutral_certified_anon": true,
+   "concat_certified_anon": true,
+   "concat_note": "baseline, boundary; sonnet said 'LEAK (CV concat)'"
+  },
+  "enron": {
+   "cmd_neutral_certified_anon": true,
+   "concat_certified_anon": false,
+   "concat_note": "baseline, boundary; sonnet said 'ANON'"
+  }
+ },
+ "cmd_certified_anon_all3": true
+}

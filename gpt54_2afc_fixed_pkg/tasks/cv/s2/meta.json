@@ -1,0 +1,2466 @@
+{
+ "P0000": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "919",
+  "stranger": "8402",
+  "member_slot": "B"
+ },
+ "P0001": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "919",
+  "stranger": "442",
+  "member_slot": "A"
+ },
+ "P0002": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "919",
+  "stranger": "8402",
+  "member_slot": "A"
+ },
+ "P0003": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "919",
+  "stranger": "442",
+  "member_slot": "A"
+ },
+ "P0004": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "7224",
+  "stranger": "6633",
+  "member_slot": "A"
+ },
+ "P0005": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "7224",
+  "stranger": "30005",
+  "member_slot": "A"
+ },
+ "P0006": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "7224",
+  "stranger": "6633",
+  "member_slot": "B"
+ },
+ "P0007": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "7224",
+  "stranger": "30005",
+  "member_slot": "A"
+ },
+ "P0008": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "686",
+  "stranger": "67799",
+  "member_slot": "B"
+ },
+ "P0009": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "686",
+  "stranger": "7250",
+  "member_slot": "B"
+ },
+ "P0010": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "686",
+  "stranger": "67799",
+  "member_slot": "A"
+ },
+ "P0011": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "686",
+  "stranger": "7250",
+  "member_slot": "B"
+ },
+ "P0012": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "21054",
+  "stranger": "159",
+  "member_slot": "A"
+ },
+ "P0013": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "21054",
+  "stranger": "442",
+  "member_slot": "B"
+ },
+ "P0014": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "21054",
+  "stranger": "159",
+  "member_slot": "B"
+ },
+ "P0015": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "21054",
+  "stranger": "442",
+  "member_slot": "A"
+ },
+ "P0016": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "2958",
+  "stranger": "3382",
+  "member_slot": "B"
+ },
+ "P0017": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "2958",
+  "stranger": "1390",
+  "member_slot": "B"
+ },
+ "P0018": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "2958",
+  "stranger": "3382",
+  "member_slot": "A"
+ },
+ "P0019": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "2958",
+  "stranger": "1390",
+  "member_slot": "A"
+ },
+ "P0020": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "60261",
+  "stranger": "442",
+  "member_slot": "A"
+ },
+ "P0021": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "60261",
+  "stranger": "7486",
+  "member_slot": "A"
+ },
+ "P0022": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "60261",
+  "stranger": "442",
+  "member_slot": "B"
+ },
+ "P0023": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "60261",
+  "stranger": "7486",
+  "member_slot": "B"
+ },
+ "P0024": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "2970",
+  "stranger": "7555",
+  "member_slot": "A"
+ },
+ "P0025": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "2970",
+  "stranger": "8076",
+  "member_slot": "B"
+ },
+ "P0026": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "2970",
+  "stranger": "7555",
+  "member_slot": "B"
+ },
+ "P0027": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "2970",
+  "stranger": "8076",
+  "member_slot": "B"
+ },
+ "P0028": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "179204",
+  "stranger": "1739",
+  "member_slot": "A"
+ },
+ "P0029": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "179204",
+  "stranger": "1390",
+  "member_slot": "A"
+ },
+ "P0030": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "179204",
+  "stranger": "1739",
+  "member_slot": "B"
+ },
+ "P0031": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G6",
+  "member": "179204",
+  "stranger": "1390",
+  "member_slot": "A"
+ },
+ "P0032": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "805",
+  "stranger": "7972",
+  "member_slot": "A"
+ },
+ "P0033": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "805",
+  "stranger": "1764",
+  "member_slot": "A"
+ },
+ "P0034": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "805",
+  "stranger": "7972",
+  "member_slot": "B"
+ },
+ "P0035": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "805",
+  "stranger": "1764",
+  "member_slot": "A"
+ },
+ "P0036": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7290",
+  "stranger": "11852",
+  "member_slot": "A"
+ },
+ "P0037": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7290",
+  "stranger": "247165",
+  "member_slot": "B"
+ },
+ "P0038": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7290",
+  "stranger": "11852",
+  "member_slot": "A"
+ },
+ "P0039": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7290",
+  "stranger": "247165",
+  "member_slot": "A"
+ },
+ "P0040": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "4598",
+  "stranger": "247274",
+  "member_slot": "B"
+ },
+ "P0041": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "4598",
+  "stranger": "2970",
+  "member_slot": "A"
+ },
+ "P0042": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "4598",
+  "stranger": "247274",
+  "member_slot": "B"
+ },
+ "P0043": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "4598",
+  "stranger": "2970",
+  "member_slot": "A"
+ },
+ "P0044": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7486",
+  "stranger": "60261",
+  "member_slot": "B"
+ },
+ "P0045": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7486",
+  "stranger": "85665",
+  "member_slot": "A"
+ },
+ "P0046": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7486",
+  "stranger": "60261",
+  "member_slot": "A"
+ },
+ "P0047": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7486",
+  "stranger": "85665",
+  "member_slot": "A"
+ },
+ "P0048": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7555",
+  "stranger": "44269",
+  "member_slot": "A"
+ },
+ "P0049": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7555",
+  "stranger": "8",
+  "member_slot": "B"
+ },
+ "P0050": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7555",
+  "stranger": "44269",
+  "member_slot": "B"
+ },
+ "P0051": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7555",
+  "stranger": "8",
+  "member_slot": "B"
+ },
+ "P0052": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "11887",
+  "stranger": "28666",
+  "member_slot": "A"
+ },
+ "P0053": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "11887",
+  "stranger": "2126",
+  "member_slot": "A"
+ },
+ "P0054": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "11887",
+  "stranger": "28666",
+  "member_slot": "B"
+ },
+ "P0055": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "11887",
+  "stranger": "2126",
+  "member_slot": "B"
+ },
+ "P0056": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "113777",
+  "stranger": "1909",
+  "member_slot": "B"
+ },
+ "P0057": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "113777",
+  "stranger": "1764",
+  "member_slot": "B"
+ },
+ "P0058": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "113777",
+  "stranger": "1909",
+  "member_slot": "A"
+ },
+ "P0059": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "113777",
+  "stranger": "1764",
+  "member_slot": "B"
+ },
+ "P0060": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "74500",
+  "stranger": "247165",
+  "member_slot": "A"
+ },
+ "P0061": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "74500",
+  "stranger": "930",
+  "member_slot": "A"
+ },
+ "P0062": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "74500",
+  "stranger": "247165",
+  "member_slot": "A"
+ },
+ "P0063": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "74500",
+  "stranger": "930",
+  "member_slot": "B"
+ },
+ "P0064": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "449",
+  "stranger": "1679",
+  "member_slot": "A"
+ },
+ "P0065": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "449",
+  "stranger": "44269",
+  "member_slot": "B"
+ },
+ "P0066": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "449",
+  "stranger": "1679",
+  "member_slot": "B"
+ },
+ "P0067": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "449",
+  "stranger": "44269",
+  "member_slot": "A"
+ },
+ "P0068": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "442",
+  "stranger": "60261",
+  "member_slot": "B"
+ },
+ "P0069": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "442",
+  "stranger": "249135",
+  "member_slot": "B"
+ },
+ "P0070": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "442",
+  "stranger": "60261",
+  "member_slot": "B"
+ },
+ "P0071": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "442",
+  "stranger": "249135",
+  "member_slot": "A"
+ },
+ "P0072": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "116440",
+  "stranger": "247274",
+  "member_slot": "A"
+ },
+ "P0073": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "116440",
+  "stranger": "5829",
+  "member_slot": "B"
+ },
+ "P0074": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "116440",
+  "stranger": "247274",
+  "member_slot": "B"
+ },
+ "P0075": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "116440",
+  "stranger": "5829",
+  "member_slot": "A"
+ },
+ "P0076": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "8076",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0077": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "8076",
+  "stranger": "1764",
+  "member_slot": "A"
+ },
+ "P0078": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "8076",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0079": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "8076",
+  "stranger": "1764",
+  "member_slot": "A"
+ },
+ "P0080": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7250",
+  "stranger": "67799",
+  "member_slot": "B"
+ },
+ "P0081": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7250",
+  "stranger": "686",
+  "member_slot": "A"
+ },
+ "P0082": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7250",
+  "stranger": "67799",
+  "member_slot": "A"
+ },
+ "P0083": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G8",
+  "member": "7250",
+  "stranger": "686",
+  "member_slot": "A"
+ },
+ "P0084": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "173082",
+  "stranger": "4505",
+  "member_slot": "A"
+ },
+ "P0085": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "173082",
+  "stranger": "67799",
+  "member_slot": "A"
+ },
+ "P0086": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "173082",
+  "stranger": "4505",
+  "member_slot": "B"
+ },
+ "P0087": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "173082",
+  "stranger": "67799",
+  "member_slot": "A"
+ },
+ "P0088": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "930",
+  "stranger": "74500",
+  "member_slot": "A"
+ },
+ "P0089": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "930",
+  "stranger": "7486",
+  "member_slot": "B"
+ },
+ "P0090": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "930",
+  "stranger": "74500",
+  "member_slot": "A"
+ },
+ "P0091": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "930",
+  "stranger": "7486",
+  "member_slot": "A"
+ },
+ "P0092": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "85665",
+  "stranger": "28746",
+  "member_slot": "A"
+ },
+ "P0093": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "85665",
+  "stranger": "249135",
+  "member_slot": "B"
+ },
+ "P0094": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "85665",
+  "stranger": "28746",
+  "member_slot": "A"
+ },
+ "P0095": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "85665",
+  "stranger": "249135",
+  "member_slot": "A"
+ },
+ "P0096": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "2116",
+  "stranger": "8076",
+  "member_slot": "A"
+ },
+ "P0097": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "2116",
+  "stranger": "3382",
+  "member_slot": "B"
+ },
+ "P0098": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "2116",
+  "stranger": "8076",
+  "member_slot": "B"
+ },
+ "P0099": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "2116",
+  "stranger": "3382",
+  "member_slot": "A"
+ },
+ "P0100": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "111259",
+  "stranger": "30005",
+  "member_slot": "B"
+ },
+ "P0101": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "111259",
+  "stranger": "919",
+  "member_slot": "A"
+ },
+ "P0102": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "111259",
+  "stranger": "30005",
+  "member_slot": "A"
+ },
+ "P0103": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "111259",
+  "stranger": "919",
+  "member_slot": "B"
+ },
+ "P0104": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "8402",
+  "stranger": "442",
+  "member_slot": "A"
+ },
+ "P0105": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "8402",
+  "stranger": "2392",
+  "member_slot": "A"
+ },
+ "P0106": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "8402",
+  "stranger": "442",
+  "member_slot": "B"
+ },
+ "P0107": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "8402",
+  "stranger": "2392",
+  "member_slot": "A"
+ },
+ "P0108": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "858",
+  "stranger": "17230",
+  "member_slot": "B"
+ },
+ "P0109": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "858",
+  "stranger": "4253",
+  "member_slot": "A"
+ },
+ "P0110": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "858",
+  "stranger": "17230",
+  "member_slot": "A"
+ },
+ "P0111": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "858",
+  "stranger": "4253",
+  "member_slot": "A"
+ },
+ "P0112": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "8",
+  "stranger": "7555",
+  "member_slot": "B"
+ },
+ "P0113": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "8",
+  "stranger": "249135",
+  "member_slot": "B"
+ },
+ "P0114": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "8",
+  "stranger": "7555",
+  "member_slot": "B"
+ },
+ "P0115": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G5",
+  "member": "8",
+  "stranger": "249135",
+  "member_slot": "A"
+ },
+ "P0116": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "164061",
+  "stranger": "17230",
+  "member_slot": "B"
+ },
+ "P0117": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "164061",
+  "stranger": "8076",
+  "member_slot": "A"
+ },
+ "P0118": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "164061",
+  "stranger": "17230",
+  "member_slot": "A"
+ },
+ "P0119": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "164061",
+  "stranger": "8076",
+  "member_slot": "A"
+ },
+ "P0120": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "4253",
+  "stranger": "8076",
+  "member_slot": "B"
+ },
+ "P0121": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "4253",
+  "stranger": "9964",
+  "member_slot": "A"
+ },
+ "P0122": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "4253",
+  "stranger": "8076",
+  "member_slot": "A"
+ },
+ "P0123": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "4253",
+  "stranger": "9964",
+  "member_slot": "A"
+ },
+ "P0124": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "2392",
+  "stranger": "28500",
+  "member_slot": "A"
+ },
+ "P0125": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "2392",
+  "stranger": "2116",
+  "member_slot": "A"
+ },
+ "P0126": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "2392",
+  "stranger": "28500",
+  "member_slot": "B"
+ },
+ "P0127": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "2392",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0128": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "11852",
+  "stranger": "247165",
+  "member_slot": "A"
+ },
+ "P0129": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "11852",
+  "stranger": "7290",
+  "member_slot": "A"
+ },
+ "P0130": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "11852",
+  "stranger": "247165",
+  "member_slot": "B"
+ },
+ "P0131": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "11852",
+  "stranger": "7290",
+  "member_slot": "B"
+ },
+ "P0132": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "76981",
+  "stranger": "36041",
+  "member_slot": "A"
+ },
+ "P0133": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "76981",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0134": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "76981",
+  "stranger": "36041",
+  "member_slot": "A"
+ },
+ "P0135": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "76981",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0136": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "1764",
+  "stranger": "8076",
+  "member_slot": "A"
+ },
+ "P0137": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "1764",
+  "stranger": "1909",
+  "member_slot": "A"
+ },
+ "P0138": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "1764",
+  "stranger": "8076",
+  "member_slot": "B"
+ },
+ "P0139": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "1764",
+  "stranger": "1909",
+  "member_slot": "B"
+ },
+ "P0140": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "30005",
+  "stranger": "85665",
+  "member_slot": "B"
+ },
+ "P0141": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "30005",
+  "stranger": "22047",
+  "member_slot": "B"
+ },
+ "P0142": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "30005",
+  "stranger": "85665",
+  "member_slot": "B"
+ },
+ "P0143": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "30005",
+  "stranger": "22047",
+  "member_slot": "B"
+ },
+ "P0144": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "5829",
+  "stranger": "442",
+  "member_slot": "A"
+ },
+ "P0145": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "5829",
+  "stranger": "36041",
+  "member_slot": "B"
+ },
+ "P0146": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "5829",
+  "stranger": "442",
+  "member_slot": "A"
+ },
+ "P0147": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G4",
+  "member": "5829",
+  "stranger": "36041",
+  "member_slot": "A"
+ },
+ "P0148": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "35989",
+  "stranger": "113777",
+  "member_slot": "B"
+ },
+ "P0149": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "35989",
+  "stranger": "179204",
+  "member_slot": "B"
+ },
+ "P0150": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "35989",
+  "stranger": "113777",
+  "member_slot": "A"
+ },
+ "P0151": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "35989",
+  "stranger": "179204",
+  "member_slot": "A"
+ },
+ "P0152": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "4505",
+  "stranger": "173082",
+  "member_slot": "A"
+ },
+ "P0153": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "4505",
+  "stranger": "2116",
+  "member_slot": "A"
+ },
+ "P0154": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "4505",
+  "stranger": "173082",
+  "member_slot": "A"
+ },
+ "P0155": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "4505",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0156": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "22047",
+  "stranger": "28746",
+  "member_slot": "B"
+ },
+ "P0157": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "22047",
+  "stranger": "85665",
+  "member_slot": "A"
+ },
+ "P0158": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "22047",
+  "stranger": "28746",
+  "member_slot": "A"
+ },
+ "P0159": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "22047",
+  "stranger": "85665",
+  "member_slot": "B"
+ },
+ "P0160": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "8013",
+  "stranger": "247165",
+  "member_slot": "A"
+ },
+ "P0161": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "8013",
+  "stranger": "67799",
+  "member_slot": "B"
+ },
+ "P0162": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "8013",
+  "stranger": "247165",
+  "member_slot": "B"
+ },
+ "P0163": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "8013",
+  "stranger": "67799",
+  "member_slot": "B"
+ },
+ "P0164": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "183",
+  "stranger": "2970",
+  "member_slot": "A"
+ },
+ "P0165": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "183",
+  "stranger": "2126",
+  "member_slot": "B"
+ },
+ "P0166": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "183",
+  "stranger": "2970",
+  "member_slot": "A"
+ },
+ "P0167": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "183",
+  "stranger": "2126",
+  "member_slot": "B"
+ },
+ "P0168": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "17230",
+  "stranger": "858",
+  "member_slot": "A"
+ },
+ "P0169": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "17230",
+  "stranger": "164061",
+  "member_slot": "A"
+ },
+ "P0170": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "17230",
+  "stranger": "858",
+  "member_slot": "B"
+ },
+ "P0171": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "17230",
+  "stranger": "164061",
+  "member_slot": "A"
+ },
+ "P0172": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "53690",
+  "stranger": "99274",
+  "member_slot": "B"
+ },
+ "P0173": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "53690",
+  "stranger": "8076",
+  "member_slot": "B"
+ },
+ "P0174": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "53690",
+  "stranger": "99274",
+  "member_slot": "B"
+ },
+ "P0175": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "53690",
+  "stranger": "8076",
+  "member_slot": "A"
+ },
+ "P0176": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "1739",
+  "stranger": "179204",
+  "member_slot": "A"
+ },
+ "P0177": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "1739",
+  "stranger": "86652",
+  "member_slot": "B"
+ },
+ "P0178": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "1739",
+  "stranger": "179204",
+  "member_slot": "A"
+ },
+ "P0179": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G1",
+  "member": "1739",
+  "stranger": "86652",
+  "member_slot": "A"
+ },
+ "P0180": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "36041",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0181": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "36041",
+  "stranger": "2392",
+  "member_slot": "B"
+ },
+ "P0182": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "36041",
+  "stranger": "2116",
+  "member_slot": "A"
+ },
+ "P0183": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "36041",
+  "stranger": "2392",
+  "member_slot": "A"
+ },
+ "P0184": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "28666",
+  "stranger": "2970",
+  "member_slot": "B"
+ },
+ "P0185": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "28666",
+  "stranger": "11887",
+  "member_slot": "B"
+ },
+ "P0186": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "28666",
+  "stranger": "2970",
+  "member_slot": "A"
+ },
+ "P0187": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "28666",
+  "stranger": "11887",
+  "member_slot": "B"
+ },
+ "P0188": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "28500",
+  "stranger": "2392",
+  "member_slot": "A"
+ },
+ "P0189": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "28500",
+  "stranger": "7972",
+  "member_slot": "A"
+ },
+ "P0190": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "28500",
+  "stranger": "2392",
+  "member_slot": "B"
+ },
+ "P0191": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "28500",
+  "stranger": "7972",
+  "member_slot": "B"
+ },
+ "P0192": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "887",
+  "stranger": "247165",
+  "member_slot": "A"
+ },
+ "P0193": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "887",
+  "stranger": "74500",
+  "member_slot": "B"
+ },
+ "P0194": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "887",
+  "stranger": "247165",
+  "member_slot": "B"
+ },
+ "P0195": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "887",
+  "stranger": "74500",
+  "member_slot": "A"
+ },
+ "P0196": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "6633",
+  "stranger": "7224",
+  "member_slot": "B"
+ },
+ "P0197": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "6633",
+  "stranger": "4856",
+  "member_slot": "B"
+ },
+ "P0198": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "6633",
+  "stranger": "7224",
+  "member_slot": "B"
+ },
+ "P0199": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "6633",
+  "stranger": "4856",
+  "member_slot": "B"
+ },
+ "P0200": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "601",
+  "stranger": "2116",
+  "member_slot": "A"
+ },
+ "P0201": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "601",
+  "stranger": "2958",
+  "member_slot": "A"
+ },
+ "P0202": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "601",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0203": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "601",
+  "stranger": "2958",
+  "member_slot": "A"
+ },
+ "P0204": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "3382",
+  "stranger": "2116",
+  "member_slot": "A"
+ },
+ "P0205": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "3382",
+  "stranger": "2958",
+  "member_slot": "A"
+ },
+ "P0206": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "3382",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0207": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "3382",
+  "stranger": "2958",
+  "member_slot": "B"
+ },
+ "P0208": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "99274",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0209": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "99274",
+  "stranger": "53690",
+  "member_slot": "B"
+ },
+ "P0210": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "99274",
+  "stranger": "2116",
+  "member_slot": "A"
+ },
+ "P0211": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G3",
+  "member": "99274",
+  "stranger": "53690",
+  "member_slot": "A"
+ },
+ "P0212": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "1352",
+  "stranger": "44269",
+  "member_slot": "B"
+ },
+ "P0213": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "1352",
+  "stranger": "6633",
+  "member_slot": "A"
+ },
+ "P0214": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "1352",
+  "stranger": "44269",
+  "member_slot": "B"
+ },
+ "P0215": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "1352",
+  "stranger": "6633",
+  "member_slot": "A"
+ },
+ "P0216": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "3277",
+  "stranger": "11852",
+  "member_slot": "B"
+ },
+ "P0217": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "3277",
+  "stranger": "7290",
+  "member_slot": "B"
+ },
+ "P0218": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "3277",
+  "stranger": "11852",
+  "member_slot": "A"
+ },
+ "P0219": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "3277",
+  "stranger": "7290",
+  "member_slot": "B"
+ },
+ "P0220": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "28746",
+  "stranger": "85665",
+  "member_slot": "A"
+ },
+ "P0221": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "28746",
+  "stranger": "22047",
+  "member_slot": "B"
+ },
+ "P0222": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "28746",
+  "stranger": "85665",
+  "member_slot": "B"
+ },
+ "P0223": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "28746",
+  "stranger": "22047",
+  "member_slot": "B"
+ },
+ "P0224": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "86652",
+  "stranger": "60261",
+  "member_slot": "B"
+ },
+ "P0225": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "86652",
+  "stranger": "1739",
+  "member_slot": "B"
+ },
+ "P0226": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "86652",
+  "stranger": "60261",
+  "member_slot": "B"
+ },
+ "P0227": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "86652",
+  "stranger": "1739",
+  "member_slot": "A"
+ },
+ "P0228": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "67799",
+  "stranger": "7250",
+  "member_slot": "A"
+ },
+ "P0229": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "67799",
+  "stranger": "686",
+  "member_slot": "A"
+ },
+ "P0230": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "67799",
+  "stranger": "7250",
+  "member_slot": "B"
+ },
+ "P0231": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "67799",
+  "stranger": "686",
+  "member_slot": "A"
+ },
+ "P0232": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "1679",
+  "stranger": "44269",
+  "member_slot": "A"
+ },
+ "P0233": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "1679",
+  "stranger": "449",
+  "member_slot": "B"
+ },
+ "P0234": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "1679",
+  "stranger": "44269",
+  "member_slot": "B"
+ },
+ "P0235": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "1679",
+  "stranger": "449",
+  "member_slot": "B"
+ },
+ "P0236": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "247165",
+  "stranger": "11852",
+  "member_slot": "A"
+ },
+ "P0237": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "247165",
+  "stranger": "74500",
+  "member_slot": "B"
+ },
+ "P0238": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "247165",
+  "stranger": "11852",
+  "member_slot": "B"
+ },
+ "P0239": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "247165",
+  "stranger": "74500",
+  "member_slot": "B"
+ },
+ "P0240": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "10849",
+  "stranger": "22311",
+  "member_slot": "B"
+ },
+ "P0241": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "10849",
+  "stranger": "805",
+  "member_slot": "A"
+ },
+ "P0242": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "10849",
+  "stranger": "22311",
+  "member_slot": "A"
+ },
+ "P0243": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G2",
+  "member": "10849",
+  "stranger": "805",
+  "member_slot": "B"
+ },
+ "P0244": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "2126",
+  "stranger": "805",
+  "member_slot": "B"
+ },
+ "P0245": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "2126",
+  "stranger": "2116",
+  "member_slot": "A"
+ },
+ "P0246": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "2126",
+  "stranger": "805",
+  "member_slot": "B"
+ },
+ "P0247": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "2126",
+  "stranger": "2116",
+  "member_slot": "B"
+ },
+ "P0248": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "22311",
+  "stranger": "805",
+  "member_slot": "A"
+ },
+ "P0249": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "22311",
+  "stranger": "10849",
+  "member_slot": "A"
+ },
+ "P0250": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "22311",
+  "stranger": "805",
+  "member_slot": "B"
+ },
+ "P0251": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "22311",
+  "stranger": "10849",
+  "member_slot": "B"
+ },
+ "P0252": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "4856",
+  "stranger": "6633",
+  "member_slot": "A"
+ },
+ "P0253": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "4856",
+  "stranger": "4253",
+  "member_slot": "A"
+ },
+ "P0254": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "4856",
+  "stranger": "6633",
+  "member_slot": "B"
+ },
+ "P0255": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "4856",
+  "stranger": "4253",
+  "member_slot": "B"
+ },
+ "P0256": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "1390",
+  "stranger": "1764",
+  "member_slot": "A"
+ },
+ "P0257": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "1390",
+  "stranger": "28500",
+  "member_slot": "A"
+ },
+ "P0258": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "1390",
+  "stranger": "1764",
+  "member_slot": "B"
+ },
+ "P0259": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "1390",
+  "stranger": "28500",
+  "member_slot": "B"
+ },
+ "P0260": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "1909",
+  "stranger": "1764",
+  "member_slot": "A"
+ },
+ "P0261": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "1909",
+  "stranger": "8076",
+  "member_slot": "B"
+ },
+ "P0262": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "1909",
+  "stranger": "1764",
+  "member_slot": "A"
+ },
+ "P0263": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "1909",
+  "stranger": "8076",
+  "member_slot": "A"
+ },
+ "P0264": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "44269",
+  "stranger": "1679",
+  "member_slot": "A"
+ },
+ "P0265": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "44269",
+  "stranger": "7555",
+  "member_slot": "A"
+ },
+ "P0266": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "44269",
+  "stranger": "1679",
+  "member_slot": "A"
+ },
+ "P0267": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "44269",
+  "stranger": "7555",
+  "member_slot": "B"
+ },
+ "P0268": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "67822",
+  "stranger": "249135",
+  "member_slot": "B"
+ },
+ "P0269": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "67822",
+  "stranger": "3382",
+  "member_slot": "A"
+ },
+ "P0270": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "67822",
+  "stranger": "249135",
+  "member_slot": "B"
+ },
+ "P0271": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "67822",
+  "stranger": "3382",
+  "member_slot": "A"
+ },
+ "P0272": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "7972",
+  "stranger": "805",
+  "member_slot": "B"
+ },
+ "P0273": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "7972",
+  "stranger": "247165",
+  "member_slot": "A"
+ },
+ "P0274": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "7972",
+  "stranger": "805",
+  "member_slot": "A"
+ },
+ "P0275": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G7",
+  "member": "7972",
+  "stranger": "247165",
+  "member_slot": "B"
+ },
+ "P0276": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "11032",
+  "stranger": "44269",
+  "member_slot": "B"
+ },
+ "P0277": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "11032",
+  "stranger": "22047",
+  "member_slot": "B"
+ },
+ "P0278": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "11032",
+  "stranger": "44269",
+  "member_slot": "B"
+ },
+ "P0279": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "11032",
+  "stranger": "22047",
+  "member_slot": "B"
+ },
+ "P0280": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "247274",
+  "stranger": "686",
+  "member_slot": "A"
+ },
+ "P0281": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "247274",
+  "stranger": "4598",
+  "member_slot": "A"
+ },
+ "P0282": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "247274",
+  "stranger": "686",
+  "member_slot": "A"
+ },
+ "P0283": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "247274",
+  "stranger": "4598",
+  "member_slot": "A"
+ },
+ "P0284": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "5739",
+  "stranger": "7972",
+  "member_slot": "A"
+ },
+ "P0285": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "5739",
+  "stranger": "7486",
+  "member_slot": "B"
+ },
+ "P0286": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "5739",
+  "stranger": "7972",
+  "member_slot": "B"
+ },
+ "P0287": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "5739",
+  "stranger": "7486",
+  "member_slot": "B"
+ },
+ "P0288": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "249135",
+  "stranger": "85665",
+  "member_slot": "A"
+ },
+ "P0289": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "249135",
+  "stranger": "8",
+  "member_slot": "A"
+ },
+ "P0290": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "249135",
+  "stranger": "85665",
+  "member_slot": "A"
+ },
+ "P0291": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "249135",
+  "stranger": "8",
+  "member_slot": "A"
+ },
+ "P0292": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "159",
+  "stranger": "7486",
+  "member_slot": "A"
+ },
+ "P0293": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "159",
+  "stranger": "60261",
+  "member_slot": "B"
+ },
+ "P0294": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "159",
+  "stranger": "7486",
+  "member_slot": "A"
+ },
+ "P0295": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "159",
+  "stranger": "60261",
+  "member_slot": "B"
+ },
+ "P0296": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "97925",
+  "stranger": "4505",
+  "member_slot": "B"
+ },
+ "P0297": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "97925",
+  "stranger": "686",
+  "member_slot": "B"
+ },
+ "P0298": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "97925",
+  "stranger": "4505",
+  "member_slot": "B"
+ },
+ "P0299": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "97925",
+  "stranger": "686",
+  "member_slot": "A"
+ },
+ "P0300": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "9964",
+  "stranger": "4253",
+  "member_slot": "A"
+ },
+ "P0301": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "9964",
+  "stranger": "53690",
+  "member_slot": "B"
+ },
+ "P0302": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "9964",
+  "stranger": "4253",
+  "member_slot": "B"
+ },
+ "P0303": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "9964",
+  "stranger": "53690",
+  "member_slot": "A"
+ },
+ "P0304": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "22228",
+  "stranger": "35989",
+  "member_slot": "A"
+ },
+ "P0305": {
+  "chan": "neutral",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "22228",
+  "stranger": "164061",
+  "member_slot": "A"
+ },
+ "P0306": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "22228",
+  "stranger": "35989",
+  "member_slot": "B"
+ },
+ "P0307": {
+  "chan": "concat",
+  "neg": "nneg",
+  "card_id": "G0",
+  "member": "22228",
+  "stranger": "164061",
+  "member_slot": "A"
+ }
+}
