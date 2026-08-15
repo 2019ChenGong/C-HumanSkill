@@ -1,4 +1,4 @@
-"""ELEMK — decomposed pooling pipeline v2 (design frozen in results/ELEMK_DESIGN.md, #117).
+"""ELEMK — decomposed pooling pipeline v2 (design frozen in docs/ELEMK_DESIGN.md, #117).
 
 Replaces the one-prompt black-box pool with an explicit, auditable pipeline:
   extract   deepseek decomposes each member's aggro card into SELF-CONTAINED atomic decision elements

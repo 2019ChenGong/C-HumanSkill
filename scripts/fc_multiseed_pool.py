@@ -1,7 +1,7 @@
 """Pool a forced-choice contrast across multiple FC waves (seeds) and certify NONINFERIORITY at delta.
 
 R11 (CV nec-tpar noninferiority sprint) and reusable for R2 (Enron ne-nec TIE sprint). Registered in
-results/ELEMK_DESIGN.md, R11 appendix + review corrections. What this implements:
+docs/ELEMK_DESIGN.md, R11 appendix + review corrections. What this implements:
 
   * MAJOR-2: pid namespaces COLLIDE across packs (C{ci}... indexes each pack's own CONTRASTS list). So each
     pack is parsed in its own scope and merged only at the level of resolved per-(unit,wave) win values.

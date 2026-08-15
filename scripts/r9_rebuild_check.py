@@ -4,7 +4,7 @@ separately with CARDS=v6min_rerun).
 Compares the fresh-sampling rerun build (TAG=v6min_rerun) against the canonical v6min build for ONE
 dataset per process, verifying FROM FILES (never trusting the build's own printouts):
 
-  P2  drop gate <= 5% of content lines
+  P2  drop gate <= 10% of content lines (was 5%; moved 2026-08-06, docs/DROPGATE_DECISION.md)
   P3  per-line gate re-checks on every non-dropped rerun line: numbers preserved, punt status
       preserved, fidelity >= .65 global floor (embeddings recomputed), length +-30%+3w for the
       stage-1 tiers (strict/relaxed) only — stage-2 has no length gate by construction; plus
@@ -181,10 +181,12 @@ if pairs:
         if f < 0.65 - 1e-6:
             fails.append(f"P3-fid {ck} L{i}: cos {f:.3f} < .65 floor")
 
-# P2 drop gate
+# P2 drop gate — auto-admit line moved 5% -> 10% on 2026-08-06 by user ruling
+# (docs/DROPGATE_DECISION.md).  Engineering admission line, not a derived safety threshold.
+DROP_GATE = 0.10
 drop_rate = n_drop_r / max(n_content, 1)
-if drop_rate > 0.05:
-    fails.append(f"P2: rerun drop rate {drop_rate:.1%} > 5% gate")
+if drop_rate > DROP_GATE:
+    fails.append(f"P2: rerun drop rate {drop_rate:.1%} > {DROP_GATE:.0%} auto-admit line")
 
 # P4 descriptives + review-M3 veto
 assert cf_c and cf_r, "no changed_frac rows — NaN would silently disarm the M3 veto"
@@ -211,8 +213,8 @@ op = ROOT / "results" / f"r9_rebuild_check_{DS}.json"
 op.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 
 print(f"[r9] {DS} k{K}_s{SEED}: {len(cks)} clusters, {n_content} content lines")
-print(f"  P2 drop rate: rerun {drop_rate:.1%} (canon {out['drop_rate_canon']:.1%})  gate<=5%: "
-      f"{'PASS' if drop_rate <= 0.05 else 'FAIL'}")
+print(f"  P2 drop rate: rerun {drop_rate:.1%} (canon {out['drop_rate_canon']:.1%})  "
+      f"auto-admit<={DROP_GATE:.0%}: {'PASS' if drop_rate <= DROP_GATE else 'FAIL'}")
 print(f"  P3 gates re-checked on {len(pairs)} changed lines + verbatim byte-checks: "
       f"{'ALL GREEN' if not any(f.startswith('P3') for f in fails) else 'FAILURES (see below)'}")
 print(f"  P5 anti-cache: {'PASS (all cards differ)' if not any(f.startswith('P5') for f in fails) else 'FAIL'}")

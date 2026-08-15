@@ -1,4 +1,4 @@
-"""V5 — sanitize, don't rebuild (design frozen in results/ELEMK_DESIGN.md V5 appendix, #123).
+"""V5 — sanitize, don't rebuild (design frozen in docs/ELEMK_DESIGN.md V5 appendix, #123).
 
 The black-box pooled card stays as selector/organizer (anatomy, elemk_v3_gates MODE=anatomy: 91-94%
 of its lines trace to member elements, majority sup=1, 80-91% share a 6-word shingle with a member
@@ -12,7 +12,10 @@ datasets):
   fidelity gate  cos(original, rewrite) >= FID (0.75, text-embedding-3-small) -- content preserved
 
 Gate violations retry (<=4, dry-run amendment) with explicit feedback naming the violation;
-still-failing lines are DROPPED and counted (drop rate > 5% = G-lex FAIL-level anomaly per design).
+still-failing lines are DROPPED and counted.  Auto-admit line = 10% of content lines (moved from
+5% on 2026-08-06 — see docs/DROPGATE_DECISION.md; it is an engineering admission line, not a
+derived safety threshold, and the interpretability it nominally protected is now carried by the
+report-the-rate + ablation-matched-control discipline D1/D2 in that document).
 
 STAGE=cost|build   DATASET=mad|cv|enron   K/SEED env (canon: mad 8,0 / cv 8,0 / enron 8,1)
 Out: data/<ds>/<cardbase>__v5san.json + __v5san_audit.json + __v5san_stats.json
@@ -46,8 +49,18 @@ _CANON = {"mad": (8, 0), "enron": (8, 1), "cv": (8, 0)}
 # R1 (#125): multi-seed builds allowed -- K stays canonical, SEED may be 0/1/2 (cluster keys embed
 # the seed so the shared OUT file cannot collide; the _config stamp enforces gate/prompt parity).
 # R13 (#139): full k-gradient on MAD -- K may be any registered grid value (cluster keys embed k, so
-# no collision; prompts/gates/thresholds identical). Non-MAD datasets stay canonical-K (R13 scope).
-_KGRID = (2, 4, 6, 8, 10, 12) if DS == "mad" else (_CANON[DS][0],)
+# no collision; prompts/gates/thresholds identical). Non-MAD datasets stayed canonical-K (R13 scope).
+# R19 (#152): the same grid is opened for enron/cv (k=2/4/6/10 extension). Identical justification --
+# cluster keys embed k so nothing collides, and prompts/gates/thresholds/model are untouched. The
+# edit's export-neutrality is proven by the same gate R13 used: a cache-replay rebuild of each
+# dataset's CANONICAL cell must reproduce the shipped v6min cards byte-for-byte (see R19 findings).
+# R19b (#152, 2026-08-05): k=3 and k=5 added for the naming-ruler k-ablation (user-chosen ladder
+# 3/5/8/12 — an evenly spaced ~1.6x series, and odd k never touched by R13's even-only grid, so the
+# points are independent evidence rather than a re-measurement). Same justification as above: cluster
+# keys embed k so nothing collides, and prompts/gates/thresholds/model are untouched. Export-neutrality
+# re-verified after this edit by re-running each dataset's canonical cell and diffing the shipped
+# cards + stats sidecar byte-for-byte (no-op resume => hashes unchanged).
+_KGRID = (2, 3, 4, 5, 6, 8, 10, 12, 16)
 assert K in _KGRID and SEED in (0, 1, 2), \
     f"v5 for {DS} needs K in {_KGRID} and SEED in 0/1/2, got ({K},{SEED})"
 if (K, SEED) != _CANON[DS]:
@@ -686,8 +699,17 @@ def stage_build():
     print(f"[build] {DS}: {len(cs)} cards -> {OUT_P.name}   content lines {nc}, dropped {nd} "
           f"({100*nd/max(nc,1):.1f}%)   words v5/ne mean {np.mean(dw):.2f}   "
           f"caps-missing lines {sum(s['caps_missing_lines'] for s in cs.values())}")
-    if nd / max(nc, 1) > 0.05:
-        print("  *** drop rate > 5% — G-lex FAIL-level anomaly per design, stop and inspect ***")
+    # 2026-08-06 (docs/DROPGATE_DECISION.md): auto-admit line moved 5% -> 10% by user ruling.
+    # This is an ENGINEERING admission line, NOT a derived safety threshold — 5% never had a
+    # derivation either (it was a sentinel set above the achieved ~3% after a dry run hit 28.9%).
+    # The protection that 5% was nominally providing (utility-verdict interpretability) is now
+    # carried by discipline D1/D2 instead: report every card set's drop rate, and supply an
+    # ablation-matched control (scripts/dropgate_ablate.py, $0) for any cross-arm comparison whose
+    # drop rates differ by >2pp (= 2x the measured same-cell rebuild sd of 0.95pp).
+    if nd / max(nc, 1) > 0.10:
+        print("  *** drop rate > 10% — above the auto-admit line. NOT auto-void: 10-25% may still "
+              "be used WITH an ablation-matched control + explicit disclosure (D3); >25% is void "
+              "because matching degenerates. See docs/DROPGATE_DECISION.md ***")
 
 
 if __name__ == "__main__":

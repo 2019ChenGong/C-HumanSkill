@@ -25,6 +25,11 @@ release/
 !/scripts/
 !/src/
 !/data/
+!/docs/
+
+# docs/: the reader-facing explainers the README points at.  They used to live under results/
+# (always-ignored, first rule above), so every README pointer to them dangled after a clone.
+# Moved out on 2026-08-15 and whitelisted here.  Everything else stays in results/, untracked.
 
 # data/: README + the V6 RELEASE CARDS (sanitized shared cards + build-stat counters).
 # The per-line audit sidecars (*_audit.json) map card lines back to member text and are NEVER tracked
@@ -133,6 +138,12 @@ release/
 !/scripts/cmd_xcard_score.py
 !/scripts/xcard_census_norm.py
 !/scripts/petre_noop_census.py
+# drop-gate discipline D2 (ablation-matched control) + the MAD utility-variant builder --
+# both are referenced by whitelisted scripts above and were missing from this list until 2026-08-15,
+# so a clone hit a dangling pointer (v5_sanitize.py -> dropgate_ablate.py,
+# mad_synth_utility.py -> mad_util_variants.py).
+!/scripts/dropgate_ablate.py
+!/scripts/mad_util_variants.py
 # R-series robustness verifiers (rebuild stability / k-gradient / fuzzy-lexical + linkage / retry probe)
 !/scripts/r9_rebuild_check.py
 !/scripts/r13_neutral_build.py
@@ -145,14 +156,61 @@ release/
 !/scripts/build_gpt54_fixed_pkg.py
 !/scripts/a3_qwen_neutral_build.py
 
+# ============================================================================
+# NAMING RULER — the PRIMARY anonymity instrument (knockout re-identification
+# tournament).  Added 2026-08-15: every headline anonymity number in the README
+# now comes from this chain, so the chain itself has to ship.  The 2AFC scripts
+# above stay tracked as the frozen historical instrument.
+# ============================================================================
+# export -> coverage gate -> per-dir readouts -> pooled readouts
+!/scripts/naming_export.py
+!/scripts/naming_refsrc.py
+!/scripts/naming_cov.py
+!/scripts/pack_cov.py
+!/scripts/naming_score.py
+!/scripts/naming_depth.py
+!/scripts/naming_auc.py
+!/scripts/naming_pooled_depth.py
+!/scripts/naming_auc_pooled.py
+!/scripts/naming_rank_at_k.py
+!/scripts/naming_pooled_gate.py
+# frozen per-experiment verdict computations (pure re-scoring of existing answers)
+!/scripts/naming_a12_verdict.py
+!/scripts/naming_a3spot_verdict.py
+!/scripts/naming_mseed_verdict.py
+!/scripts/dropgate_verdict.py
+# k-gradient robustness sidebar (#152): power calc -> build acceptance -> validity gate
+!/scripts/k152_power.py
+!/scripts/k152_build_verify.py
+!/scripts/k152_gate_readout.py
+# verbatim-channel MIA (D1-VMIA, #159/#160) + the CV byte-level coverage verifier it and
+# naming_refsrc.py both reference
+!/scripts/vmia_verbatim.py
+!/scripts/cv_t2_verify.py
+
 # gpt-5.4 second-attacker package (#9a): harness + baseline + gpt-5.4 answers + answer keys + scored summary.
 # EXCLUDE the bulky batch_*.json prompt blobs (23M, dataset-derived, regenerable via scripts/cr_2afc_export.py).
 !/gpt54_2afc_pkg/
 /gpt54_2afc_pkg/tasks/*/batch_*.json
 
-# gpt-5.4 second attacker on the FIXED cards (A2, cited certification): same layout + exclusions.
+# gpt-5.4 second attacker on the FIXED cards (A2, cited certification).
+#
+# ⚠ CORRECTION (2026-08-15).  The exclusion below was written to mirror the older package's, but
+# this package nests one level deeper (tasks/<dataset>/s<seed>/batch_*.json), so the single-`*`
+# pattern never matched: 99 prompt blobs / 28.5 MB have been TRACKED and PUBLISHED since aac71fd.
+# They contain the 2AFC prompts verbatim, i.e. the raw member writing samples the cards were
+# distilled from.  Reviewed and DELIBERATELY KEPT:
+#   - the underlying corpora are public (Mozilla/Apache bug trackers, the Enron corpus,
+#     CrossValidated), so no non-public data is exposed by shipping them;
+#   - keeping them makes the cited gpt-5.4 second-attacker certification independently
+#     re-runnable, which regenerating-from-source would not (the raw datasets are not shipped).
+# This is a RESEARCH REPRODUCTION package, not a deployment: the paper's deployment assumption
+# (the card-building corpus stays private) is unaffected -- see README "Artifact vs deployment".
+#
+# The stale one-level exclusion is therefore REMOVED rather than fixed: config and reality now
+# agree (these blobs are tracked, on purpose) instead of the config claiming an exclusion that
+# git never applied.  The older package below keeps its exclusion -- that one does match.
 !/gpt54_2afc_fixed_pkg/
-/gpt54_2afc_fixed_pkg/tasks/*/batch_*.json
 
 # ============================================================================
 # HARD DENY — must stay LAST so no whitelist rule above can re-include these.
